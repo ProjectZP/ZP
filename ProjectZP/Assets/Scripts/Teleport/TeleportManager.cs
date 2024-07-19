@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using ZP.Villin.Player;
 using ZP.Villin.World;
+using PlayerManager = ZP.SJH.Player.PlayerManager;
 
 namespace ZP.Villin.Teleport
 {

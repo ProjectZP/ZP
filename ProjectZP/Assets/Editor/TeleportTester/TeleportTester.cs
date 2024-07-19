@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using ZP.Villin.Player;
 using ZP.Villin.Teleport;
+using PlayerManager = ZP.SJH.Player.PlayerManager;
 
 namespace ZP.Villin.TestModule
 {
