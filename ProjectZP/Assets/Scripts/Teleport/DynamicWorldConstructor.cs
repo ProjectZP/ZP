@@ -2,12 +2,15 @@
 
 namespace ZP.Villin.World
 {
+    /// <summary>
+    /// Build a world with logic when game starts.
+    /// </summary>
     public class DynamicWorldConstructor : MonoBehaviour
     {
-        [SerializeField] private Transform _rotatableWorldTransform;
         [SerializeField] private Transform _elevatingTransform;
-        [SerializeField] private GameObject _elevatingChildElement;
+        [SerializeField] private Transform _rotatableWorldTransform;
         [SerializeField] private GameObject _groundFloorElement;
+        [SerializeField] private GameObject _elevatingChildElement;
         [SerializeField] private int _totalFloorCount;
         [SerializeField] private int _startFloorCount;
         [SerializeField] private float _floorGap;
@@ -15,6 +18,35 @@ namespace ZP.Villin.World
         private int _teleportableCount;
 
         private void Awake()
+        {
+            CheckAwakeException();
+            MakeFloors();
+            GetLightObject();
+        }
+
+        /// <summary>
+        /// getter of <see cref="_floorGap"/>
+        /// </summary>
+        /// <returns><see cref="_floorGap"/></returns>
+        public float GetFloorGap()
+        {
+            return _floorGap;
+        }
+
+   
+        /// <summary>
+        /// getter of <see cref="_teleportableCount"/>
+        /// </summary>
+        /// <returns><see cref="_teleportableCount"/></returns>
+        public int GetTeleportableCount()
+        {
+            return _teleportableCount;
+        }
+
+        /// <summary>
+        /// Check Exception When Class Awake.
+        /// </summary>
+        private void CheckAwakeException()
         {
             if (_rotatableWorldTransform == default)
             {
@@ -29,24 +61,16 @@ namespace ZP.Villin.World
                 Debug.Log("_movableField in Teleport Manager is null!");
 #endif
             }
-
-            // set postion to Vector3.zero to make floors.
-            _elevatingTransform.position = Vector3.zero;
-            MakeFloors();
         }
 
-        public float GetFloorGap()
-        {
-            return _floorGap;
-        }
-
-        public int GetTeleportableCount()
-        {
-            return _teleportableCount;
-        }
-
+        /// <summary>
+        /// Build a world with various SerializedFields in Unity inspector.
+        /// </summary>
         private void MakeFloors()
         {
+            // set postion to Vector3.zero to make floors.
+            transform.root.position = Vector3.zero;
+            _elevatingTransform.position = Vector3.zero;
             _teleportableCount = _totalFloorCount - _startFloorCount;
             Vector3 refPosition = new Vector3(_elevatingChildElement.transform.position.x, 0f, _elevatingChildElement.transform.position.z);
             Quaternion refRotation = _elevatingChildElement.transform.rotation;
@@ -61,6 +85,16 @@ namespace ZP.Villin.World
                 spawnedGameObject.name = $"floor {x + 1} rail";
             }
             Destroy(_elevatingChildElement);
+        }
+
+        /// <summary>
+        /// Get <see cref="Light"/> and Set as child of <see cref="_rotatableWorldTransform"/> for tricking light when world rotates.
+        /// </summary>
+        private void GetLightObject()
+        {
+            Light light = FindFirstObjectByType<Light>();
+            Debug.Log($"Light transform : {light.transform}");
+            light.transform.SetParent(_rotatableWorldTransform);
         }
     }
 }
