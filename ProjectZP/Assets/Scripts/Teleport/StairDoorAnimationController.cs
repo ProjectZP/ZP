@@ -6,22 +6,32 @@ namespace ZP.Villin.Teleport
     public class StairDoorAnimationController : MonoBehaviour
     {
         public Action OnStairDoorClosed;
-        // 오류 안 보이도록 하는 임시 필드.
-        private bool _stairDoorClosed = false;
-        private void Update()
+        private TeleportManager _teleportManager;
+        private bool _isInteractable = false;
+
+
+        private void Awake()
         {
-        // 오류 안 보이도록 하는 임시 코드.
-            if (_stairDoorClosed)
+            if (_teleportManager == default)
             {
-                OnStairDoorClosed?.Invoke();
-            }    
-            
+                _teleportManager = FindFirstObjectByType<TeleportManager>();
+            }
+            _isInteractable = false;
+            _teleportManager.OnRemainTeleportCountZero += MakeIntaractable;
+        }
+
+        private void MakeIntaractable()
+        {
+            _isInteractable = true;
+#if UNITY_EDITOR
+            Debug.Log("Todo.Villin -> aMake Door Interactable!");
+#endif
         }
 
         // 오류 안 보이도록 하는 임시 메서드.
         public void SetStairDoorClosed()
         {
-            _stairDoorClosed = true;
+            OnStairDoorClosed?.Invoke();
         }
     }
 }

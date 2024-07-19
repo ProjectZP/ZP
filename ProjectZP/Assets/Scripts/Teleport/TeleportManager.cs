@@ -1,22 +1,31 @@
+ï»¿using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using ZP.Villin.Player;
+using ZP.Villin.World;
 
 namespace ZP.Villin.Teleport
 {
     public class TeleportManager : MonoBehaviour
     {
+        public Action OnRemainTeleportCountZero;
         [SerializeField] private Transform _toTransform;
         [SerializeField] private PlayerManager _playerManager;
         [SerializeField] private StairDoorAnimationController _stairDoorAnimationController;
+        [SerializeField] private DynamicWorldConstructor _dynamicWorldConstructor;
+        [SerializeField] private Transform _rotatableWorldTransform;
+        [SerializeField] private Transform _elevatingTransform;
+        private int _nowRemainTeleportCount;
+        private Vector3 _verticalMoveAmount;
+        bool _isSyncCoroutineRunning = false;
         private bool _isTeleportReady;
         private Vector3 _teleportOffset = Vector3.zero;
 
 
         void Awake()
         {
-            // ¿¹¿Ü »óÈ² È®ÀÎ. È¤½Ã ´õ ÁÁÀº ¹æ¹ı ÀÖ´Ù¸é ÃßÈÄ ¼öÁ¤.
+            // ì˜ˆì™¸ ìƒí™© í™•ì¸. í˜¹ì‹œ ë” ì¢‹ì€ ë°©ë²• ìˆë‹¤ë©´ ì¶”í›„ ìˆ˜ì •.
             if (_playerManager == default)
             {
                 _playerManager = FindFirstObjectByType<PlayerManager>();
@@ -27,17 +36,31 @@ namespace ZP.Villin.Teleport
                 _stairDoorAnimationController = FindFirstObjectByType<StairDoorAnimationController>();
             }
 
+            if (_dynamicWorldConstructor == default)
+            {
+                _dynamicWorldConstructor = FindFirstObjectByType<DynamicWorldConstructor>();
+            }
+
+
+
             _teleportOffset.x = 0f;
             _teleportOffset.y = -2.5f;
             _teleportOffset.z = -15f;
 
-            // °¢ ÀÌº¥Æ® ±¸µ¶.
+            // ê±´ë¬¼ ì¸µê³ ì— ë”°ë¥¸ í”Œë ˆì´ì–´ í…”ë ˆí¬íŠ¸ ì‹œ í•„ìš”í•œ yê°’ ìƒì„±.
+            _verticalMoveAmount = new Vector3(0f, -(_dynamicWorldConstructor.GetFloorGap()), 0f);
+
+            // í…”ë ˆí¬íŠ¸ ê°€ëŠ¥ íšŸìˆ˜ ë°›ì•„ì˜¤ê¸°.
+            _nowRemainTeleportCount = _dynamicWorldConstructor.GetTeleportableCount();
+
+            // ê° ì´ë²¤íŠ¸ êµ¬ë….
             _playerManager.OnEnterStair += SubscribeOnEnterStair;
+            _playerManager.OnExitStair += SubscribeOnExitStair;
             _stairDoorAnimationController.OnStairDoorClosed += SubscribeOnStairDoorClosed;
         }
 
 
-        // ÇÃ·¹ÀÌ¾î°¡ stair ·¹ÀÌ¾î¿¡ ÁøÀÔÇßÀ» ¶§ ¹ß»ıÇÏ´Â ÀÌº¥Æ®¸¦ ¹ŞÀ» ¸Ş¼­µå.
+        // í”Œë ˆì´ì–´ê°€ stair ë ˆì´ì–´ì— ì§„ì…í–ˆì„ ë•Œ ë°œìƒí•˜ëŠ” ì´ë²¤íŠ¸ë¥¼ ë°›ì„ ë©”ì„œë“œ.
         /// <summary>
         /// When <see cref="PlayerManager.OnEnterStair"/>&lt;<see cref="Transform"/>&gt; Invoked, Start <see cref="SyncPositionCoroutine"/>.
         /// </summary>
@@ -50,8 +73,13 @@ namespace ZP.Villin.Teleport
             StartCoroutine(SyncPositionCoroutine(fromTransform));
         }
 
+        private void SubscribeOnExitStair()
+        {
+            _isSyncCoroutineRunning = false;
+        }
+
         /// <summary>
-        /// 
+        /// Synchronize position of -fromTransform.position to _toTransform.position and reverse LookRotation.
         /// </summary>
         /// <param name="fromTransform">Player's <see cref="Transform"/> Invoked from <see cref="PlayerManager.OnEnterStair"/>&lt;<see cref="Transform"/>&gt;</param>
         /// <returns></returns>
@@ -60,8 +88,10 @@ namespace ZP.Villin.Teleport
 #if UNITY_EDITOR
             Debug.Log("SyncPositionCoroutine Coroutine Started!");
 #endif
-            while (_isTeleportReady == false)
+            _isSyncCoroutineRunning = true;
+            while (_isTeleportReady == false && _isSyncCoroutineRunning == true && _nowRemainTeleportCount > 0)
             {
+                _isSyncCoroutineRunning = true;
                 _toTransform.position = new Vector3 (-fromTransform.position.x, fromTransform.position.y + _teleportOffset.y, -fromTransform.position.z + _teleportOffset.z);
 #if UNITY_EDITOR
                 Debug.Log($"fromTransform.position = {fromTransform.position}");
@@ -74,7 +104,31 @@ namespace ZP.Villin.Teleport
 #endif
                 yield return null;
             }
-            ExecuteTeleport(fromTransform);
+
+            if (_isTeleportReady == true)
+            {
+#if UNITY_EDITOR
+                Debug.Log($"Trying Execute Teleport!");
+#endif
+                ExecuteTeleport(fromTransform);
+            }
+
+            if ( _isTeleportReady == true && _nowRemainTeleportCount == 0)
+            {
+#if UNITY_EDITOR
+                Debug.Log($"Trying OnRemainTeleportCountZero Action Invoke!");
+#endif
+                OnRemainTeleportCountZero?.Invoke();
+            }
+
+#if UNITY_EDITOR
+            Debug.Log($"Resetting Fields!");
+#endif
+            ResetFields();
+
+#if UNITY_EDITOR
+            Debug.Log($"Ending Coroutine!");
+#endif
             yield break;
         }
 
@@ -83,9 +137,9 @@ namespace ZP.Villin.Teleport
             _isTeleportReady = true;
         }
 
-        // ¸¸ÀÏ ¿À¸¥ÂÊ °è´Ü ¹® ´İ´Â ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ Á¾·áµÇ¾ú´Ù¸é _fromTransformÀ» ¿ŞÂÊ °è´ÜÀ¸·Î ¿Å±â´Â ¸Ş¼­µå.
+        // ë§Œì¼ ì˜¤ë¥¸ìª½ ê³„ë‹¨ ë¬¸ ë‹«ëŠ” ì• ë‹ˆë©”ì´ì…˜ì´ ì¢…ë£Œë˜ì—ˆë‹¤ë©´ _fromTransformì„ ì™¼ìª½ ê³„ë‹¨ìœ¼ë¡œ ì˜®ê¸°ëŠ” ë©”ì„œë“œ.
         /// <summary>
-        /// Teleport _fromTransform to _toTransform.position.
+        /// Teleport fromTransform to _toTransform.position and Turn word 180 degree, move world down to trick player feels like arrived upstair floor.
         /// </summary>
         private void ExecuteTeleport(Transform fromTransform)
         {
@@ -93,16 +147,25 @@ namespace ZP.Villin.Teleport
             {
                 return;
             }
-
-            // _fromTransform.positionÀ» _toTransform.positionÀ¸·Î º¯°æ.
+            _nowRemainTeleportCount--;
+            // _fromTransform.positionì„ _toTransform.positionìœ¼ë¡œ ë³€ê²½.
             fromTransform.position = _toTransform.position;
-            // _fromTransform.rotationÀ» _toTransform.rotationÀ¸·Î º¯°æ.
+            // _fromTransform.rotationì„ _toTransform.rotationìœ¼ë¡œ ë³€ê²½.
             fromTransform.rotation = _toTransform.rotation;
-
-            // ÇÊµå ÃÊ±âÈ­.
-            _toTransform = null;
-            _playerManager = null;
-            _isTeleportReady = false;
+            _elevatingTransform.position += _verticalMoveAmount;
+            _rotatableWorldTransform.rotation = _rotatableWorldTransform.rotation * Quaternion.LookRotation(Vector3.back);
+#if UNITY_EDITOR
+            Debug.Log($"Execute Teleport! = {fromTransform.position}");
+#endif
         }
+
+        private void ResetFields()
+        {
+            _toTransform.position = new Vector3(0f, 0f, 0f);
+            _isTeleportReady = false;
+            _isSyncCoroutineRunning = false;
+        }
+
+
     }
 }
