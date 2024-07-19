@@ -30,6 +30,8 @@ namespace ZP.Villin.World
 #endif
             }
 
+            // set postion to Vector3.zero to make floors.
+            _elevatingTransform.position = Vector3.zero;
             MakeFloors();
         }
 
