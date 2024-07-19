@@ -13,13 +13,13 @@ namespace ZP.BHS.Zombie
         private int _waitingTime = 0;
         private const int _waitingMinimum = 2;
         private const int _waitingMaximum = 6;
-        private ZombieSight _zombieSight;
+        private ZombieSightStateController _zombieSight;
 
         private void OnEnable()
         {
             if (_zombieSight == null) 
             { 
-                _zombieSight = GetComponent<ZombieSight>();
+                _zombieSight = GetComponentInChildren<ZombieSightStateController>();
                 _zombieSight.OnPlayerGetInSight += FoundPlayer;
             }
 

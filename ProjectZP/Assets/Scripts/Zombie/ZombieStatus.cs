@@ -12,11 +12,15 @@
 
         public float Defense { get; private set; }
         public float RunSpeed { get; private set; }
-        public float WalkSpeed { get; private set; }
+        public float WalkSpeed { get; private set; } = 3;
         public float CrawlSpeed { get; private set; }
         public float AttackSpeed { get; private set; }
+        public float AttackRange { get; private set; } = 1;
+        public float SightAngle { get; private set; } = 60;
+        public float SightRange { get; private set; } = 5;
+        public float ChaseAngle { get; private set; } = 30;
+        public float ChaseRange { get; private set; } = 10;
 
-        public float AttackRange { get; private set; }
         public ZombieType zombieType { get; private set; }
 
 

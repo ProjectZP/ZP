@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.iOS;
 
 namespace ZP.BHS.Zombie
 {
@@ -12,7 +13,7 @@ namespace ZP.BHS.Zombie
         public delegate void ZombieStateChanged(ZombieStates zombieState);
         public event ZombieStateChanged OnZombieStateChanged;
 
-        private ZombieState[] _zombieState;
+        [SerializeField] private ZombieState[] _zombieState;
         private ZombieStates previousZombieState = ZombieStates.None;
         private ZombieStates currentZombieState = ZombieStates.None;
 
@@ -23,7 +24,7 @@ namespace ZP.BHS.Zombie
             _zombieState = new ZombieState[(int)ZombieStates.Last];
             for (int ix = 0; ix < _zombieState.Length; ++ix)
             {
-                string ComponentName = $"Zombie{(ZombieStates)ix}";
+                string ComponentName = $"{(ZombieStates)ix}";
                 _zombieState[ix] = (ZombieState)GetComponent(ComponentName);
                 _zombieState[ix].enabled = false;
             }
@@ -40,8 +41,11 @@ namespace ZP.BHS.Zombie
             {
                 return;
             }
+            Debug.Log($"{changingState}");
+
             previousZombieState = currentZombieState;
             currentZombieState = changingState;
+            OnZombieStateChanged(currentZombieState);
 
             if (previousZombieState != ZombieStates.None) { _zombieState[(int)previousZombieState].enabled = false; }
             if (currentZombieState != ZombieStates.None) { _zombieState[(int)currentZombieState].enabled = true; }
@@ -51,17 +55,19 @@ namespace ZP.BHS.Zombie
     enum ZombieStates
     {
         None = -1,
+
         ZombieIdle,
         ZombiePatrol,
         ZombieAttack,
         ZombieDead,
         ZombieChase,
         ZombieSearch,
+        ZombieLookAround,
 
         Last,
 
-        ZombieWalk,
-        ZombieRun,
-        ZombieCrawl,
+        ZombieKonckBack,
+        ZombieHeadGrab,
+        ZombieAttacking,
     }
 }

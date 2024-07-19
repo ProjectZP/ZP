@@ -5,12 +5,12 @@ namespace ZP.BHS.Zombie
     class ZombieChase : ZombieState
     {
         private const float _movingSpeed = 10;
-        private ZombieSight _zombieSight;
+        private ZombieSightStateController _zombieSight;
         private void OnEnable()
         {
             if (_zombieSight == null) 
             { 
-                _zombieSight = GetComponent<ZombieSight>();
+                _zombieSight = GetComponentInChildren<ZombieSightStateController>();
                 _zombieSight.OnPlayerGetOutSight += PlayerMiss;
             }
         }
@@ -35,7 +35,7 @@ namespace ZP.BHS.Zombie
         private void FindPlayer()
         {
             //Todo: Shake Head To Find Player.
-            //Todo: But Finding Player Depends On PlayerSight.
+            //Todo: Finding Player Depends On ZombieSight.
             zombieStateController.ChangeZombieState(ZombieStates.ZombieSearch);
         }
     }

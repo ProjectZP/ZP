@@ -2,7 +2,7 @@
 
 namespace ZP.BHS.Zombie
 {
-    class ZombieAttack : ZombieState, IZombieFoundPlayer
+    class ZombieAttack : ZombieState
     {
 
         //Todo: Using Animation Event. To Judge weather Attack Finished.
@@ -29,11 +29,6 @@ namespace ZP.BHS.Zombie
             {
                 zombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
             }
-        }
-
-        public void FoundPlayer(Player player) 
-        { 
-            zombieStateController.ChangeZombieState(ZombieStates.ZombieChase); //Todo:
         }
     }
 }

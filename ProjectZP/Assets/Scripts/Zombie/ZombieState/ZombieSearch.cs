@@ -3,36 +3,25 @@
 namespace ZP.BHS.Zombie
 {
     /// <summary>
-    /// While State Zombie Search, Zombie Shake its head To Search Player.
-    /// If it Ends, turn to idle.
+    /// When Zombie Lost Target, This Enables.
+    /// Zombie walk toward the point where target last seen.
+    /// when Zombie arrive that point, state changes into LookAround.
     /// </summary>
     class ZombieSearch : ZombieState
     {
-        private float _searchingTime = 3f;
-        private float _passedTime = 0;
-        private ZombieSight _zombieSight;
+        ZombieSightStateController zombieSightStateController;
 
         private void OnEnable()
         {
-            _passedTime = 0;
-            if(_zombieSight == null)
-            {
-                _zombieSight = GetComponent<ZombieSight>();
-                _zombieSight.OnPlayerGetInSight += PlayerFound;
-            }
-        }
-        private void Update()
-        {
-            _passedTime += Time.deltaTime;
-            if(_passedTime > _searchingTime)
-            {
-                zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle);
-            }
+            if (_zombieManager == null) { _zombieManager = GetComponentInParent<ZombieManager>(); }
+            if (zombieSightStateController == null) { zombieSightStateController = GetComponentInChildren<ZombieSightStateController>(); }
         }
 
-        private void PlayerFound(Player player)
+        private void Update()
         {
-            zombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
+            _zombieManager.transform.position += 
+                _zombieManager.targetposition.normalized * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
+            //Todo: ZombieStatus.
         }
     }
 }

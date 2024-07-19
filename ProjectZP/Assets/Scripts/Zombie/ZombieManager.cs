@@ -11,23 +11,24 @@ namespace ZP.BHS.Zombie
         [SerializeField] private ZombieType zombieType;
 
         private ZombieEquipmentController zombieEquipmentController = new ZombieEquipmentController();
-        private ZombieStateController zombieStateController = new ZombieStateController();
-        public ZombieStatus zombieStatus { get; private set; }
+
+        private ZombieStateController zombieStateController;
         private ZombieDefense _zombieDefense;
-        private ZombieSight _zombieSight;
+        private ZombieSightStateController _zombieSight;
 
-        public Player Target; //Todo: If Target exist and turn to null, State Changes into idle.
+        public ZombieStatus zombieStatus { get; private set; }
 
-        // private ZombieState zombieState; //Todo: Zombie State is abstract Class.
+        public Player Target = null;
+        public Vector3 targetposition;
 
         private void Awake()
         {
+            zombieStateController = GetComponent<ZombieStateController>();
+            _zombieDefense = GetComponent<ZombieDefense>();
+            _zombieSight = GetComponentInChildren<ZombieSightStateController>();
+
             zombieStatus = new ZombieStatus(zombieType);
             zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle);
-
-            _zombieDefense = GetComponent<ZombieDefense>();
-
-            _zombieSight = GetComponent<ZombieSight>();
             _zombieSight.OnPlayerGetInSight += SetTarget;
         }
 

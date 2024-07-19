@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using Unity.Mathematics;
-using Unity.VisualScripting;
+﻿using Unity.Mathematics;
 using UnityEngine;
 
 namespace ZP.BHS.Zombie
 {
     class ZombiePatrol : ZombieState, IZombieFoundPlayer
     {
-        private float _movingTime = 0;
-        private const float _movingSpeed = 10;
-        private ZombieSight _zombieSight;
+        private float _movingTime = 3;
+        private float _passedTime = 0;
+        private const float _movingSpeed = 3;
+        private ZombieSightStateController _zombieSight;
 
         private Vector3 _heading = new Vector3(0,0,0);
 
@@ -17,18 +16,21 @@ namespace ZP.BHS.Zombie
         {
             if (_zombieSight == null)
             {
-                _zombieSight = GetComponent<ZombieSight>();
+                _zombieSight = GetComponentInChildren<ZombieSightStateController>();
                 _zombieSight.OnPlayerGetInSight += FoundPlayer;
             }
 
             int tempHeading = UnityEngine.Random.Range(0,360);
-            _heading.x = tempHeading;
-            _zombieManager.transform.localRotation = quaternion.Euler(_heading);
+            _heading.y = tempHeading;
+            this.transform.localRotation = quaternion.Euler(_heading);
+            _passedTime = 0;
         }
 
         private void Update()
         {
-            _zombieManager.transform.position += Vector3.forward * _movingSpeed * Time.deltaTime;
+            _passedTime += Time.deltaTime;
+            _zombieManager.transform.position += this.transform.forward * _movingSpeed * Time.deltaTime;
+            if(_passedTime >= _movingTime){ zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle); }
         }
 
 
