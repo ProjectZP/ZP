@@ -13,6 +13,7 @@ namespace ZP.BHS.Zombie
 
         private void DoAttack()
         {
+            Debug.Log("Attack");
             //Todo: RotateZombie Body to Player Loaction.
             //Todo: Do AttackAnimation.
         }
