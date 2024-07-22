@@ -23,11 +23,10 @@ namespace ZP.BHS.Zombie
 
         private void Awake()
         {
+            zombieStatus = new ZombieStatus(zombieType);
             zombieStateController = GetComponent<ZombieStateController>();
             _zombieDefense = GetComponent<ZombieDefense>();
             _zombieSight = GetComponentInChildren<ZombieSightStateController>();
-
-            zombieStatus = new ZombieStatus(zombieType);
             zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle);
             _zombieSight.OnPlayerGetInSight += SetTarget;
         }

@@ -29,7 +29,7 @@ namespace ZP.BHS.Zombie
         private void Update()
         {
             _passedTime += Time.deltaTime;
-            _zombieManager.transform.position += this.transform.forward * _movingSpeed * Time.deltaTime;
+            _zombieManager.transform.position += this.transform.forward * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
             if(_passedTime >= _movingTime){ zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle); }
         }
 

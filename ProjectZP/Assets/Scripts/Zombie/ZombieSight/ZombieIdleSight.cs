@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ZP.BHS.Zombie
@@ -6,66 +8,84 @@ namespace ZP.BHS.Zombie
 
     class ZombieIdleSight : MonoBehaviour //Todo: in this class, Using Player as "Player GameObject" but it's not accurate.
     {
-        ZombieManager zombieManager;
+        ZombieManager zombieManager
+        {
+            get
+            {
+                if (_zombieManager == null)
+                    _zombieManager = GetComponentInParent<ZombieManager>();
+
+                return _zombieManager;
+            }
+        }
+        ZombieManager _zombieManager;
         ZombieSightStateController zombieSightStateController;
+
+        SphereCollider SightCollider;
+
 
         private void OnEnable()
         {
-            if (zombieManager == null) { zombieManager = GetComponentInParent<ZombieManager>(); }
             if (zombieSightStateController == null) { zombieSightStateController = GetComponent<ZombieSightStateController>(); }
+            if (SightCollider == null) { SightCollider = GetComponent<SphereCollider>(); }
+
         }
 
-
-        private void OnTriggerEnter(Collider other)
+        private void Start()
         {
-            if (zombieManager.Target != null) { return; }
+            StartCoroutine(LookingForPrey());
+        }
+        
 
-            //Todo: For Test. I Jusok the code below.
-            //if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
-            //{
-            //    JudgeOnSight(other);
-            //}
-            if (other.transform.name == "DummyPlayerBHS")
+        private IEnumerator LookingForPrey()
+        {
+            while (true)
             {
-                JudgeOnSight(other);
+                if (Physics.OverlapSphere(this.transform.position, zombieManager.zombieStatus.SightRange, 1 << LayerMask.NameToLayer("Stair")).Length > 0)
+                {
+                    Collider prey = Physics.OverlapSphere(this.transform.position, zombieManager.zombieStatus.SightRange, 1 << LayerMask.NameToLayer("Stair"))[0];
+
+                    if (JudgePreyIsOnSightAngle(prey) && JudgePreyIsNoObstacle(prey))
+                    {
+                        zombieSightStateController.FoundTarget(prey.transform.root.GetComponentInChildren<Player>());
+                        yield break;
+                    }
+                }
+                yield return new WaitForSeconds(0.5f);
             }
         }
 
-        //Judge Target is on Sight Range.
-        private void JudgeOnSight(Collider other)
+        private bool JudgePreyIsOnSightAngle(Collider prey)
         {
-            Vector3 targetVector = other.transform.position - this.transform.position;
+            Vector3 targetVector = prey.transform.position - this.transform.position;
 
             Debug.Log(MathF.Abs(Vector3.Angle(targetVector, this.transform.forward)));
-            Debug.Log(zombieManager.zombieStatus.SightAngle);
 
             if (MathF.Abs(Vector3.Angle(targetVector, this.transform.forward)) <= zombieManager.zombieStatus.SightAngle)
             {
-                JudgeObstacle(other);
+                return true;
             }
             else
             {
-                return;
+                return false;
             }
         }
 
-        //Judge Obstacle between Zombie and Target.
-        private void JudgeObstacle(Collider other)
+        private bool JudgePreyIsNoObstacle(Collider prey)
         {
-            Vector3 targetVector = (other.transform.position - this.transform.position).normalized;
-
+            Vector3 targetVector = (prey.transform.position - this.transform.position).normalized;
 
             if (Physics.RaycastAll(
                 this.transform.position,
-                other.transform.position,
-                Vector3.Distance(this.transform.position, other.transform.position),
-                LayerMask.NameToLayer("Wall")).Length > 0) //"Wall" Found.
+                prey.transform.position,
+                Vector3.Distance(this.transform.position, prey.transform.position),
+                1 << LayerMask.NameToLayer("Wall")).Length > 0)
             {
-                return;
+                return false;
             }
             else
             {
-                zombieSightStateController.FoundTarget(other.transform.root.GetComponentInChildren<Player>());
+                return true;
             }
         }
     }
