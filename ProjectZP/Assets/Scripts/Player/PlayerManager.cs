@@ -9,8 +9,8 @@ namespace ZP.SJH.Player
         private const float RAYCAST_LENGTH = 2f;
         private readonly string LAYER_STAIR = "Stair";
 
-        public Action<Transform> OnEnterStair;
-        public Action OnExitStair;
+        public Action<Transform> OnEnterEndStageRegion;
+        public Action OnExitEndStageRegion;
         public PlayerStatusManager Status => _status;
         
 
@@ -40,12 +40,12 @@ namespace ZP.SJH.Player
                     return;
 
                 if(_currentLayer == _stairLayer && hitLayer != _stairLayer)
-                    OnExitStair?.Invoke();
+                    OnExitEndStageRegion?.Invoke();
 
                 _currentLayer = hitLayer;
 
                 if (_currentLayer == _stairLayer)
-                    OnEnterStair?.Invoke(transform);
+                    OnEnterEndStageRegion?.Invoke(transform);
             }
         }
 

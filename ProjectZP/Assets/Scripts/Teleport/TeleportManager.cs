@@ -15,9 +15,10 @@ namespace ZP.Villin.Teleport
         [SerializeField] private Transform _elevatingTransform;
         [SerializeField] private Transform _rotatableWorldTransform;
         public Action OnRemainTeleportCountZero;
+        public Action OnTeleport;
         private PlayerManager _playerManager;
         private DynamicWorldConstructor _dynamicWorldConstructor;
-        private StairDoorAnimationController _stairDoorAnimationController;
+        private EndStageDoorController _endStageDoorController;
         private Vector3 _verticalMoveAmount;
         private Vector3 _teleportOffset = new Vector3 (0f, -2.5f, -15f);
         private int _nowRemainTeleportCount;
@@ -30,7 +31,7 @@ namespace ZP.Villin.Teleport
             CheckAwakeException();
             SetMoveAmount();
             SetRemainTeleportCount();
-            SetEventSubscribers();
+            SetActionSubscribers();
         }
 
         /// <summary>
@@ -43,9 +44,9 @@ namespace ZP.Villin.Teleport
                 _playerManager = FindFirstObjectByType<PlayerManager>();
             }
 
-            if (_stairDoorAnimationController == default)
+            if (_endStageDoorController == default)
             {
-                _stairDoorAnimationController = FindFirstObjectByType<StairDoorAnimationController>();
+                _endStageDoorController = FindFirstObjectByType<EndStageDoorController>();
             }
 
             if (_dynamicWorldConstructor == default)
@@ -73,18 +74,18 @@ namespace ZP.Villin.Teleport
         /// <summary>
         /// Set <see cref="Action"/>s using in <see cref="TeleportManager"/>
         /// </summary>
-        private void SetEventSubscribers()
+        private void SetActionSubscribers()
         {
-            _playerManager.OnEnterStair += SubscribeOnEnterStair;
-            _playerManager.OnExitStair += SubscribeOnExitStair;
-            _stairDoorAnimationController.OnStairDoorClosed += SubscribeOnStairDoorClosed;
+            _playerManager.OnEnterEndStageRegion += SubscribeOnEnterEndStageRegion;
+            _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
+            _endStageDoorController.OnEndStageDoorClosed += SubscribeOnStairDoorClosed;
         }
 
         /// <summary>
-        /// Start <see cref="SyncPositionCoroutine"/> when <see cref="PlayerManager.OnEnterStair"/>&lt;<see cref="Transform"/>&gt; Invoked. 
+        /// Start <see cref="SyncPositionCoroutine"/> when <see cref="PlayerManager.OnEnterEndStageRegion"/>&lt;<see cref="Transform"/>&gt; Invoked. 
         /// </summary>
         /// <param name="fromTransform">Player's <see cref="Transform"/></param>
-        private void SubscribeOnEnterStair(Transform fromTransform)
+        private void SubscribeOnEnterEndStageRegion(Transform fromTransform)
         {
 #if UNITY_EDITOR
             Debug.Log("Action read success!");
@@ -94,15 +95,15 @@ namespace ZP.Villin.Teleport
 
 
         /// <summary>
-        /// Stop <see cref="SyncPositionCoroutine(Transform)"/> when <see cref="PlayerManager.OnExitStair"/> Invoked.
+        /// Stop <see cref="SyncPositionCoroutine(Transform)"/> when <see cref="PlayerManager.OnExitEndStageRegion"/> Invoked.
         /// </summary>
-        private void SubscribeOnExitStair()
+        private void SubscribeOnExitEndStageRegion()
         {
             _isSyncCoroutineRunning = false;
         }
 
         /// <summary>
-        /// Start <see cref="ExecuteTeleport(Transform)"/> when <see cref="StairDoorAnimationController.OnStairDoorClosed"/> is Invoked.
+        /// Start <see cref="ExecuteTeleport(Transform)"/> when <see cref="StairDoorController.OnEndStageDoorClosed"/> is Invoked.
         /// </summary>
         private void SubscribeOnStairDoorClosed()
         {
@@ -113,7 +114,7 @@ namespace ZP.Villin.Teleport
         /// <summary>
         /// Synchronize the inverse position and rotation from <paramref name="fromTransform"/> to <see cref="_toTransform"/>.
         /// </summary>
-        /// <param name="fromTransform">Player's <see cref="Transform"/> Invoked from <see cref="PlayerManager.OnEnterStair"/>&lt;<see cref="Transform"/>&gt;</param>
+        /// <param name="fromTransform">Player's <see cref="Transform"/> Invoked from <see cref="PlayerManager.OnEnterEndStageRegion"/>&lt;<see cref="Transform"/>&gt;</param>
         /// <returns></returns>
         private IEnumerator SyncPositionCoroutine(Transform fromTransform)
         {
@@ -183,6 +184,7 @@ namespace ZP.Villin.Teleport
             fromTransform.rotation = _toTransform.rotation;
             _elevatingTransform.position += _verticalMoveAmount;
             _rotatableWorldTransform.rotation = _rotatableWorldTransform.rotation * Quaternion.LookRotation(Vector3.back);
+            OnTeleport?.Invoke();
 #if UNITY_EDITOR
             Debug.Log($"Execute Teleport! = {fromTransform.position}");
 #endif
