@@ -14,27 +14,31 @@ namespace ZP.BHS.Zombie
         ZombieSightStateController zombieSightStateController;
         ZombieStateController zombieStateController;
 
+        SphereCollider SightCollider;
+
         private void OnEnable()
         {
             if (zombieManager == null) { zombieManager = GetComponentInParent<ZombieManager>(); }
             if (zombieSightStateController == null) { zombieSightStateController = GetComponent<ZombieSightStateController>(); }
             if (zombieStateController == null) { zombieStateController = GetComponentInParent<ZombieStateController>(); }
+            if (SightCollider == null ) { SightCollider = GetComponent<SphereCollider>(); }
+            //Todo:
         }
 
         private void Update()
         {
-            IsthereAnyProblemWithChaseAngle();
+            //IsthereAnyProblemWithChaseAngle();
             IsthereAnyProblemWithChaseRange();
             IsthereAnyProblemWithObstacle();
         }
 
         private void IsthereAnyProblemWithChaseAngle()
         {
-
             if (Vector3.Angle(this.transform.forward,
                 zombieManager.Target.transform.position - this.transform.position)
                 > zombieManager.zombieStatus.ChaseAngle)
             {
+                Debug.Log("Angle Problem");
                 MissTarget();
                 return;
             }
@@ -45,6 +49,7 @@ namespace ZP.BHS.Zombie
                 zombieManager.Target.transform.position - this.transform.position)
                 > zombieManager.zombieStatus.ChaseRange)
             {
+                Debug.Log("Range Problem");
                 MissTarget();
                 return;
             }
@@ -55,8 +60,9 @@ namespace ZP.BHS.Zombie
                 this.transform.position,
                 zombieManager.Target.transform.position,
                 Vector3.Distance(this.transform.position, zombieManager.Target.transform.position),
-                LayerMask.NameToLayer("Wall")).Length > 0) //"Wall" Found.
+                1 << LayerMask.NameToLayer("Wall")).Length > 0) //"Wall" Found.
             {
+                Debug.Log("Obstacle Problem");
                 MissTarget();
                 return;
             }

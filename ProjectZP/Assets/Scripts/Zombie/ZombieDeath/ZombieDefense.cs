@@ -14,17 +14,17 @@ namespace ZP.BHS.Zombie
             zombieManager = GetComponent<ZombieManager>();
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-            if(collision.gameObject.layer == LayerMask.NameToLayer("Weapon"))
-            {
-                if (collision.gameObject.GetComponent<Equipment>().owner.HandSpeed 
-                    * collision.gameObject.GetComponent<Equipment>().Sharpness
-                    >= zombieManager.zombieStatus.Defense)
-                {
-                    //Todo: Weapon Stabbed On Zombie's Body.
-                }
-            }
-        }
+        //private void OnCollisionEnter(Collision collision)
+        //{
+        //    if(collision.gameObject.layer == LayerMask.NameToLayer("Weapon"))
+        //    {
+        //        if (collision.gameObject.GetComponent<Equipment>().owner.HandSpeed 
+        //            * collision.gameObject.GetComponent<Equipment>().Sharpness
+        //            >= zombieManager.zombieStatus.Defense)
+        //        {
+        //            //Todo: Weapon Stabbed On Zombie's Body.
+        //        }
+        //    }
+        //}
     }
 }
