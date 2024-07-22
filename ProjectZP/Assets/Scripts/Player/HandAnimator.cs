@@ -1,25 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-[RequireComponent(typeof(Animator))]
-public class HandAnimator : MonoBehaviour
+namespace ZP.SJH.Player
 {
-    [SerializeField] private InputActionProperty _pinchAnimationAction;
-    [SerializeField] private InputActionProperty _gripAnimationAction;
-    [SerializeField] private Animator _animator;
-
-    private void Awake()
+    [RequireComponent(typeof(Animator))]
+    public class HandAnimator : MonoBehaviour
     {
-        if (_animator == null)
-            _animator = GetComponent<Animator>();
-    }
+        [SerializeField] private InputActionProperty _pinchAnimationAction;
+        [SerializeField] private InputActionProperty _gripAnimationAction;
+        [SerializeField] private Animator _animator;
 
-    private void Update()
-    {
-        float triggerValue = _pinchAnimationAction.action.ReadValue<float>();
-        _animator.SetFloat("Trigger", triggerValue);
+        private void Awake()
+        {
+            if (_animator == null)
+                _animator = GetComponent<Animator>();
+        }
 
-        float gripValue = _gripAnimationAction.action.ReadValue<float>();
-        _animator.SetFloat("Grip", gripValue);
+        private void Update()
+        {
+            float triggerValue = _pinchAnimationAction.action.ReadValue<float>();
+            _animator.SetFloat("Trigger", triggerValue);
+
+            float gripValue = _gripAnimationAction.action.ReadValue<float>();
+            _animator.SetFloat("Grip", gripValue);
+        }
+
     }
 }
