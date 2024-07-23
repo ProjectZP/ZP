@@ -1,67 +1,56 @@
 ﻿using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
 {
 
-    class ZombieIdleSight : MonoBehaviour //Todo: in this class, Using Player as "Player GameObject" but it's not accurate.
+    class ZombieIdleSight : ZombieSight //Todo: in this class, Using Player as "Player GameObject" but it's not accurate.
     {
-        ZombieManager zombieManager
+        private float _checkTime;
+        private const float _checkRate = 0.5f;
+
+        public ZombieIdleSight(ZombieSightStateController zombieSightStateController) : base(zombieSightStateController)
         {
-            get
+        }
+        public override void OnSightEnter() 
+        {
+            _checkTime = 0;
+        }
+        public override void OnSightUpdate() 
+        { 
+            _checkTime += Time.deltaTime;
+            if(_checkTime > _checkRate) 
             {
-                if (_zombieManager == null)
-                    _zombieManager = GetComponentInParent<ZombieManager>();
+                _checkTime = 0;
 
-                return _zombieManager;
-            }
-        }
-        ZombieManager _zombieManager;
-        ZombieSightStateController zombieSightStateController;
-
-        SphereCollider SightCollider;
-
-
-        private void OnEnable()
-        {
-            if (zombieSightStateController == null) { zombieSightStateController = GetComponent<ZombieSightStateController>(); }
-            if (SightCollider == null) { SightCollider = GetComponent<SphereCollider>(); }
-
-        }
-
-        private void Start()
-        {
-            StartCoroutine(LookingForPrey());
-        }
-        
-
-        private IEnumerator LookingForPrey()
-        {
-            while (true)
-            {
-                if (Physics.OverlapSphere(this.transform.position, zombieManager.zombieStatus.SightRange, 1 << LayerMask.NameToLayer("Stair")).Length > 0)
+                if (Physics.OverlapSphere
+                    (zombieSightStateController.transform.position,
+                    zombieManager.zombieStatus.SightRange,
+                    1 << LayerMask.NameToLayer("Player")).Length > 0)
                 {
-                    Collider prey = Physics.OverlapSphere(this.transform.position, zombieManager.zombieStatus.SightRange, 1 << LayerMask.NameToLayer("Stair"))[0];
+                    Collider prey = Physics.OverlapSphere
+                        (zombieSightStateController.transform.position,
+                        zombieManager.zombieStatus.SightRange,
+                        1 << LayerMask.NameToLayer("Player"))[0];
+
 
                     if (JudgePreyIsOnSightAngle(prey) && JudgePreyIsNoObstacle(prey))
                     {
-                        zombieSightStateController.FoundTarget(prey.transform.root.GetComponentInChildren<Player>());
-                        yield break;
+                        zombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
+                        zombieSightStateController.FoundTarget(prey.transform.root.GetComponentInChildren<PlayerManager>());
                     }
                 }
-                yield return new WaitForSeconds(0.5f);
             }
         }
+        public override void OnSightExit() { }
 
         private bool JudgePreyIsOnSightAngle(Collider prey)
         {
-            Vector3 targetVector = prey.transform.position - this.transform.position;
+            Vector3 targetVector = prey.transform.position - zombieSightStateController.transform.position;
 
-            Debug.Log(MathF.Abs(Vector3.Angle(targetVector, this.transform.forward)));
-
-            if (MathF.Abs(Vector3.Angle(targetVector, this.transform.forward)) <= zombieManager.zombieStatus.SightAngle)
+            if (MathF.Abs(Vector3.Angle(targetVector, zombieSightStateController.transform.forward)) <= zombieManager.zombieStatus.SightAngle)
             {
                 return true;
             }
@@ -73,12 +62,12 @@ namespace ZP.BHS.Zombie
 
         private bool JudgePreyIsNoObstacle(Collider prey)
         {
-            Vector3 targetVector = (prey.transform.position - this.transform.position).normalized;
+            Vector3 targetVector = (prey.transform.position - zombieSightStateController.transform.position).normalized;
 
             if (Physics.RaycastAll(
-                this.transform.position,
-                prey.transform.position,
-                Vector3.Distance(this.transform.position, prey.transform.position),
+                zombieSightStateController.transform.position,
+                targetVector,
+                Vector3.Distance(zombieSightStateController.transform.position, prey.transform.position),
                 1 << LayerMask.NameToLayer("Wall")).Length > 0)
             {
                 return false;

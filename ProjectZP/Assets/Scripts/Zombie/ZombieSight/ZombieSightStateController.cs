@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
+using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
 {
@@ -9,55 +12,70 @@ namespace ZP.BHS.Zombie
     /// </summary>
     class ZombieSightStateController : MonoBehaviour //Todo: in this class, Using Player as "Player GameObject" but it's not accurate.
     {
-        public delegate void PlayerGetInSight(Player player);
+        public delegate void PlayerGetInSight(PlayerManager player);
         public event PlayerGetInSight OnPlayerGetInSight;
 
-        public delegate void PlayerGetOutSight(Player player);
+        public delegate void PlayerGetOutSight(PlayerManager player);
         public event PlayerGetOutSight OnPlayerGetOutSight;
 
         private ZombieManager zombieManager;
         private ZombieStateController zombieStateController;
+        private Dictionary<ZombieSightState, ZombieSight> zombieSightStateDictionary;
+        private ZombieSight currentSight;
+
+        
+
+        //private ZombieIdleSight ZombieIdleSight;
+        //private ZombieChasingSight ZombieChasingSight;
+
+        private void Awake()
+        {
+            //if (ZombieIdleSight == null) { ZombieIdleSight = GetComponent<ZombieIdleSight>(); ZombieIdleSight.enabled = false; }
+            //if (ZombieChasingSight == null) { ZombieChasingSight = GetComponent<ZombieChasingSight>(); ZombieChasingSight.enabled = false; }
+            zombieManager = transform.root.GetComponentInChildren<ZombieManager>();
+            zombieStateController = transform.root.GetComponentInChildren<ZombieStateController>();
+            zombieStateController.OnZombieStateChanged += ChangeSightState;
+            InitZombieSightStateDictionary();
+            currentSight = zombieSightStateDictionary[ZombieSightState.Idle];
+        }
+
+        private void Update()
+        {
+            currentSight.OnSightUpdate();
+        }
+
+        private void InitZombieSightStateDictionary()
+        {
+            zombieSightStateDictionary = new Dictionary<ZombieSightState, ZombieSight>
+            {
+                { ZombieSightState.Idle, new ZombieIdleSight(this) },
+                { ZombieSightState.Chase, new ZombieChaseSight(this) }
+            };
+        }
 
         private ZombieSightState currentSightState = ZombieSightState.None;
-        
-        private ZombieIdleSight ZombieIdleSight;
-        private ZombieChasingSight ZombieChasingSight;
-
-
-        private void OnEnable()
-        {
-            if (ZombieIdleSight == null) { ZombieIdleSight = GetComponent<ZombieIdleSight>(); }
-            if (ZombieChasingSight == null) { ZombieChasingSight = GetComponent<ZombieChasingSight>(); }
-            if (zombieManager == null) 
-            { 
-                zombieManager = transform.root.GetComponentInChildren<ZombieManager>();
-            }
-            if (zombieStateController == null) 
-            { 
-                zombieStateController = transform.root.GetComponentInChildren<ZombieStateController>();
-                zombieStateController.OnZombieStateChanged += ChangeSightState;
-            }
-        }
-
+        ZombieSightState previousSightState = ZombieSightState.None;
         public void ChangeSightState(ZombieStates zombieState)
         {
-            if(zombieState == ZombieStates.ZombieChase)
-            {
-                currentSightState = ZombieSightState.Chase;
+            ZombieSightState tSight;
 
-                ZombieIdleSight.enabled = false;
-                ZombieChasingSight.enabled = true;
-            }
+            currentSight.OnSightExit();
+            if (zombieState == ZombieStates.ZombieChase || zombieState == ZombieStates.ZombieAttack)
+            { tSight = ZombieSightState.Chase; }
+            else { tSight = ZombieSightState.Idle; }
+
+            if(currentSightState == tSight) { return; }
             else 
             { 
-                currentSightState  = ZombieSightState.Idle;
-
-                ZombieChasingSight.enabled = false;
-                ZombieIdleSight.enabled = true;
+                previousSightState = currentSightState;
+                currentSightState = tSight;
             }
+
+            currentSight = zombieSightStateDictionary[currentSightState];
+            currentSight.OnSightEnter();
         }
 
-        public void FoundTarget(Player player)
+        public void FoundTarget(PlayerManager player)
         {
             OnPlayerGetInSight(player);
         }

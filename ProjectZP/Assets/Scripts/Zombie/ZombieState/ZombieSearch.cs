@@ -9,19 +9,31 @@ namespace ZP.BHS.Zombie
     /// </summary>
     class ZombieSearch : ZombieState
     {
-        ZombieSightStateController zombieSightStateController;
+        Vector3 SearchPosition;
 
-        private void OnEnable()
+        public ZombieSearch(ZombieStateController zombieStateController) : base(zombieStateController)
         {
-            if (_zombieManager == null) { _zombieManager = GetComponentInParent<ZombieManager>(); }
-            if (zombieSightStateController == null) { zombieSightStateController = GetComponentInChildren<ZombieSightStateController>(); }
+
         }
 
-        private void Update()
+        public override void OnStateEnter()
         {
-            _zombieManager.transform.position += 
-                _zombieManager.targetposition.normalized * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
-            //Todo: ZombieStatus.
+            SearchPosition = _zombieManager.targetposition;
+            SearchPosition.y = _zombieManager.transform.position.y;
+        }
+
+        public override void OnStateUpdate()
+        {
+            _zombieManager.transform.position +=
+                (SearchPosition - _zombieManager.transform.position).normalized * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
+
+            if (Vector3.Distance(SearchPosition, _zombieManager.transform.position) < 0.2f) 
+            { zombieStateController.ChangeZombieState(ZombieStates.ZombieLookAround); }
+        }
+
+        public override void OnStateExit()
+        {
+            //
         }
     }
 }
