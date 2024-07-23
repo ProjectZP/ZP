@@ -18,7 +18,7 @@ namespace ZP.BHS.Zombie
         public void CalcuateDamage(float damage)
         {
             Debug.Log(damage);
-            if(damage > 5)
+            if(damage > 50)
             {
                 GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
             }

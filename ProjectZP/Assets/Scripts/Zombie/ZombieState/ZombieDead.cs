@@ -10,6 +10,7 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
+            _zombieManager.gameObject.SetActive(false);
             //Todo:
         }
 
