@@ -7,22 +7,21 @@ namespace ZP.BHS.Zombie
     {
         public UnityEvent<float> OnGetDamaged;
 
+        ZombieStateController ZombieStateController;
+
         private void Awake()
         {
-            OnGetDamaged?.AddListener(asdf);
+            OnGetDamaged?.AddListener(CalcuateDamage);
+
         }
 
-        private void asdf(float dummy) //Todo:
+        public void CalcuateDamage(float damage)
         {
-            if (dummy > 0)
+            Debug.Log(damage);
+            if(damage > 50)
             {
-                GetComponent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
+                GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
             }
-        }
-
-        public void CaluateDamage(float damage)
-        {
-
         }
     }
 }

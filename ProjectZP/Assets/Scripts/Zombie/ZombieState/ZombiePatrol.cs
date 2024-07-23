@@ -1,43 +1,39 @@
 ﻿using Unity.Mathematics;
 using UnityEngine;
+using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
 {
-    class ZombiePatrol : ZombieState, IZombieFoundPlayer
+    class ZombiePatrol : ZombieState
     {
         private float _movingTime = 3;
         private float _passedTime = 0;
         private const float _movingSpeed = 3;
-        private ZombieSightStateController _zombieSight;
 
-        private Vector3 _heading = new Vector3(0,0,0);
+        private Vector3 _heading = Vector3.zero;
 
-        private void OnEnable()
+        public ZombiePatrol(ZombieStateController zombieStateController) : base(zombieStateController)
         {
-            if (_zombieSight == null)
-            {
-                _zombieSight = GetComponentInChildren<ZombieSightStateController>();
-                _zombieSight.OnPlayerGetInSight += FoundPlayer;
-            }
+        }
 
-            int tempHeading = UnityEngine.Random.Range(0,360);
+        public override void OnStateEnter()
+        {
+            int tempHeading = UnityEngine.Random.Range(0, 360);
             _heading.y = tempHeading;
-            this.transform.localRotation = quaternion.Euler(_heading);
+            _zombieManager.transform.localRotation = quaternion.Euler(_heading);
             _passedTime = 0;
         }
 
-        private void Update()
+        public override void OnStateUpdate()
         {
             _passedTime += Time.deltaTime;
-            _zombieManager.transform.position += this.transform.forward * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
-            if(_passedTime >= _movingTime){ zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle); }
+            _zombieManager.transform.position += _zombieManager.transform.forward * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
+            if (_passedTime >= _movingTime) { zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle); }
         }
 
-
-
-        public void FoundPlayer(Player player)
+        public override void OnStateExit()
         {
-            zombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
+            //
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
 {
@@ -18,7 +19,7 @@ namespace ZP.BHS.Zombie
 
         public ZombieStatus zombieStatus { get; private set; }
 
-        public Player Target = null;
+        public PlayerManager Target = null;
         public Vector3 targetposition;
 
         private void Awake()
@@ -31,7 +32,7 @@ namespace ZP.BHS.Zombie
             _zombieSight.OnPlayerGetInSight += SetTarget;
         }
 
-        private void SetTarget(Player target)
+        private void SetTarget(PlayerManager target)
         {
             Target = target;
         }

@@ -1,7 +1,9 @@
-﻿namespace ZP.BHS.Zombie
+﻿using ZP.SJH.Player;
+
+namespace ZP.BHS.Zombie
 {
     interface IZombieFoundPlayer
     {
-        public void FoundPlayer(Player player);
+        public void FoundPlayer(PlayerManager player);
     }
 }

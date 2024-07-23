@@ -10,7 +10,7 @@ namespace ZP.Villin.TestModule
     {
         [SerializeField] private TeleportManager _teleportManager;
         [SerializeField] private PlayerManager _playerManager;
-        [SerializeField] private StairDoorAnimationController _stairDoorAnimationController;
+        [SerializeField] private EndStageDoorController _endStageDoorController;
         [SerializeField] private Vector3 _stairPosition = new Vector3(45.8899994f, 0.519999981f, 2.45000005f);
 
         private void OnGUI()
@@ -32,9 +32,9 @@ namespace ZP.Villin.TestModule
                 _teleportManager = FindFirstObjectByType<TeleportManager>();
             }
 
-            if (_stairDoorAnimationController == null)
+            if (_endStageDoorController == null)
             {
-                _stairDoorAnimationController = FindFirstObjectByType<StairDoorAnimationController>();
+                _endStageDoorController = FindFirstObjectByType<EndStageDoorController>();
             }
 
             if (_playerManager == null)
@@ -50,8 +50,11 @@ namespace ZP.Villin.TestModule
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("ExcuteTeleport", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
             {
-                _stairDoorAnimationController.SetStairDoorClosed();
+                _endStageDoorController.ActivateCollision();
             }
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+
             if (GUILayout.Button("PlayerToStair", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
             {
                 _playerManager.gameObject.transform.position = _stairPosition;
@@ -60,7 +63,7 @@ namespace ZP.Villin.TestModule
             {
                 _playerManager.gameObject.transform.position = Vector3.one;
             }
-            GUILayout.EndHorizontal();
+            GUILayout.EndHorizontal ();
         }
 
     }
