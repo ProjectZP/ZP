@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 5378216674409293550}
   - component: {fileID: 2579046007991657319}
   - component: {fileID: 6426407181552915588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ZombieWalker 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

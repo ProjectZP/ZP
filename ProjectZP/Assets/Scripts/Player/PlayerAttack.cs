@@ -37,11 +37,11 @@ namespace ZP.SJH.Player
         float time = 0f;
         private void FixedUpdate()
         {
-            if (_statusManager.CurrentStamina >= ATTACK_STAMINA)
-                CheckRightHandAttack();
-            if (_statusManager.CurrentStamina >= ATTACK_STAMINA)
+            if ((_statusManager.CurrentStamina >= ATTACK_STAMINA) && _weaponManager.CurrentWeaponLH != null)
                 CheckLeftHandAttack();
-            
+            if ((_statusManager.CurrentStamina >= ATTACK_STAMINA) && _weaponManager.CurrentWeaponRH != null)
+                CheckRightHandAttack();
+
         }
 
         private void CheckRightHandAttack()

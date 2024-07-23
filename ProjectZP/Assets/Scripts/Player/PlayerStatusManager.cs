@@ -4,12 +4,12 @@ namespace ZP.SJH.Player
 { 
     public class PlayerStatusManager : MonoBehaviour
     {
-        [HideInInspector] public float MaxStamina;
-        [HideInInspector] public float CurrentStamina;
-        [HideInInspector] public float StaminaRegen;
-        [HideInInspector] public float Hp;
-        [HideInInspector] public float WalkSpeed;
-        [HideInInspector] public float RunSpeed;
+        public float MaxStamina;
+        public float CurrentStamina;
+        public float StaminaRegen;
+        public float Hp;
+        public float WalkSpeed;
+        public float RunSpeed;
 
         [SerializeField] private WeaponData _data;
 
