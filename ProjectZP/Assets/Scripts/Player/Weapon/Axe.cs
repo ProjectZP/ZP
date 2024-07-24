@@ -3,7 +3,7 @@ using ZP.BHS.Zombie;
 
 namespace ZP.SJH.Weapon
 {
-    public class Knife : BaseWeapon, IWeapon
+    public class Axe : BaseWeapon, IWeapon
     {
         private Vector3 _positionBuffer;
         private float _velocity;
@@ -19,7 +19,7 @@ namespace ZP.SJH.Weapon
             base.Awake();
 
             if (_weaponData == null)
-                _weaponData = Resources.Load("Data/KnifeData") as WeaponData;
+                _weaponData = Resources.Load("Data/AxeData") as WeaponData;
             _positionBuffer = transform.position;
         }
 
@@ -31,7 +31,7 @@ namespace ZP.SJH.Weapon
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.layer == ZombieLayer && _velocity >= _weaponData.MinVelocity) 
+            if (collision.gameObject.layer == ZombieLayer && _velocity >= _weaponData.MinVelocity)
                 collision.gameObject.GetComponent<ZombieDamageController>()
                     .OnGetDamaged.Invoke(CalculateDamage());
         }
@@ -52,4 +52,5 @@ namespace ZP.SJH.Weapon
             return WeaponData.IsOneHanded;
         }
     }
+
 }

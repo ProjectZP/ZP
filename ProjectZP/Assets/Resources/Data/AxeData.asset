@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 911f6e96a81b3494e8ae7f39ac7c52f5, type: 3}
-  m_Name: KnifeData
+  m_Name: AxeData
   m_EditorClassIdentifier: 
-  Type: 2
-  IsOneHanded: 1
-  Sharpness: 20
-  MinVelocity: 1
+  Type: 1
+  IsOneHanded: 0
+  Sharpness: 30
+  MinVelocity: 0.8

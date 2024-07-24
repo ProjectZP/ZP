@@ -16,6 +16,7 @@ namespace ZP.BHS.Zombie
             OnGetDamaged?.AddListener(CalcuateDamage);
         }
 
+
         public void CalcuateDamage(float damage)
         {
             //GameObject madeinstance = Instantiate(dummyeffect);
