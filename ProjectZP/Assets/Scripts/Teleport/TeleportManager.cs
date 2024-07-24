@@ -78,7 +78,8 @@ namespace ZP.Villin.Teleport
         {
             _playerManager.OnEnterEndStageRegion += SubscribeOnEnterEndStageRegion;
             _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
-            _endStageDoorController.OnEndStageDoorClosed += SubscribeOnStairDoorClosed;
+            _endStageDoorController.OnEndStageDoorClosed += SubscribeOnEndStageDoorClosed;
+            _endStageDoorController.OnEndStageDoorOpened += SubscribeOnEndStageDoorOpened;
         }
 
         /// <summary>
@@ -87,9 +88,6 @@ namespace ZP.Villin.Teleport
         /// <param name="fromTransform">Player's <see cref="Transform"/></param>
         private void SubscribeOnEnterEndStageRegion(Transform fromTransform)
         {
-#if UNITY_EDITOR
-            Debug.Log("Action read success!");
-#endif
             StartCoroutine(SyncPositionCoroutine(fromTransform));
         }
 
@@ -105,9 +103,16 @@ namespace ZP.Villin.Teleport
         /// <summary>
         /// Start <see cref="ExecuteTeleport(Transform)"/> when <see cref="StairDoorController.OnEndStageDoorClosed"/> is Invoked.
         /// </summary>
-        private void SubscribeOnStairDoorClosed()
+        private void SubscribeOnEndStageDoorClosed()
         {
             _isTeleportReady = true;
+            Debug.Log($"OnEndStageDoor has closed {_isTeleportReady}");
+        }
+
+        private void SubscribeOnEndStageDoorOpened()
+        {
+            _isTeleportReady = false;
+            Debug.Log($"OnEndStageDoor has opened {_isTeleportReady}");
         }
 
 
@@ -124,50 +129,25 @@ namespace ZP.Villin.Teleport
             }
                 _isSyncCoroutineRunning = true;
 
-#if UNITY_EDITOR
-                Debug.Log("SyncPositionCoroutine Coroutine Started!");
-#endif
-
             while (_isTeleportReady == false && _isSyncCoroutineRunning == true && _nowRemainTeleportCount > 0)
             {
-                _isSyncCoroutineRunning = true;
                 _toTransform.position = new Vector3(-fromTransform.position.x, fromTransform.position.y + _teleportOffset.y, -fromTransform.position.z + _teleportOffset.z);
-#if UNITY_EDITOR
-                Debug.Log($"fromTransform.position = {fromTransform.position}");
-                Debug.Log($"_toTransform.position = {_toTransform.position}");
-#endif
                 _toTransform.rotation = fromTransform.rotation * Quaternion.LookRotation(Vector3.back);
-#if UNITY_EDITOR
-                Debug.Log($"fromTransform.rotation = {fromTransform.rotation}");
-                Debug.Log($"_toTransform.rotation = {_toTransform.rotation}");
-#endif
-                yield return null;
-            }
 
-            if (_isTeleportReady == true)
-            {
-#if UNITY_EDITOR
-                Debug.Log($"Trying Execute Teleport!");
-#endif
-                ExecuteTeleport(fromTransform);
+                yield return null;
             }
 
             if (_isTeleportReady == true && _nowRemainTeleportCount == 0)
             {
-#if UNITY_EDITOR
-                Debug.Log($"Trying OnRemainTeleportCountZero Action Invoke!");
-#endif
                 OnRemainTeleportCountZero?.Invoke();
             }
 
-#if UNITY_EDITOR
-            Debug.Log($"Resetting Fields!");
-#endif
-            ResetFields();
+            if (_isTeleportReady == true)
+            {
+                ExecuteTeleport(fromTransform);
+            }
 
-#if UNITY_EDITOR
-            Debug.Log($"Ending Coroutine!");
-#endif
+            ResetFields();
             yield break;
         }
         /// <summary>
@@ -185,9 +165,6 @@ namespace ZP.Villin.Teleport
             _elevatingTransform.position += _verticalMoveAmount;
             _rotatableWorldTransform.rotation = _rotatableWorldTransform.rotation * Quaternion.LookRotation(Vector3.back);
             OnTeleport?.Invoke();
-#if UNITY_EDITOR
-            Debug.Log($"Execute Teleport! = {fromTransform.position}");
-#endif
         }
 
         /// <summary>

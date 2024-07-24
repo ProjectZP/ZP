@@ -1,18 +1,27 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using ZP.SJH.Player;
 
 namespace ZP.Villin.Teleport
 {
-    [RequireComponent(typeof(DoorAnimationController))]
+    public enum DoorStateList
+    {
+        None,
+        DoorClose,
+        DoorOpen,
+        Length
+    }
+
+
     public abstract class DoorController : MonoBehaviour
     {
-
-        public Action OnEndStageDoorClosed;
         [SerializeField] private GameObject _collision;
-        protected DoorAnimationController _controller;
+        [SerializeField] private Animator _animator;
+        [SerializeField] private DoorStateList _state = DoorStateList.None;
         protected PlayerManager _playerManager;
         protected TeleportManager _teleportManager;
+        protected const float _animationTimeout = 10f;
         protected bool _isPlayerOnEndStageRegion;
 
 
@@ -37,9 +46,9 @@ namespace ZP.Villin.Teleport
                 _playerManager = FindFirstObjectByType<PlayerManager>();
             }
 
-            if (_controller == default)
+            if (_animator == default)
             {
-                _controller = GetComponent<DoorAnimationController>();
+                _animator = GetComponent<Animator>();
             }
         }
 
@@ -50,6 +59,7 @@ namespace ZP.Villin.Teleport
         {
             _playerManager.OnEnterEndStageRegion += SubscribeOnEnterEndStageRegion;
             _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
+            //_playerManager.OnInteractDoor.AddListener(UpdateAnimation);
         }
 
         /// <summary>
@@ -60,26 +70,86 @@ namespace ZP.Villin.Teleport
         {
 
             _isPlayerOnEndStageRegion = true;
+
+            Debug.Log($"_isPlayerOnEndStageRegion {_isPlayerOnEndStageRegion}");
         }
 
         /// <summary>
         /// Set <see cref="_isPlayerOnEndStageRegion"/> false when OnExitEndStageRegion Invoked.
         /// </summary>
-        private void SubscribeOnExitEndStageRegion()
+        protected virtual void SubscribeOnExitEndStageRegion()
         {
             _isPlayerOnEndStageRegion = false;
+            Debug.Log($"_isPlayerOnEndStageRegion {_isPlayerOnEndStageRegion}");
         }
-        public virtual void ActivateCollision()
+
+        protected virtual void OnEnable()
         {
-            _collision.SetActive(true);
+
+        }
+
+        private IEnumerator SetStateCoroutine(DoorStateList newState)
+        {
+            _state = newState;
+            if (_animator == null)
+            {
+#if UNITY_EDITOR
+                Debug.Log("Animator is null!");
+#endif
+                yield break;
+            }
+
+            _animator.SetInteger("DoorState", (int)_state);
+
+            AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+            float animationLength = stateInfo.length;
+
+            float elapsedTime = 0f;
+            while (elapsedTime < animationLength && elapsedTime < _animationTimeout)
+            {
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            if (elapsedTime >= _animationTimeout)
+            {
+                Debug.LogWarning("Animation timeout occurred!");
+            }
         }
 
         /// <summary>
-        /// Dectiave collision to make player go out StartStageRegion.
+        /// Start Coroutine to Activate Collision.
+        /// </summary>
+        public virtual void ActivateCollision()
+        {
+            StartCoroutine(ActivateCollisionCoroutine());
+        }
+
+        /// <summary>
+        /// Activate collision when DoorClose Aninmation is ended.
+        /// </summary>
+        /// <returns><see cref="SetStateCoroutine"/></returns>
+        protected virtual IEnumerator ActivateCollisionCoroutine()
+        {
+            _collision.GetComponent<BoxCollider>().enabled = true;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
+        }
+
+        /// <summary>
+        /// Start Coroutine to Deactivate Collision.
         /// </summary>
         protected virtual void DeactivateCollision()
         {
-            _collision.SetActive(false);
+            StartCoroutine(DeactivateCollisionCoroutine());
+        }
+
+        protected virtual IEnumerator DeactivateCollisionCoroutine()
+        {
+#if UNITY_EDITOR
+            Debug.Log("SetStateCoroutine Start");
+#endif
+            _collision.GetComponent<BoxCollider>().enabled = false;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
         }
     }
 }

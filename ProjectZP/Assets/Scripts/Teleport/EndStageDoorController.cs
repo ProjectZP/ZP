@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using ZP.SJH.Player;
 
@@ -6,6 +7,8 @@ namespace ZP.Villin.Teleport
 {
     public class EndStageDoorController : DoorController
     {
+        public Action OnEndStageDoorClosed;
+        public Action OnEndStageDoorOpened;
 
 
         protected override void Awake()
@@ -27,10 +30,18 @@ namespace ZP.Villin.Teleport
         protected override void SetActionSubscribers()
         {
             base.SetActionSubscribers();
+            _playerManager.OnExitEndStageRegion += DeactivateCollision;
         }
 
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            DeactivateCollision();
+        }
+
+
         /// <summary>
-        /// Actiave collision to prohibit player not go out specific region.
+        /// Actiave collision to prohibit player not go out Stair layer region.
         /// </summary>
         public override void ActivateCollision()
         {
@@ -39,6 +50,34 @@ namespace ZP.Villin.Teleport
                 return;
             }
             base.ActivateCollision();
+        }
+
+        protected override IEnumerator ActivateCollisionCoroutine()
+        {
+            yield return base.ActivateCollisionCoroutine();
+            OnEndStageDoorClosed?.Invoke();
+        }
+
+
+        /// <summary>
+        /// Deactivate collision if player is not on Stair layer.
+        /// </summary>
+        /// 
+        protected override void DeactivateCollision()
+        {
+            if ( _isPlayerOnEndStageRegion == true)
+            {
+                Debug.Log($"_isPlayerOnEndStageRegion = {_isPlayerOnEndStageRegion}");
+                return;
+            }
+            base.DeactivateCollision();
+        }
+
+        protected override IEnumerator DeactivateCollisionCoroutine()
+        {
+            yield return base.DeactivateCollisionCoroutine();
+            OnEndStageDoorOpened?.Invoke();
+            Debug.Log("Invoked OnEndStageDoorOpened");
         }
     }
 }

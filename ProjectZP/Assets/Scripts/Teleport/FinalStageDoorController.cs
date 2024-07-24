@@ -41,12 +41,17 @@ namespace ZP.Villin.Teleport
             _isPlayerOnEndStageRegion = true;
         }
 
-        /// <summary>
-        /// Set <see cref="_isPlayerOnEndStageRegion"/> false when OnExitEndStageRegion Invoked.
-        /// </summary>
-        private void SubscribeOnExitEndStageRegion()
+        public override void ActivateCollision()
         {
-            _isPlayerOnEndStageRegion = false;
+            if (_isFinalStageDoorInteractable == false)
+            {
+                return;
+            }
+            if (_isPlayerOnEndStageRegion == true)
+            {
+                return;
+            }
+            base.ActivateCollision();
         }
 
         /// <summary>

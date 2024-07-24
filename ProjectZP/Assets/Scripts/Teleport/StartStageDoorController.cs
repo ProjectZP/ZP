@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using ZP.SJH.Player;
 
@@ -39,6 +40,11 @@ namespace ZP.Villin.Teleport
                 return;
             }
             base.DeactivateCollision();
+        }
+
+        protected override IEnumerator DeactivateCollisionCoroutine()
+        {
+            yield return base.DeactivateCollisionCoroutine();
         }
     }
 }
