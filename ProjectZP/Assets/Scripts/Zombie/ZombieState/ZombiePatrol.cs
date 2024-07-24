@@ -1,6 +1,7 @@
-﻿using Unity.Mathematics;
+﻿using System;
+using Unity.Mathematics;
 using UnityEngine;
-using ZP.SJH.Player;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace ZP.BHS.Zombie
 {
@@ -18,16 +19,26 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
-            int tempHeading = UnityEngine.Random.Range(0, 360);
-            _heading.y = tempHeading;
-            _zombieManager.transform.localRotation = quaternion.Euler(_heading);
             _passedTime = 0;
+            System.Random random = new System.Random();
+            double angle = random.NextDouble() * 2 * Math.PI;
+
+            double x = Math.Cos(angle) * 10;
+            double z = Math.Sin(angle) * 10;
+            _heading = new Vector3(
+                _zombieManager.refTransform.position.x + (float)x,
+                _zombieManager.refTransform.position.y,
+                _zombieManager.refTransform.position.y + (float)z);
+
+            _agent.isStopped = false;
+            _agent.SetDestination(_heading);
         }
 
         public override void OnStateUpdate()
         {
+            //_zombieManager.transform.position += _zombieManager.transform.forward * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
+
             _passedTime += Time.deltaTime;
-            _zombieManager.transform.position += _zombieManager.transform.forward * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
             if (_passedTime >= _movingTime) { zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle); }
         }
 

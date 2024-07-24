@@ -17,6 +17,8 @@ namespace ZP.BHS.Zombie
         private ZombieDefense _zombieDefense;
         private ZombieSightStateController _zombieSight;
 
+        public Transform refTransform { get { return this.transform; } }
+
         public ZombieStatus zombieStatus { get; private set; }
 
         public PlayerManager Target = null;

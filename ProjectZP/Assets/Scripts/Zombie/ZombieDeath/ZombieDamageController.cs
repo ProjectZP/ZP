@@ -9,17 +9,31 @@ namespace ZP.BHS.Zombie
 
         ZombieStateController ZombieStateController;
 
+        [SerializeField] GameObject dummyeffect;
+
         private void Awake()
         {
             OnGetDamaged?.AddListener(CalcuateDamage);
-
         }
 
         public void CalcuateDamage(float damage)
         {
-            Debug.Log(damage);
-            if(damage > 50)
+            //GameObject madeinstance = Instantiate(dummyeffect);
+            //madeinstance.transform.localScale = Vector3.one * damage * 0.1f;
+
+            GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
+
+            //if(damage > 50)
+            //{
+            //    GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
+            //}
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if(collision.gameObject.name == "Knife")
             {
+                Instantiate(dummyeffect, collision.transform.position , collision.transform.rotation , null);
                 GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
             }
         }

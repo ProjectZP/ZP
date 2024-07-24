@@ -12,6 +12,7 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
+            _agent.isStopped = true;
             _passedTime = 0;
             DoAttack();
         }

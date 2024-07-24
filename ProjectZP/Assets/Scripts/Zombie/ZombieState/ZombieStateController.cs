@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.iOS;
-using static ZP.BHS.Zombie.ZombieStateController;
+using UnityEngine.AI;
 
 namespace ZP.BHS.Zombie
 {
@@ -19,6 +16,7 @@ namespace ZP.BHS.Zombie
         public ZombieState currentZombieStateAction { get; private set; }
         public ZombieSightStateController zombieSightStateController { get; private set; }
         public ZombieManager zombieManager { get; private set; }
+        public NavMeshAgent zombieAgent { get; private set; }
 
         public Animator zombieAnimator { get; private set; }
 
@@ -28,11 +26,14 @@ namespace ZP.BHS.Zombie
 
         private void Awake()
         {
+            zombieAgent = GetComponent<NavMeshAgent>();
             zombieAnimator = GetComponent<Animator>();
             zombieSightStateController = GetComponentInChildren<ZombieSightStateController>();
             zombieManager = GetComponent<ZombieManager>();
             InitZombieStateDictionary();
         }
+
+
 
         private void OnEnable()
         {
@@ -42,8 +43,11 @@ namespace ZP.BHS.Zombie
         private void Update()
         {
             currentZombieStateAction.OnStateUpdate();
+            if (zombiedie) { ChangeZombieState(ZombieStates.ZombieDead); }
         }
 
+
+        public bool zombiedie; //Todo:
         public void ChangeZombieState(ZombieStates changingState)
         {
             if (currentZombieState == changingState || currentZombieState == ZombieStates.ZombieDead)

@@ -10,8 +10,11 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
-            _zombieManager.gameObject.SetActive(false);
-            //Todo:
+            _agent.isStopped = true; //Todo:
+            _agent.enabled = false;
+            zombieStateController.zombieAnimator.enabled = false;
+
+            zombieSightStateController.enabled = false;
         }
 
         public override void OnStateUpdate()
