@@ -29,10 +29,10 @@ namespace ZP.SJH.Weapon
             _velocity = ((_positionBuffer - transform.position) / Time.deltaTime).magnitude;
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
-            if (collision.gameObject.layer == ZombieLayer && _velocity >= _weaponData.MinVelocity)
-                collision.gameObject.GetComponent<ZombieDamageController>()
+            if (other.gameObject.layer == ZombieLayer && _velocity >= _weaponData.MinVelocity)
+                other.gameObject.GetComponent<ZombieDamageController>()
                     .OnGetDamaged.Invoke(CalculateDamage());
         }
 
