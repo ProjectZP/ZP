@@ -12,7 +12,7 @@ namespace ZP.SJH.Weapon
         abstract public WeaponData WeaponData { get; set; }
         [SerializeField] protected WeaponData _weaponData;
 
-        protected Rigidbody _rigidbody;
+        [SerializeField] protected Rigidbody _rigidbody;
 
         protected virtual void Awake()
         {

@@ -337,7 +337,8 @@ GameObject:
   - component: {fileID: 730727912982194571}
   - component: {fileID: 7144870207932775442}
   - component: {fileID: 8979432987181755603}
-  m_Layer: 0
+  - component: {fileID: 3447522539264293138}
+  m_Layer: 8
   m_Name: Base HumanHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,6 +461,22 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3447522539264293138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020800820582538366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a84276ab4e7b604db2c7c3bb3b76112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnGetDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  dummyeffect: {fileID: 8719445377341675516, guid: f7983656ededa72468e00fd2d70b7f50, type: 3}
 --- !u!1 &1413001897235887027
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,8 +956,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7892200534528500216}
   - component: {fileID: 8938074749871726592}
-  - component: {fileID: 1800047723145468428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ZombieBrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -979,26 +995,10 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.0955746
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1800047723145468428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3819399478079863855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a84276ab4e7b604db2c7c3bb3b76112, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnGetDamaged:
-    m_PersistentCalls:
-      m_Calls: []
-  dummyeffect: {fileID: 8719445377341675516, guid: f7983656ededa72468e00fd2d70b7f50, type: 3}
 --- !u!1 &3916343964855030660
 GameObject:
   m_ObjectHideFlags: 0

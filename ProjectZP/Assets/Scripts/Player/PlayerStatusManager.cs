@@ -11,12 +11,12 @@ namespace ZP.SJH.Player
         public float WalkSpeed;
         public float RunSpeed;
 
-        [SerializeField] private WeaponData _data;
+        [SerializeField] private PlayerData _data;
 
         private void Awake()
         {
             if(_data == null)
-                _data = Resources.Load("Data/PlayerData") as WeaponData;
+                _data = Resources.Load("Data/PlayerData") as PlayerData;
         }
 
         public void LoadPlayerData()
@@ -25,7 +25,7 @@ namespace ZP.SJH.Player
                 LoadPlayerData(_data);
         }
 
-        public void LoadPlayerData(WeaponData data)
+        public void LoadPlayerData(PlayerData data)
         {
             MaxStamina = data.Stamina;
             CurrentStamina = data.Stamina;

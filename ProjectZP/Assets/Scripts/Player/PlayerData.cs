@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ZP.SJH.Player
 {
     [CreateAssetMenu(fileName = "PlayerData", menuName = "Create PlayerData")]
-    public class WeaponData : ScriptableObject
+    public class PlayerData : ScriptableObject
     {
         public float Stamina;
         public float StaminaRegen;
