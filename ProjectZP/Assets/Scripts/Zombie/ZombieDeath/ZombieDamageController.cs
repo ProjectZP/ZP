@@ -11,7 +11,7 @@ namespace ZP.BHS.Zombie
 
         [SerializeField] GameObject dummyeffect;
 
-        private void Awake()
+        private void Start()
         {
             OnGetDamaged?.AddListener(CalcuateDamage);
         }
@@ -22,23 +22,27 @@ namespace ZP.BHS.Zombie
             //GameObject madeinstance = Instantiate(dummyeffect);
             //madeinstance.transform.localScale = Vector3.one * damage * 0.1f;
 
-            GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
+            Debug.Log("event act");
 
-            //if(damage > 50)
-            //{
-            //    GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
-            //}
+            //GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
+
+            Debug.Log(damage);
+
+            if (damage > 100)
+            {
+                GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
+            }
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            Instantiate(dummyeffect, collision.transform.position, collision.transform.rotation, null);
+            //Debug.Log(collision.gameObject.name +"collider");
 
-            if (collision.gameObject.name == "Knife")
-            {
-                Instantiate(dummyeffect, collision.transform.position , collision.transform.rotation , null);
-                GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
-            }
+            //if(collision.gameObject.layer == 10)
+            //{
+            //    Debug.Log("muri appa");
+            //    GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
+            //}
         }
     }
 }
