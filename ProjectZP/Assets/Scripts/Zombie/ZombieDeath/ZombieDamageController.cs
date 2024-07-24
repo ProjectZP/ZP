@@ -15,6 +15,7 @@ namespace ZP.BHS.Zombie
 
         }
 
+
         public void CalcuateDamage(float damage)
         {
             Debug.Log(damage);

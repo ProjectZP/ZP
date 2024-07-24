@@ -46,7 +46,7 @@ namespace ZP.BHS.Zombie
                 _zombieManager.targetposition = _zombieManager.Target.transform.position;
 
                 Vector3 targetvector = _zombieManager.Target.transform.position - _zombieManager.transform.position;
-                targetvector.y = _zombieManager.transform.position.y;
+                targetvector.y = 0;
 
                 Quaternion targetRotation = Quaternion.LookRotation(targetvector);
                 _zombieManager.transform.rotation = Quaternion.RotateTowards
