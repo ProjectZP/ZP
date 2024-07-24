@@ -32,7 +32,9 @@ namespace ZP.BHS.Zombie
 
         private void OnCollisionEnter(Collision collision)
         {
-            if(collision.gameObject.name == "Knife")
+            Instantiate(dummyeffect, collision.transform.position, collision.transform.rotation, null);
+
+            if (collision.gameObject.name == "Knife")
             {
                 Instantiate(dummyeffect, collision.transform.position , collision.transform.rotation , null);
                 GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
