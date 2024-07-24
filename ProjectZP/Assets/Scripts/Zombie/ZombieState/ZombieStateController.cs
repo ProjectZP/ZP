@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.iOS;
+using static ZP.BHS.Zombie.ZombieStateController;
 
 namespace ZP.BHS.Zombie
 {
@@ -13,28 +16,34 @@ namespace ZP.BHS.Zombie
         public delegate void ZombieStateChanged(ZombieStates zombieState);
         public event ZombieStateChanged OnZombieStateChanged;
 
-        [SerializeField] private ZombieState[] _zombieState;
-        private ZombieStates previousZombieState = ZombieStates.None;
-        private ZombieStates currentZombieState = ZombieStates.None;
+        public ZombieState currentZombieStateAction { get; private set; }
+        public ZombieSightStateController zombieSightStateController { get; private set; }
+        public ZombieManager zombieManager { get; private set; }
+
+        public Animator zombieAnimator { get; private set; }
+
+        ZombieStates currentZombieState;
+
+        private Dictionary<ZombieStates, ZombieState> zombieStateDictionary;
 
         private void Awake()
         {
-            OnZombieStateChanged += ChangeZombieState;
-
-            _zombieState = new ZombieState[(int)ZombieStates.Last];
-            for (int ix = 0; ix < _zombieState.Length; ++ix)
-            {
-                string ComponentName = $"{(ZombieStates)ix}";
-                _zombieState[ix] = (ZombieState)GetComponent(ComponentName);
-                _zombieState[ix].enabled = false;
-            }
-
-            ChangeZombieState(ZombieStates.ZombieIdle);
+            zombieAnimator = GetComponent<Animator>();
+            zombieSightStateController = GetComponentInChildren<ZombieSightStateController>();
+            zombieManager = GetComponent<ZombieManager>();
+            InitZombieStateDictionary();
         }
 
-        //This method runs when ZombieStateChanged.
-        //Also Set Zombie To use appropriate State.
-        //Each State Control Zombie, Like Move or Animation, yes Unity.
+        private void OnEnable()
+        {
+            currentZombieStateAction = zombieStateDictionary[ZombieStates.ZombieIdle];
+        }
+
+        private void Update()
+        {
+            currentZombieStateAction.OnStateUpdate();
+        }
+
         public void ChangeZombieState(ZombieStates changingState)
         {
             if (currentZombieState == changingState || currentZombieState == ZombieStates.ZombieDead)
@@ -43,19 +52,36 @@ namespace ZP.BHS.Zombie
             }
             Debug.Log($"{changingState}");
 
-            previousZombieState = currentZombieState;
-            currentZombieState = changingState;
-            OnZombieStateChanged(currentZombieState);
 
-            if (previousZombieState != ZombieStates.None) { _zombieState[(int)previousZombieState].enabled = false; }
-            if (currentZombieState != ZombieStates.None) { _zombieState[(int)currentZombieState].enabled = true; }
+
+            currentZombieStateAction.OnStateExit();
+            currentZombieState = changingState;
+            OnZombieStateChanged(changingState);
+            zombieAnimator.SetInteger("ZombieState", (int)changingState);
+            currentZombieStateAction = zombieStateDictionary[changingState];
+            currentZombieStateAction.OnStateEnter();
         }
+
+        //To Add States, This Manages.
+        private void InitZombieStateDictionary()
+        {
+            zombieStateDictionary = new Dictionary<ZombieStates, ZombieState>
+            {
+                { ZombieStates.ZombieIdle, new ZombieIdle(this) },
+                { ZombieStates.ZombiePatrol, new ZombiePatrol(this) },
+                { ZombieStates.ZombieChase, new ZombieChase(this) },
+                { ZombieStates.ZombieAttack, new ZombieAttack(this)},
+                { ZombieStates.ZombieDead, new ZombieDead(this)},
+                { ZombieStates.ZombieSearch, new ZombieSearch(this)},
+                { ZombieStates.ZombieLookAround, new ZombieLookAround(this)},
+            };
+        }
+
     }
 
     enum ZombieStates
     {
         None = -1,
-
         ZombieIdle,
         ZombiePatrol,
         ZombieAttack,
@@ -63,11 +89,6 @@ namespace ZP.BHS.Zombie
         ZombieChase,
         ZombieSearch,
         ZombieLookAround,
-
         Last,
-
-        ZombieKonckBack,
-        ZombieHeadGrab,
-        ZombieAttacking,
     }
 }

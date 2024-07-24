@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: KnifeData
   m_EditorClassIdentifier: 
   Type: 2
-  IsOneHanded: 0
+  IsOneHanded: 1
   Sharpness: 20
-  MinVelocity: 0.1
+  MinVelocity: 1

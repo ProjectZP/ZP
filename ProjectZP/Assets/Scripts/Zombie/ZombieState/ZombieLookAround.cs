@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
 {
@@ -10,18 +11,17 @@ namespace ZP.BHS.Zombie
     {
         private const float _searchingTime = 3f;
         private float _passedTime = 0;
-        private ZombieSightStateController _zombieSight;
 
-        private void OnEnable()
+        public ZombieLookAround(ZombieStateController zombieStateController) : base(zombieStateController)
+        {
+        }
+
+        public override void OnStateEnter()
         {
             _passedTime = 0;
-            if (_zombieSight == null)
-            {
-                _zombieSight = GetComponentInChildren<ZombieSightStateController>();
-                _zombieSight.OnPlayerGetInSight += PlayerFound;
-            }
         }
-        private void Update()
+
+        public override void OnStateUpdate()
         {
             _passedTime += Time.deltaTime;
             if (_passedTime > _searchingTime)
@@ -30,9 +30,9 @@ namespace ZP.BHS.Zombie
             }
         }
 
-        private void PlayerFound(Player player)
+        public override void OnStateExit()
         {
-            zombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
+            //
         }
     }
 }

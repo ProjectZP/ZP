@@ -5,5 +5,7 @@ namespace ZP.SJH.Weapon
         public float GetMinVelocity();
 
         public float CalculateDamage();
+
+        public bool IsOneHanded();
     }
 }

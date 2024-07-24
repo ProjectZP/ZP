@@ -1,8 +1,10 @@
-﻿namespace ZP.BHS.Zombie
+﻿using ZP.SJH.Player;
+
+namespace ZP.BHS.Zombie
 {
     public class Equipment
     {
-        public Player owner;
+        public PlayerManager owner;
         public float Sharpness;
     }
 }

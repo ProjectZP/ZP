@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
 {
@@ -10,79 +11,61 @@ namespace ZP.BHS.Zombie
     /// </summary>
     class ZombieChase : ZombieState
     {
-        private const float _movingSpeed = 10;
-        private ZombieSightStateController _zombieSight;
-        private void OnEnable()
+        private bool _rotateComplete = false;
+
+        public ZombieChase(ZombieStateController zombieStateController) : base(zombieStateController)
         {
-            if (_zombieSight == null)
-            {
-                _zombieSight = GetComponentInChildren<ZombieSightStateController>();
-                _zombieSight.OnPlayerGetOutSight += PlayerMiss;
-            }
-
-
         }
 
-        private void Start()
+        public override void OnStateEnter()
         {
-            StartCoroutine(PlayerJustFound());
+            _rotateComplete = false;
         }
 
-        IEnumerator PlayerJustFound()
+        public override void OnStateUpdate()
         {
-            while (!_rotateComplete)
+            if (!_rotateComplete)
             {
-                Vector3 targetvector = _zombieManager.Target.transform.position - this.transform.position;
-                targetvector.y = 0;
+                Vector3 targetvector = _zombieManager.Target.transform.position - _zombieManager.transform.position;
+                targetvector.y = _zombieManager.transform.position.y;
 
                 Quaternion targetRotation = Quaternion.LookRotation(targetvector);
-                transform.rotation = Quaternion.RotateTowards
-                    (transform.rotation,
-                    targetRotation,
-                    _zombieManager.zombieStatus.RotationSpeed * Time.deltaTime * (1f/6f));
 
-                if(Vector3.Angle(_zombieManager.Target.transform.position, this.transform.forward) < 10)
+                _zombieManager.transform.rotation = Quaternion.RotateTowards
+                    (_zombieManager.transform.rotation, targetRotation,
+                    _zombieManager.zombieStatus.RotationSpeed * Time.deltaTime * (1f / 6f));
+
+                if (Vector3.Angle(targetvector,
+                    _zombieManager.transform.forward) < 10)
                 {
                     _rotateComplete = true;
                 }
-                yield return null;
+            }
+            else
+            {
+                _zombieManager.targetposition = _zombieManager.Target.transform.position;
+
+                Vector3 targetvector = _zombieManager.Target.transform.position - _zombieManager.transform.position;
+                targetvector.y = 0;
+
+                Quaternion targetRotation = Quaternion.LookRotation(targetvector);
+                _zombieManager.transform.rotation = Quaternion.RotateTowards
+                    (_zombieManager.transform.rotation, targetRotation,
+                    _zombieManager.zombieStatus.RotationSpeed * Time.deltaTime);
+
+                _zombieManager.transform.position +=
+                    _zombieManager.transform.forward * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
+
+
+                if (Vector3.Distance(_zombieManager.Target.transform.position,
+                    _zombieManager.transform.position) < _zombieManager.zombieStatus.AttackRange)
+                { zombieStateController.ChangeZombieState(ZombieStates.ZombieAttack); }
             }
         }
 
-        private bool _rotateComplete;
-        private void Update()
+        public override void OnStateExit()
         {
-            if (!_rotateComplete) { return; }
-            Vector3 targetvector = _zombieManager.Target.transform.position - this.transform.position;
-            targetvector.y = 0;
-
-            Quaternion targetRotation = Quaternion.LookRotation(targetvector);
-            transform.rotation = Quaternion.RotateTowards
-                (transform.rotation,
-                targetRotation,
-                _zombieManager.zombieStatus.RotationSpeed * Time.deltaTime);
-
-            this.transform.position += this.transform.forward * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
-
-
-            if (Vector3.Distance(_zombieManager.Target.transform.position,
-                this.transform.position) <= _zombieManager.zombieStatus.AttackRange)
-            { Debug.Log("GoAttack!!"); zombieStateController.ChangeZombieState(ZombieStates.ZombieAttack); }
-
-        }
-
-        private void PlayerMiss(Player player)
-        {
-            if(Vector3.Distance(_zombieManager.Target.transform.position,
-                this.transform.position) <= _zombieManager.zombieStatus.ChaseRange)
-            FindPlayer();
-        }
-
-        private void FindPlayer()
-        {
-            //Todo: Shake Head To Find Player.
-            //Todo: Finding Player Depends On ZombieSight.
-            zombieStateController.ChangeZombieState(ZombieStates.ZombieSearch);
+            //
         }
     }
 }
