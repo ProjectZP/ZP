@@ -48,7 +48,7 @@ namespace ZP.BHS.Zombie
 
             for (int ix = 0; ix < RagdollRigidbody.Length; ix++)
             {
-                RagdollRigidbody[ix].mass = 7f;
+                RagdollRigidbody[ix].mass = 0.1f;
                 RagdollRigidbody[ix].isKinematic = true;
             }
         }

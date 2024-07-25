@@ -28,7 +28,7 @@ namespace ZP.BHS.Zombie
         FixedJoint joint;
         public void CalcuateDamage(float damage, GameObject Weapon)
         {
-            if (damage > 10)
+            if (damage > 1f)
             {
                 ZombieStateController.ChangeZombieState(ZombieStates.ZombieDead);
 
@@ -37,8 +37,8 @@ namespace ZP.BHS.Zombie
                 joint.connectedBody = this.GetComponent<Rigidbody>();
 
                 joint.enableCollision = false; //collision between two game objects.
-                joint.breakForce = 1000f;
-                joint.breakTorque = 1000f;
+                joint.breakForce = 2500f;
+                joint.breakTorque = 2500f;
             }
         }
 

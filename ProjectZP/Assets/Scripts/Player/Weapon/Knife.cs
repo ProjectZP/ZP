@@ -33,6 +33,8 @@ namespace ZP.SJH.Weapon
         public float CalculateDamage()
         {
             float damage = _weaponData.Sharpness * _rigidbody.velocity.magnitude;
+            if(damage > 1f)
+                Debug.Log("DAMANNNN" + damage);
             return damage;
         }
 

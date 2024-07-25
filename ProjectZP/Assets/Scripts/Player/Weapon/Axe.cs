@@ -44,6 +44,9 @@ namespace ZP.SJH.Weapon
             if (_handCount < 2)
                 damage /= 3f;
 
+            if (damage > 1f)
+                Debug.Log("DAMANNNNAAAAAAA" + damage);
+
             return damage;
         }
 
