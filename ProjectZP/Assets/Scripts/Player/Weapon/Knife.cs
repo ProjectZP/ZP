@@ -45,5 +45,15 @@ namespace ZP.SJH.Weapon
         {
             return WeaponData.IsOneHanded;
         }
+
+        public void Equip()
+        {
+            return;
+        }
+
+        public void DeEquip()
+        {
+            return;
+        }
     }
 }

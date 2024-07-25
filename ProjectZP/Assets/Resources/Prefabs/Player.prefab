@@ -1139,7 +1139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rayInteractorLH: {fileID: 1660050446402227260}
+  LeftHand: {fileID: 0}
   _rayInteractorRH: {fileID: 6447612265467795348}
+  RightHand: {fileID: 0}
 --- !u!114 &5132781372604333387
 MonoBehaviour:
   m_ObjectHideFlags: 0

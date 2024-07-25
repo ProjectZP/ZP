@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponData: {fileID: 11400000, guid: ed705d4ad35296741bd796d7a4763482, type: 2}
+  _rigidbody: {fileID: 7025345393213450723}
 --- !u!65 &7275254788285836293
 BoxCollider:
   m_ObjectHideFlags: 0
