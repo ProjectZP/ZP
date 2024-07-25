@@ -364,6 +364,7 @@ Transform:
   - {fileID: 2481905524445328075}
   - {fileID: 8505952461190787154}
   - {fileID: 4784738866586540340}
+  - {fileID: 7892200534528500216}
   m_Father: {fileID: 5410777073274525342}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &730727912982194571
@@ -385,8 +386,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.08620286
-  m_Center: {x: -0.06514991, y: 0.031094823, z: -0.00329694}
+  m_Radius: 0.08878183
+  m_Center: {x: -0.08878183, y: 0, z: 0}
 --- !u!54 &7144870207932775442
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -475,6 +476,7 @@ MonoBehaviour:
   OnGetDamaged:
     m_PersistentCalls:
       m_Calls: []
+  dummyeffect: {fileID: 8719445377341675516, guid: f7983656ededa72468e00fd2d70b7f50, type: 3}
 --- !u!1 &1413001897235887027
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +946,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &3819399478079863855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7892200534528500216}
+  - component: {fileID: 8938074749871726592}
+  m_Layer: 8
+  m_Name: ZombieBrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7892200534528500216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3819399478079863855}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -0.081, y: 0.038, z: 0.002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7340040680637011423}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
+--- !u!135 &8938074749871726592
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3819399478079863855}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 0.0955746
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3916343964855030660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,7 +2224,7 @@ GameObject:
   - component: {fileID: 2014142694916694759}
   - component: {fileID: 8748039064290280607}
   m_Layer: 0
-  m_Name: Zombie
+  m_Name: ZombieRunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2202,7 +2257,7 @@ Animator:
   m_GameObject: {fileID: 7290306563708589566}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
-  m_Controller: {fileID: 9100000, guid: eb191a313da7d8842b773d4aaf332ca3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 808b33fa2b7d0714b8c8a27439000960, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
@@ -2240,8 +2295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f132af62249fc948b1d9222291a199d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RagdollRigidbody: []
-  RagdollCollider: []
   zombiedie: 0
 --- !u!114 &2014142694916694759
 MonoBehaviour:
