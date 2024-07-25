@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace ZP.BHS.Zombie
@@ -9,7 +10,13 @@ namespace ZP.BHS.Zombie
 
         ZombieStateController ZombieStateController;
 
-        [SerializeField] GameObject dummyeffect;
+        private List<GameObject> StabbedWeapon = new List<GameObject>(8);
+
+
+        private void Awake()
+        {
+            ZombieStateController = GetComponentInParent<ZombieStateController>();
+        }
 
         private void Start()
         {
@@ -19,29 +26,29 @@ namespace ZP.BHS.Zombie
 
         public void CalcuateDamage(float damage)
         {
-            //GameObject madeinstance = Instantiate(dummyeffect);
-            //madeinstance.transform.localScale = Vector3.one * damage * 0.1f;
-
-            Debug.Log("event act");
-
-            //GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
-
-            Debug.Log(damage);
-
             if (damage > 100)
             {
-                GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
+                ZombieStateController.ChangeZombieState(ZombieStates.ZombieDead);
             }
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            //Debug.Log(collision.gameObject.name +"collider");
-
-            //if(collision.gameObject.layer == 10)
+            //if (collision.gameObject.layer == 1 << LayerMask.NameToLayer("Weapon"))
             //{
-            //    Debug.Log("muri appa");
-            //    GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
+            //    if (ZombieStateController.currentZombieState == ZombieStates.ZombieDead)
+            //    {
+            //        FixedJoint joint = collision.gameObject.AddComponent<FixedJoint>();
+            //        joint.connectedBody = this.GetComponent<Rigidbody>();
+            //    }
+            //}
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            //if (collision.gameObject.layer == 1 << LayerMask.NameToLayer("Weapon"))
+            //{
+            //    StabbedWeapon.Add(collision.gameObject);
             //}
         }
     }

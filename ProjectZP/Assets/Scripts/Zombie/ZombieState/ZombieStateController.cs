@@ -17,11 +17,12 @@ namespace ZP.BHS.Zombie
         public ZombieSightStateController zombieSightStateController { get; private set; }
         public ZombieManager zombieManager { get; private set; }
         public NavMeshAgent zombieAgent { get; private set; }
-
         public Animator zombieAnimator { get; private set; }
 
-        ZombieStates currentZombieState;
+        public Rigidbody[] RagdollRigidbody;
+        public Collider[] RagdollCollider;
 
+        public ZombieStates currentZombieState { get; private set; }
         private Dictionary<ZombieStates, ZombieState> zombieStateDictionary;
 
         private void Awake()
@@ -31,6 +32,9 @@ namespace ZP.BHS.Zombie
             zombieSightStateController = GetComponentInChildren<ZombieSightStateController>();
             zombieManager = GetComponent<ZombieManager>();
             InitZombieStateDictionary();
+
+            RagdollRigidbody = GetComponentsInChildren<Rigidbody>();
+            RagdollCollider = GetComponentsInChildren<Collider>();
         }
 
 
