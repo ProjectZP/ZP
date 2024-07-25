@@ -13,6 +13,7 @@ namespace ZP.SJH.Weapon
         [SerializeField] protected WeaponData _weaponData;
 
         [SerializeField] protected Rigidbody _rigidbody;
+        protected bool _isHolded = false;
 
         protected virtual void Awake()
         {

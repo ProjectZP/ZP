@@ -11,6 +11,8 @@ namespace ZP.SJH.Weapon
             set => _weaponData = value;
         }
 
+        private int _handCount = 0;
+
         protected override void Awake()
         {
             base.Awake();
@@ -30,9 +32,18 @@ namespace ZP.SJH.Weapon
             }
         }
 
+        private void Update()
+        {
+            CalculateDamage();
+        }
+
         public float CalculateDamage()
         {
             float damage = _weaponData.Sharpness * _rigidbody.velocity.magnitude;
+
+            if (_handCount < 2)
+                damage /= 3f;
+
             return damage;
         }
 
@@ -45,6 +56,15 @@ namespace ZP.SJH.Weapon
         {
             return WeaponData.IsOneHanded;
         }
-    }
 
+        public void Equip()
+        {
+            _handCount++;
+        }
+
+        public void DeEquip()
+        {
+            _handCount--;
+        }
+    }
 }
