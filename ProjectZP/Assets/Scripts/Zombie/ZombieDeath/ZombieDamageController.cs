@@ -6,7 +6,7 @@ namespace ZP.BHS.Zombie
 {
     public class ZombieDamageController : MonoBehaviour //Todo:
     {
-        public UnityEvent<float> OnGetDamaged;
+        public UnityEvent<float, GameObject> OnGetDamaged;
 
         ZombieStateController ZombieStateController;
 
@@ -24,32 +24,27 @@ namespace ZP.BHS.Zombie
         }
 
 
-        public void CalcuateDamage(float damage)
+        GameObject attachedWeapon;
+        FixedJoint joint;
+        public void CalcuateDamage(float damage, GameObject Weapon)
         {
-            if (damage > 100)
+            if (damage > 10)
             {
                 ZombieStateController.ChangeZombieState(ZombieStates.ZombieDead);
+
+                attachedWeapon = Weapon;
+                joint = attachedWeapon.gameObject.AddComponent<FixedJoint>();
+                joint.connectedBody = this.GetComponent<Rigidbody>();
+
+                joint.enableCollision = false; //collision between two game objects.
+                joint.breakForce = 1000f;
+                joint.breakTorque = 1000f;
             }
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnJointBreak(float breakForce)
         {
-            //if (collision.gameObject.layer == 1 << LayerMask.NameToLayer("Weapon"))
-            //{
-            //    if (ZombieStateController.currentZombieState == ZombieStates.ZombieDead)
-            //    {
-            //        FixedJoint joint = collision.gameObject.AddComponent<FixedJoint>();
-            //        joint.connectedBody = this.GetComponent<Rigidbody>();
-            //    }
-            //}
-        }
-
-        private void OnCollisionExit(Collision collision)
-        {
-            //if (collision.gameObject.layer == 1 << LayerMask.NameToLayer("Weapon"))
-            //{
-            //    StabbedWeapon.Add(collision.gameObject);
-            //}
+            joint.connectedBody = null;
         }
     }
 }

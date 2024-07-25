@@ -27,7 +27,7 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateUpdate()
         {
-            if (Vector3.Distance(SearchPosition, _zombieManager.transform.position) < 0.2f) 
+            if (Vector3.Distance(SearchPosition, _zombieManager.transform.position) < 1f) 
             { zombieStateController.ChangeZombieState(ZombieStates.ZombieLookAround); }
         }
 

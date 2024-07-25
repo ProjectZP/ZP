@@ -20,13 +20,22 @@ namespace ZP.BHS.Zombie
             _agent.isStopped = false;
         }
 
+        float reChaseTime = 0;
         public override void OnStateUpdate()
         {
-            _agent.SetDestination(_zombieManager.Target.transform.position);
+            reChaseTime += Time.deltaTime;
+
+            if (reChaseTime > 0.3f)
+            {
+                reChaseTime = 0f;
+                _agent.SetDestination(_zombieManager.Target.transform.position);
+            }
 
             if (Vector3.Distance(_zombieManager.Target.transform.position,
                     _zombieManager.transform.position) < _zombieManager.zombieStatus.AttackRange)
             { zombieStateController.ChangeZombieState(ZombieStates.ZombieAttack); }
+
+            
         }
 
         public override void OnStateExit()

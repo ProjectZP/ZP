@@ -12,7 +12,7 @@ namespace ZP.BHS.Zombie
         static public float WalkSpeed = 1;
         static public float CrawlSpeed = 0.5f;
         static public float AttackSpeed = 2f;
-        static public float AttackRange = 1.5f;
+        static public float AttackRange = 0.5f;
         static public float SightAngle = 80;
         static public float SightRange = 10;
         static public float ChaseAngle = 80;

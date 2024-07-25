@@ -21,6 +21,7 @@ namespace ZP.BHS.Zombie
 
         public Rigidbody[] RagdollRigidbody;
         public Collider[] RagdollCollider;
+        public CharacterJoint[] characterJoints;
 
         public ZombieStates currentZombieState { get; private set; }
         private Dictionary<ZombieStates, ZombieState> zombieStateDictionary;
@@ -35,6 +36,21 @@ namespace ZP.BHS.Zombie
 
             RagdollRigidbody = GetComponentsInChildren<Rigidbody>();
             RagdollCollider = GetComponentsInChildren<Collider>();
+
+            characterJoints = GetComponentsInChildren<CharacterJoint>();
+
+
+            Debug.Log(characterJoints.Length);
+            for(int ix = 0; ix < characterJoints.Length; ix++)
+            {
+                characterJoints[ix].enableProjection = true;
+            }
+
+            for (int ix = 0; ix < RagdollRigidbody.Length; ix++)
+            {
+                RagdollRigidbody[ix].mass = 7f;
+                RagdollRigidbody[ix].isKinematic = true;
+            }
         }
 
 
