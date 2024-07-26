@@ -5,6 +5,8 @@ namespace ZP.SJH.Weapon
 {
     public class Axe : BaseWeapon, IWeapon
     {
+        public BoxCollider trigboxcol; //BHS Added.
+
         public override WeaponData WeaponData
         {
             get => _weaponData;
@@ -23,13 +25,38 @@ namespace ZP.SJH.Weapon
                 _rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void OnCollisionEnter(Collision collision)
+        //private void OnCollisionEnter(Collision collision) //BHS Added.
+        //{
+        //    if (collision.gameObject.layer == ZombieLayer && _rigidbody.velocity.magnitude >= _weaponData.MinVelocity && collision.gameObject.GetComponent<ZombieHeadDefense>())
+        //    {
+        //        collision.gameObject.GetComponent<ZombieHeadDefense>()
+        //            .OnGetDamaged?.Invoke(CalculateDamage(),this.gameObject);
+        //    }
+        //}
+
+        private void OnTriggerEnter(Collider other) //BHS Added.
         {
-            if (collision.gameObject.layer == ZombieLayer && _rigidbody.velocity.magnitude >= _weaponData.MinVelocity && collision.gameObject.GetComponent<ZombieDamageController>())
+            Debug.Log("Axe Damage : " + CalculateDamage());
+            if (CalculateDamage() > 1000f)
             {
-                collision.gameObject.GetComponent<ZombieDamageController>()
-                    .OnGetDamaged?.Invoke(CalculateDamage(),this.gameObject);
+                Debug.Log("Damage Over Defense");
+                Debug.Log(other.name);
             }
+            else
+            {
+                trigboxcol.isTrigger = false; //BHS Added.
+                Debug.Log("Damage Under Defense.");
+            }
+            //if (other.gameObject.layer == ZombieLayer && other.gameObject.GetComponent<ZombieCore>()) //other.gameObject.GetComponent<ZombieHeadDefense>() _rigidbody.velocity.magnitude >= _weaponData.MinVelocity && 
+            //{
+            //    other.gameObject.GetComponent<ZombieCore>()
+            //        .OnGetDamaged?.Invoke(CalculateDamage(), this.gameObject);
+            //}
+        }
+
+        private void OnTriggerExit(Collider other) //BHS Added.
+        {
+            trigboxcol.isTrigger = true;
         }
 
         private void Update()
@@ -44,8 +71,8 @@ namespace ZP.SJH.Weapon
             if (_handCount < 2)
                 damage /= 3f;
 
-            if (damage > 1f)
-                Debug.Log("DAMANNNNAAAAAAA" + damage);
+            //if (damage > 1f) // BHS Did.
+            //    Debug.Log("DAMANNNNAAAAAAA" + damage);
 
             return damage;
         }

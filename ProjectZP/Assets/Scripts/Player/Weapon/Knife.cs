@@ -23,10 +23,10 @@ namespace ZP.SJH.Weapon
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.layer == ZombieLayer && _rigidbody.velocity.magnitude >= _weaponData.MinVelocity && collision.gameObject.GetComponent<ZombieDamageController>())
+            if (collision.gameObject.layer == ZombieLayer && _rigidbody.velocity.magnitude >= _weaponData.MinVelocity && collision.gameObject.GetComponent<ZombieHeadDefense>())
             {
-                collision.gameObject.GetComponent<ZombieDamageController>()
-                    .OnGetDamaged?.Invoke(CalculateDamage(), this.gameObject);
+                //collision.gameObject.GetComponent<ZombieHeadDefense>() //BHS Did.
+                //    .OnGetDamaged?.Invoke(CalculateDamage(), this.gameObject);
             }
         }
 
