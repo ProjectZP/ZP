@@ -7,7 +7,7 @@ namespace ZP.BHS.Zombie
 {
     class ZombiePatrol : ZombieState
     {
-        private float _movingTime = 3;
+        private float _movingTime;
         private float _passedTime = 0;
         private const float _movingSpeed = 3;
 
@@ -32,6 +32,8 @@ namespace ZP.BHS.Zombie
 
             _agent.isStopped = false;
             _agent.SetDestination(_heading);
+
+            _movingTime = UnityEngine.Random.Range(3f,7f);
         }
 
         public override void OnStateUpdate()

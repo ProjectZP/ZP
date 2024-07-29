@@ -5,6 +5,8 @@ namespace ZP.SJH.Weapon
 {
     public class Axe : BaseWeapon, IWeapon
     {
+        public BoxCollider trigboxcol; //BHS Added.
+
         public override WeaponData WeaponData
         {
             get => _weaponData;
@@ -32,6 +34,21 @@ namespace ZP.SJH.Weapon
                 other.gameObject.GetComponent<ZombieDamageController>()
                     .OnGetDamaged?.Invoke(CalculateDamage(), this.gameObject);
             }
+            else
+            {
+                trigboxcol.isTrigger = false; //BHS Added.
+                Debug.Log("Damage Under Defense.");
+            }
+            //if (other.gameObject.layer == ZombieLayer && other.gameObject.GetComponent<ZombieCore>()) //other.gameObject.GetComponent<ZombieHeadDefense>() _rigidbody.velocity.magnitude >= _weaponData.MinVelocity && 
+            //{
+            //    other.gameObject.GetComponent<ZombieCore>()
+            //        .OnGetDamaged?.Invoke(CalculateDamage(), this.gameObject);
+            //}
+        }
+
+        private void OnTriggerExit(Collider other) //BHS Added.
+        {
+            trigboxcol.isTrigger = true;
         }
 
         private void Update()

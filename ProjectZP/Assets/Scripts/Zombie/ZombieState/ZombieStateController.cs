@@ -34,13 +34,11 @@ namespace ZP.BHS.Zombie
             zombieManager = GetComponent<ZombieManager>();
             InitZombieStateDictionary();
 
-            RagdollRigidbody = GetComponentsInChildren<Rigidbody>();
-            RagdollCollider = GetComponentsInChildren<Collider>();
+            RagdollRigidbody = transform.GetChild(0).GetComponentsInChildren<Rigidbody>();
+            RagdollCollider = transform.GetChild(0).GetComponentsInChildren<Collider>();
 
             characterJoints = GetComponentsInChildren<CharacterJoint>();
 
-
-            Debug.Log(characterJoints.Length);
             for(int ix = 0; ix < characterJoints.Length; ix++)
             {
                 characterJoints[ix].enableProjection = true;
@@ -48,7 +46,7 @@ namespace ZP.BHS.Zombie
 
             for (int ix = 0; ix < RagdollRigidbody.Length; ix++)
             {
-                RagdollRigidbody[ix].mass = 0.1f;
+                RagdollRigidbody[ix].mass = 1f;
                 RagdollRigidbody[ix].isKinematic = true;
             }
         }
@@ -74,9 +72,6 @@ namespace ZP.BHS.Zombie
             {
                 return;
             }
-            Debug.Log($"{changingState}");
-
-
 
             currentZombieStateAction.OnStateExit();
             currentZombieState = changingState;

@@ -11,9 +11,9 @@ namespace ZP.BHS.Zombie
     class ZombieIdle : ZombieState
     {
         private float _passedTime = 0;
-        private int _waitingTime = 0;
-        private const int _waitingMinimum = 4;
-        private const int _waitingMaximum = 6;
+        private float _waitingTime = 0;
+        private const float _waitingMinimum = 4;
+        private const float _waitingMaximum = 6;
         private ZombieSightStateController _zombieSight;
 
         public ZombieIdle(ZombieStateController zombieStateController) : base(zombieStateController)

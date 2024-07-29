@@ -28,8 +28,6 @@ namespace ZP.BHS.Zombie
                 zombieStateController.RagdollRigidbody[ix].velocity = Vector3.zero;
             }
 
-            _zombieManager.transform.position += Vector3.up * 0.2f;
-
             _agent.isStopped = true; //Todo:
             _agent.velocity = Vector3.zero;
             _agent.acceleration = 0f;

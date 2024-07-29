@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using Unity.Properties;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
@@ -24,6 +27,8 @@ namespace ZP.BHS.Zombie
         public PlayerManager Target = null;
         public Vector3 targetposition;
 
+        [SerializeField] public Rig HeadIK;
+ 
         private void Awake()
         {
             zombieStatus = new ZombieStatus(zombieType);
@@ -32,6 +37,7 @@ namespace ZP.BHS.Zombie
             _zombieSight = GetComponentInChildren<ZombieSightStateController>();
             zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle);
             _zombieSight.OnPlayerGetInSight += SetTarget;
+            HeadIK.weight = 0;
         }
 
         private void SetTarget(PlayerManager target)

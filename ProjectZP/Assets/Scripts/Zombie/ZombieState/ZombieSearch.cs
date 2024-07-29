@@ -11,6 +11,9 @@ namespace ZP.BHS.Zombie
     {
         Vector3 SearchPosition;
 
+        private float searchTime;
+        private float searchEndTime = 10f;
+
         public ZombieSearch(ZombieStateController zombieStateController) : base(zombieStateController)
         {
 
@@ -27,7 +30,11 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateUpdate()
         {
+            searchTime += Time.deltaTime;
             if (Vector3.Distance(SearchPosition, _zombieManager.transform.position) < 1f) 
+            { zombieStateController.ChangeZombieState(ZombieStates.ZombieLookAround); }
+
+            if ( searchTime > searchEndTime)
             { zombieStateController.ChangeZombieState(ZombieStates.ZombieLookAround); }
         }
 
