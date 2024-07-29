@@ -6,6 +6,9 @@ namespace ZP.SJH.Weapon
     public class Axe : BaseWeapon, IWeapon
     {
         [SerializeField] BoxCollider _trigger;
+        private Vector3 _positionBuffer;
+        private float _velocity;
+        private float _elapsedTime = 0f;
 
         public override WeaponData WeaponData
         {
@@ -23,15 +26,23 @@ namespace ZP.SJH.Weapon
                 _weaponData = Resources.Load("Data/AxeData") as WeaponData;
             if (_rigidbody == null)
                 _rigidbody = GetComponent<Rigidbody>();
+            _positionBuffer = transform.position;
         }
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log("Trigger Enter");
+            Debug.Log(other.gameObject.layer);
+            Debug.Log(other.gameObject.GetComponent<ZombieCore>());
+
             var damage = CalculateDamage();
+            Debug.Log(damage);
+
             if (other.gameObject.layer == ZombieLayer
                 && other.gameObject.GetComponent<ZombieCore>()
                 && damage > 60f)
             {
+                Debug.Log("Zombie!");
                 other.gameObject.GetComponent<ZombieCore>()
                     .OnGetDamaged?.Invoke(damage, this.gameObject);
             }
@@ -46,12 +57,23 @@ namespace ZP.SJH.Weapon
 
         private void Update()
         {
+            _elapsedTime += Time.deltaTime;
+            if(_elapsedTime > 0.1f)
+            {
+                _velocity = ((transform.position - _positionBuffer) / 0.1f).magnitude;
+                //_velocity -= abs(triggerValue) * moveSpeed;
+                _positionBuffer = transform.position;
+                _elapsedTime = 0f;
+            }
+            Debug.LogWarning(_velocity);
             CalculateDamage();
+
+            
         }
 
         public float CalculateDamage()
         {
-            float damage = _weaponData.Sharpness * _rigidbody.velocity.magnitude;
+            float damage = _weaponData.Sharpness * _velocity;
 
             if (_handCount < 2)
                 damage /= 3f;

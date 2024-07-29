@@ -365,6 +365,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2207895744075248052, guid: 727189861ebb66f4e860d88dad3096b3, type: 3}
+      propertyPath: _test
+      value: 
+      objectReference: {fileID: 2098907016}
+    - target: {fileID: 2207895744075248052, guid: 727189861ebb66f4e860d88dad3096b3, type: 3}
       propertyPath: _trigger
       value: 
       objectReference: {fileID: 766827011}
@@ -2494,8 +2498,16 @@ PrefabInstance:
       propertyPath: m_MaxRaycastDistance
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3762735189569908880, guid: f03faa08d8a6b0643a81a282e8823bd2, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5261997003661444873, guid: f03faa08d8a6b0643a81a282e8823bd2, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503254872528143132, guid: f03faa08d8a6b0643a81a282e8823bd2, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5580947004434781167, guid: f03faa08d8a6b0643a81a282e8823bd2, type: 3}
@@ -2535,6 +2547,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f03faa08d8a6b0643a81a282e8823bd2, type: 3}
+--- !u!54 &2098907016 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3762735189569908880, guid: f03faa08d8a6b0643a81a282e8823bd2, type: 3}
+  m_PrefabInstance: {fileID: 2098907015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6360565069101880482
 PrefabInstance:
   m_ObjectHideFlags: 0
