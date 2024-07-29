@@ -31,6 +31,7 @@ namespace ZP.BHS.Zombie
                 _zombieManager.refTransform.position.y + (float)z);
 
             _agent.isStopped = false;
+            _agent.speed = _zombieManager.zombieStatus.WalkSpeed;
             _agent.SetDestination(_heading);
 
             _movingTime = UnityEngine.Random.Range(3f,7f);

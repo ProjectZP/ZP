@@ -16,7 +16,8 @@ namespace ZP.BHS.Zombie
         }
 
         public float Defense { get; private set; }
-        public float WalkSpeed { get; private set; } = 3;
+        public float WalkSpeed { get; private set; }
+        public float RunSpeed { get; private set; }
         public float AttackSpeed { get; private set; }
         public float AttackRange { get; private set; }
         public float SightAngle { get; private set; }
@@ -40,6 +41,7 @@ namespace ZP.BHS.Zombie
 
             Defense         = float.Parse(data["Defense"]);
             WalkSpeed       = float.Parse(data["WalkSpeed"]);
+            RunSpeed        = float.Parse(data["RunSpeed"]);
             AttackSpeed     = float.Parse(data["AttackSpeed"]);
             AttackRange     = float.Parse(data["AttackRange"]);
             SightAngle      = float.Parse(data["SightAngle"]);

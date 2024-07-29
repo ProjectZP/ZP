@@ -21,7 +21,7 @@ namespace ZP.BHS.Zombie
         public override void OnStateUpdate()
         {
             _passedTime += Time.deltaTime;
-            if( _passedTime > _zombieManager.zombieStatus.AttackSpeed ) 
+            if (_passedTime > _zombieManager.zombieStatus.AttackSpeed)
             {
                 _passedTime = 0;
                 JudgeNextState();
@@ -39,9 +39,9 @@ namespace ZP.BHS.Zombie
         {
             Debug.Log("Attack");
             _passedTime = 0;
-            if(Vector3.Distance(_zombieManager.Target.transform.position,_zombieManager.transform.position) < _zombieManager.zombieStatus.AttackRange)
+            if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.refTransform.position) < _zombieManager.zombieStatus.AttackRange)
             {
-                _zombieManager.Target.GetComponent<PlayerStatusManager>().Hp = 0;
+                _zombieManager.Target.GetComponent<PlayerStatusManager>().Hp -= 10;
             }
             //Todo: RotateZombie Body to Player Loaction.
             //Todo: Do AttackAnimation.
@@ -50,7 +50,7 @@ namespace ZP.BHS.Zombie
         //This method Listen OnAttackEnd event.
         private void JudgeNextState()
         {
-            if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.transform.position)
+            if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.refTransform.position)
                 <= _zombieManager.zombieStatus.AttackRange)
             {
                 // _zombieManager.Target.OnPlayerDamaged().Invoke(_zombieManager.zombieStatus.Damage); //Todo:

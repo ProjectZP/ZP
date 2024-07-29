@@ -18,6 +18,7 @@ namespace ZP.BHS.Zombie
         public override void OnStateEnter()
         {
             _agent.isStopped = false;
+            _agent.speed = _zombieManager.zombieStatus.RunSpeed;
         }
 
         float reChaseTime = 0;
@@ -32,7 +33,7 @@ namespace ZP.BHS.Zombie
             }
 
             if (Vector3.Distance(_zombieManager.Target.transform.position,
-                    _zombieManager.transform.position) < _zombieManager.zombieStatus.AttackRange)
+                    _zombieManager.refTransform.position) < _zombieManager.zombieStatus.AttackRange)
             { zombieStateController.ChangeZombieState(ZombieStates.ZombieAttack); }
 
             

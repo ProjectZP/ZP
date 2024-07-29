@@ -1568,6 +1568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieType: 0
+  _chestTransform: {fileID: 6099402102497965847}
   Target: {fileID: 0}
   targetposition: {x: 0, y: 0, z: 0}
   HeadIK: {fileID: 575493698899834933}
