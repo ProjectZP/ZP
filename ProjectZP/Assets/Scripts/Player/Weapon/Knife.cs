@@ -5,6 +5,7 @@ namespace ZP.SJH.Weapon
 {
     public class Knife : BaseWeapon, IWeapon
     {
+        [SerializeField] private  CapsuleCollider _trigger;
         public override WeaponData WeaponData
         {
             get => _weaponData;
@@ -23,13 +24,22 @@ namespace ZP.SJH.Weapon
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == ZombieLayer 
-                && _rigidbody.velocity.magnitude >= _weaponData.MinVelocity 
-                && other.gameObject.GetComponent<ZombieDamageController>())
+            var damage = CalculateDamage();
+            if (other.gameObject.layer == ZombieLayer
+                && other.gameObject.GetComponent<ZombieCore>()
+                && damage > 60f)
             {
-                other.gameObject.GetComponent<ZombieDamageController>()
-                    .OnGetDamaged?.Invoke(CalculateDamage(), this.gameObject);
+                other.gameObject.GetComponent<ZombieCore>()
+                    .OnGetDamaged?.Invoke(damage, this.gameObject);
             }
+            else
+                _trigger.isTrigger = false;
+        }
+
+
+        private void OnTriggerExit(Collider other)
+        {
+            _trigger.isTrigger = true;
         }
 
         public float CalculateDamage()
@@ -65,6 +75,8 @@ namespace ZP.SJH.Weapon
         }
 
         public void SetConstraint(bool isFreeze)
-            => _rigidbody.constraints = isFreeze ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
+            => _rigidbody.constraints = isFreeze 
+            ? RigidbodyConstraints.FreezeAll 
+            : RigidbodyConstraints.None;
     }
 }

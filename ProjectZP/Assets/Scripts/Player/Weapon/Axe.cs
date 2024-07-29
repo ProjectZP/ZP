@@ -5,7 +5,7 @@ namespace ZP.SJH.Weapon
 {
     public class Axe : BaseWeapon, IWeapon
     {
-        public BoxCollider trigboxcol; //BHS Added.
+        [SerializeField] BoxCollider _trigger;
 
         public override WeaponData WeaponData
         {
@@ -27,28 +27,21 @@ namespace ZP.SJH.Weapon
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == ZombieLayer 
-                && _rigidbody.velocity.magnitude >= _weaponData.MinVelocity 
-                && other.gameObject.GetComponent<ZombieDamageController>())
+            var damage = CalculateDamage();
+            if (other.gameObject.layer == ZombieLayer
+                && other.gameObject.GetComponent<ZombieCore>()
+                && damage > 60f)
             {
-                other.gameObject.GetComponent<ZombieDamageController>()
-                    .OnGetDamaged?.Invoke(CalculateDamage(), this.gameObject);
+                other.gameObject.GetComponent<ZombieCore>()
+                    .OnGetDamaged?.Invoke(damage, this.gameObject);
             }
             else
-            {
-                trigboxcol.isTrigger = false; //BHS Added.
-                Debug.Log("Damage Under Defense.");
-            }
-            //if (other.gameObject.layer == ZombieLayer && other.gameObject.GetComponent<ZombieCore>()) //other.gameObject.GetComponent<ZombieHeadDefense>() _rigidbody.velocity.magnitude >= _weaponData.MinVelocity && 
-            //{
-            //    other.gameObject.GetComponent<ZombieCore>()
-            //        .OnGetDamaged?.Invoke(CalculateDamage(), this.gameObject);
-            //}
+                _trigger.isTrigger = false;
         }
 
-        private void OnTriggerExit(Collider other) //BHS Added.
+        private void OnTriggerExit(Collider other)
         {
-            trigboxcol.isTrigger = true;
+            _trigger.isTrigger = true;
         }
 
         private void Update()
@@ -95,7 +88,9 @@ namespace ZP.SJH.Weapon
         }
 
         public void SetConstraint(bool isFreeze) 
-            => _rigidbody.constraints = isFreeze ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
+            => _rigidbody.constraints = isFreeze 
+            ? RigidbodyConstraints.FreezeAll 
+            : RigidbodyConstraints.None;
 
         public int GetHandCount()
         {
