@@ -1,14 +1,12 @@
 using UnityEngine;
 using ZP.BHS.Zombie;
+using ZP.SJH.Player;
 
 namespace ZP.SJH.Weapon
 {
     public class Axe : BaseWeapon, IWeapon
     {
         [SerializeField] BoxCollider _trigger;
-        private Vector3 _positionBuffer;
-        private float _velocity;
-        private float _elapsedTime = 0f;
 
         public override WeaponData WeaponData
         {
@@ -31,18 +29,11 @@ namespace ZP.SJH.Weapon
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Trigger Enter");
-            Debug.Log(other.gameObject.layer);
-            Debug.Log(other.gameObject.GetComponent<ZombieCore>());
-
             var damage = CalculateDamage();
-            Debug.Log(damage);
-
             if (other.gameObject.layer == ZombieLayer
                 && other.gameObject.GetComponent<ZombieCore>()
                 && damage > 60f)
             {
-                Debug.Log("Zombie!");
                 other.gameObject.GetComponent<ZombieCore>()
                     .OnGetDamaged?.Invoke(damage, this.gameObject);
             }
@@ -61,14 +52,13 @@ namespace ZP.SJH.Weapon
             if(_elapsedTime > 0.1f)
             {
                 _velocity = ((transform.position - _positionBuffer) / 0.1f).magnitude;
-                //_velocity -= abs(triggerValue) * moveSpeed;
+
+                if (_handCount > 0 && _playerManager != null)
+                    _velocity -= Mathf.Abs(_playerManager.MoveValue) * _playerManager.MoveSpeed;
                 _positionBuffer = transform.position;
                 _elapsedTime = 0f;
             }
-            Debug.LogWarning(_velocity);
             CalculateDamage();
-
-            
         }
 
         public float CalculateDamage()
@@ -98,6 +88,8 @@ namespace ZP.SJH.Weapon
         /// <param name="isMoving"></param>
         public void Equip(bool isMoving)
         {
+            if(_playerManager == null)
+                _playerManager = FindAnyObjectByType<PlayerManager>();
             if(isMoving == false)
                 _handCount++;
             _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
