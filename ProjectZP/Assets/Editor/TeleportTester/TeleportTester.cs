@@ -10,8 +10,9 @@ namespace ZP.Villin.TestModule
     {
         [SerializeField] private TeleportManager _teleportManager;
         [SerializeField] private PlayerManager _playerManager;
-        [SerializeField] private EndStageDoorController _endStageDoorController;
-        [SerializeField] private Vector3 _stairPosition = new Vector3(45.8899994f, 0.519999981f, 2.45000005f);
+        [SerializeField] private RightEndStageDoorController _rightEndStageDoorController;
+        [SerializeField] private LeftEndStageDoorController _leftEndStageDoorController;
+        [SerializeField] private Vector3 _stairPosition = new Vector3(30.8899994f, 0.519999981f, 2.45000005f);
 
         private void OnGUI()
         {
@@ -32,9 +33,10 @@ namespace ZP.Villin.TestModule
                 _teleportManager = FindFirstObjectByType<TeleportManager>();
             }
 
-            if (_endStageDoorController == null)
+            if (_rightEndStageDoorController == null || _leftEndStageDoorController == null)
             {
-                _endStageDoorController = FindFirstObjectByType<EndStageDoorController>();
+                _rightEndStageDoorController = FindFirstObjectByType<RightEndStageDoorController>();
+                _leftEndStageDoorController = FindFirstObjectByType<LeftEndStageDoorController>();
             }
 
             if (_playerManager == null)
@@ -48,16 +50,27 @@ namespace ZP.Villin.TestModule
             _teleportManager = EditorGUILayout.ObjectField("TeleportManager", _teleportManager, typeof(GameObject), true) as TeleportManager;
 
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("ExcuteTeleport", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
+            if (GUILayout.Button("ExcuteRightTeleport", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
             {
-                _endStageDoorController.ActivateCollision();
+                _rightEndStageDoorController.ActivateCollision();
+            }
+            if (GUILayout.Button("ExcuteLeftTeleport", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
+            {
+                _leftEndStageDoorController.ActivateCollision();
             }
             GUILayout.EndHorizontal();
+
             GUILayout.BeginHorizontal();
 
             if (GUILayout.Button("PlayerToStair", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
             {
-                _playerManager.gameObject.transform.position = _stairPosition;
+                if (_teleportManager.GetNowRemainTeleportCount() % 2 == 0)
+                {
+                    _playerManager.gameObject.transform.position = _stairPosition;
+                }
+                else {
+                    _playerManager.gameObject.transform.position = new Vector3(-30.8899994f, 0.519999981f, 2.45000005f);
+                }
             }
             if (GUILayout.Button("PlayerToOne", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
             {
