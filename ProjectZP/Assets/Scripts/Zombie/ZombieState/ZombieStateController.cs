@@ -39,8 +39,6 @@ namespace ZP.BHS.Zombie
 
             characterJoints = GetComponentsInChildren<CharacterJoint>();
 
-
-            Debug.Log(characterJoints.Length);
             for(int ix = 0; ix < characterJoints.Length; ix++)
             {
                 characterJoints[ix].enableProjection = true;
@@ -74,9 +72,6 @@ namespace ZP.BHS.Zombie
             {
                 return;
             }
-            Debug.Log($"{changingState}");
-
-
 
             currentZombieStateAction.OnStateExit();
             currentZombieState = changingState;

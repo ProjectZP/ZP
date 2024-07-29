@@ -90,10 +90,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.09062199
-  m_Height: 0.45310995
+  m_Radius: 0.029311817
+  m_Height: 0.2883414
   m_Direction: 0
-  m_Center: {x: -0.22655497, y: 0, z: 0}
+  m_Center: {x: -0.1441706, y: -0.008124558, z: -0.00000026041505}
 --- !u!54 &3690257682393802914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -684,10 +684,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.11788174
-  m_Height: 0.39293912
+  m_Radius: 0.08470469
+  m_Height: 0.3929391
   m_Direction: 0
-  m_Center: {x: -0.19646956, y: 0, z: 0}
+  m_Center: {x: -0.19646956, y: 0.000000001028509, z: -0.009991006}
 --- !u!54 &3583394028853058174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1096,10 +1096,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.11788194
+  m_Radius: 0.07488403
   m_Height: 0.39293978
   m_Direction: 0
-  m_Center: {x: -0.19646989, y: 0, z: 0}
+  m_Center: {x: -0.19646962, y: 0.0000000032364458, z: 0.0031700518}
 --- !u!54 &6124793367271435099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1384,10 +1384,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.11844956
-  m_Height: 0.47379825
+  m_Radius: 0.050026312
+  m_Height: 0.47379827
   m_Direction: 0
-  m_Center: {x: -0.23689912, y: 0, z: 0}
+  m_Center: {x: -0.23689821, y: 0.000000056049146, z: -0.0005501601}
 --- !u!54 &7595979676270040991
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1544,7 +1544,7 @@ Animator:
   m_GameObject: {fileID: 5238225646009838798}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
-  m_Controller: {fileID: 9100000, guid: eb191a313da7d8842b773d4aaf332ca3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 87b119436b1233f478501bbf60765fd7, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1567,7 +1567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccaf29bf9d0aff248acb7bf3fd4540c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieType: 1
+  zombieType: 0
   Target: {fileID: 0}
   targetposition: {x: 0, y: 0, z: 0}
   HeadIK: {fileID: 575493698899834933}
@@ -1925,8 +1925,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2708025, y: 0.28194922, z: 0.35512733}
-  m_Center: {x: -0.13540125, y: 0.0031102449, z: 0.000000029802322}
+  m_Size: {x: 0.2708025, y: 0.17505753, z: 0.2864834}
+  m_Center: {x: -0.13540146, y: 0.05283746, z: 0.0050861463}
 --- !u!54 &5799103225908328628
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2107,6 +2107,7 @@ MonoBehaviour:
   NeckSpring: {fileID: 4984895420543922533}
   Spine: {fileID: 6573500671178280060}
   Head: {fileID: 6118528571572647854}
+  BloodEffect: {fileID: 0}
 --- !u!1 &6573500671178280060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,8 +2162,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.30387646, y: 0.2768308, z: 0.35512733}
-  m_Center: {x: -0.15193853, y: -0.024180874, z: 0.00000008940697}
+  m_Size: {x: 0.27355635, y: 0.1803691, z: 0.28041017}
+  m_Center: {x: -0.16709863, y: -0.007520073, z: -0.005158404}
 --- !u!54 &3039423254974573062
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2322,10 +2323,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.11845907
-  m_Height: 0.47383627
+  m_Radius: 0.062231608
+  m_Height: 0.47383624
   m_Direction: 0
-  m_Center: {x: -0.23691814, y: 0, z: 0}
+  m_Center: {x: -0.23691973, y: 0.0000003260291, z: -0.006055487}
 --- !u!54 &7747849327904765045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2516,10 +2517,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.06643533
-  m_Height: 0.26574132
+  m_Radius: 0.057098787
+  m_Height: 0.26574135
   m_Direction: 0
-  m_Center: {x: -0.13287066, y: 0, z: 0}
+  m_Center: {x: -0.13287064, y: 0.010481534, z: 0.023949157}
 --- !u!54 &4167560760237065736
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2997,7 +2998,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 1024
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 256
@@ -3259,10 +3260,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.09062215
-  m_Height: 0.45311075
+  m_Radius: 0.03554495
+  m_Height: 0.3076386
   m_Direction: 0
-  m_Center: {x: -0.22655538, y: 0, z: 0}
+  m_Center: {x: -0.15381895, y: -0.0039171674, z: -0.000000038168544}
 --- !u!54 &3433396399931693936
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3390,10 +3391,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.06643531
-  m_Height: 0.26574123
+  m_Radius: 0.03908053
+  m_Height: 0.2657412
   m_Direction: 0
-  m_Center: {x: -0.13287061, y: 0, z: 0}
+  m_Center: {x: -0.1328704, y: -0.00023333456, z: -0.0022013101}
 --- !u!54 &1531670480155939513
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.Animations.Rigging;
 
 namespace ZP.BHS.Zombie
 {
@@ -9,17 +9,15 @@ namespace ZP.BHS.Zombie
         ZombieStateController ZombieStateController;
         ZombieManager ZombieManager;
 
-
-
         private void Awake()
         {
             ZombieStateController = GetComponentInParent<ZombieStateController>();
             ZombieManager = GetComponentInParent<ZombieManager>();
         }
 
-        private void OnCollisionEnter(Collision collision) //Todo: Weight Return To it's original value = not wanted.
+        private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log("WeaponDetected");
+            StopCoroutine(RigWeightReturnstoZero());
             ZombieManager.HeadIK.weight = 1;
         }
 
@@ -31,9 +29,16 @@ namespace ZP.BHS.Zombie
 
         private void OnCollisionExit(Collision collision)
         {
-            Debug.Log("WeaponAway");
-            ZombieManager.HeadIK.weight = 0;
+            StartCoroutine(RigWeightReturnstoZero());
         }
 
+        private IEnumerator RigWeightReturnstoZero()
+        {
+            while (ZombieManager.HeadIK.weight > 0)
+            {
+                ZombieManager.HeadIK.weight -= Time.deltaTime;
+                yield return null;
+            }
+        }
     }
 }

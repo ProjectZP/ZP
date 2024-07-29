@@ -53,6 +53,7 @@ namespace ZP.BHS.Zombie
             if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.transform.position)
                 <= _zombieManager.zombieStatus.AttackRange)
             {
+                // _zombieManager.Target.OnPlayerDamaged().Invoke(_zombieManager.zombieStatus.Damage); //Todo:
                 DoAttack();
             }
             else

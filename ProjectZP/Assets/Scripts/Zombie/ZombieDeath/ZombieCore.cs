@@ -22,36 +22,33 @@ namespace ZP.BHS.Zombie
         [SerializeField] SpringJoint NeckSpring;
         [SerializeField] GameObject Spine;
         [SerializeField] GameObject Head;
+        [SerializeField] GameObject BloodEffect;
+        GameObject neck;
 
         private void Awake()
         {
             zombieManager = GetComponentInParent<ZombieManager>();
             zombieStateController = GetComponentInParent<ZombieStateController>();
+            neck = NeckSpring.gameObject;
         }
 
         private void Start()
         {
-            //OnGetDamaged?.AddListener(CalcuateDamage);
+            OnGetDamaged?.AddListener(CalcuateDamage);
         }
 
         public void CalcuateDamage(float damage, GameObject Weapon) //Todo: Core Script
         {
-            if (damage > 10f)
+            if (damage > 60f)
             {
                 Debug.Log("Damage Over Defense");
-                zombieStateController.ChangeZombieState(ZombieStates.ZombieDead);
-            }
-        }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Weapon") && zombieStateController.currentZombieState != ZombieStates.ZombieDead)
-            {
-                Debug.Log("Core Damaged");
+                //============================
+                //Debug.Log("Core Damaged");
 
                 zombieStateController.ChangeZombieState(ZombieStates.ZombieDead);
 
-                attachedWeapon = other.transform.gameObject;
+                attachedWeapon = Weapon.transform.gameObject;
                 joint = attachedWeapon.gameObject.AddComponent<FixedJoint>();
                 joint.connectedBody = this.GetComponent<Rigidbody>();
 
@@ -61,13 +58,45 @@ namespace ZP.BHS.Zombie
 
                 zombieManager.HeadIK.transform.GetComponentInChildren<TwoBoneIKConstraint>().weight = 0;
 
+                Instantiate(BloodEffect, transform.position, Weapon.transform.rotation);
+                
                 Destroy(NeckSpring);
-                Destroy(NeckSpring.GetComponent<CharacterJoint>());
-                Destroy(NeckSpring.GetComponent<Rigidbody>());
+                Destroy(neck.GetComponent<CharacterJoint>());
+                Destroy(neck.GetComponent<Rigidbody>());
+                
 
                 Head.GetComponent<CharacterJoint>().connectedBody = Spine.GetComponent<Rigidbody>();
+                //============================
+
+                //zombieStateController.ChangeZombieState(ZombieStates.ZombieDead);
             }
         }
+
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.gameObject.layer == LayerMask.NameToLayer("Weapon") && zombieStateController.currentZombieState != ZombieStates.ZombieDead)
+        //    {
+        //        Debug.Log("Core Damaged");
+
+        //        zombieStateController.ChangeZombieState(ZombieStates.ZombieDead);
+
+        //        attachedWeapon = other.transform.gameObject;
+        //        joint = attachedWeapon.gameObject.AddComponent<FixedJoint>();
+        //        joint.connectedBody = this.GetComponent<Rigidbody>();
+
+        //        joint.enableCollision = false; //collision between two game objects.
+        //        joint.breakForce = 500f;
+        //        joint.breakTorque = 500f;
+
+        //        zombieManager.HeadIK.transform.GetComponentInChildren<TwoBoneIKConstraint>().weight = 0;
+
+        //        Destroy(NeckSpring);
+        //        Destroy(NeckSpring.GetComponent<CharacterJoint>());
+        //        Destroy(NeckSpring.GetComponent<Rigidbody>());
+
+        //        Head.GetComponent<CharacterJoint>().connectedBody = Spine.GetComponent<Rigidbody>();
+        //    }
+        //}
         private void OnCollisionEnter(Collision collision)
         {
 
