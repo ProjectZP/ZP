@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using ZP.SJH.Player;
 
@@ -8,21 +9,23 @@ namespace ZP.Villin.Teleport
     public enum DoorStateList
     {
         None,
-        DoorClose,
         DoorOpen,
+        DoorClose,
         Length
     }
 
 
     public abstract class DoorController : MonoBehaviour
     {
-        [SerializeField] private GameObject _collision;
-        [SerializeField] private Animator _animator;
+        [SerializeField] private GameObject _transparentCollision;
+        [SerializeField] private Animator _leftDoorAnimator;
+        [SerializeField] private Animator _rightDoorAnimator;
         [SerializeField] private DoorStateList _state = DoorStateList.None;
         protected PlayerManager _playerManager;
         protected TeleportManager _teleportManager;
         protected const float _animationTimeout = 10f;
         protected bool _isPlayerOnEndStageRegion;
+        protected bool _isRightDoorActivated;
 
 
         protected virtual void Awake()
@@ -46,9 +49,9 @@ namespace ZP.Villin.Teleport
                 _playerManager = FindFirstObjectByType<PlayerManager>();
             }
 
-            if (_animator == default)
+            if (_leftDoorAnimator == default || _rightDoorAnimator == default)
             {
-                _animator = GetComponent<Animator>();
+                Debug.Log("right or left door animator is default!");
             }
         }
 
@@ -71,7 +74,9 @@ namespace ZP.Villin.Teleport
 
             _isPlayerOnEndStageRegion = true;
 
-            Debug.Log($"_isPlayerOnEndStageRegion {_isPlayerOnEndStageRegion}");
+#if UNITY_EDITOR
+            //Debug.Log($"_isPlayerOnEndStageRegion {_isPlayerOnEndStageRegion}");
+#endif
         }
 
         /// <summary>
@@ -80,7 +85,9 @@ namespace ZP.Villin.Teleport
         protected virtual void SubscribeOnExitEndStageRegion()
         {
             _isPlayerOnEndStageRegion = false;
-            Debug.Log($"_isPlayerOnEndStageRegion {_isPlayerOnEndStageRegion}");
+#if UNITY_EDITOR
+            //Debug.Log($"_isPlayerOnEndStageRegion {_isPlayerOnEndStageRegion}");
+#endif
         }
 
         protected virtual void OnEnable()
@@ -91,7 +98,7 @@ namespace ZP.Villin.Teleport
         private IEnumerator SetStateCoroutine(DoorStateList newState)
         {
             _state = newState;
-            if (_animator == null)
+            if (_leftDoorAnimator == null || _rightDoorAnimator == null)
             {
 #if UNITY_EDITOR
                 Debug.Log("Animator is null!");
@@ -99,10 +106,12 @@ namespace ZP.Villin.Teleport
                 yield break;
             }
 
-            _animator.SetInteger("DoorState", (int)_state);
+            _state = newState;
+            _leftDoorAnimator.SetInteger("DoorState", (int)_state);
+            _rightDoorAnimator.SetInteger("DoorState", (int)_state);
 
-            AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
-            float animationLength = stateInfo.length;
+            AnimatorStateInfo leftDoorStateInfo = _leftDoorAnimator.GetCurrentAnimatorStateInfo(0);
+            float animationLength = leftDoorStateInfo.length;
 
             float elapsedTime = 0f;
             while (elapsedTime < animationLength && elapsedTime < _animationTimeout)
@@ -131,7 +140,7 @@ namespace ZP.Villin.Teleport
         /// <returns><see cref="SetStateCoroutine"/></returns>
         protected virtual IEnumerator ActivateCollisionCoroutine()
         {
-            _collision.GetComponent<BoxCollider>().enabled = true;
+            _transparentCollision.GetComponent<BoxCollider>().enabled = true;
             yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
         }
 
@@ -148,7 +157,7 @@ namespace ZP.Villin.Teleport
 #if UNITY_EDITOR
             Debug.Log("SetStateCoroutine Start");
 #endif
-            _collision.GetComponent<BoxCollider>().enabled = false;
+            _transparentCollision.GetComponent<BoxCollider>().enabled = false;
             yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
         }
     }

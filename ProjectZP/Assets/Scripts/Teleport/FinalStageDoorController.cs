@@ -23,7 +23,7 @@ namespace ZP.Villin.Teleport
         }
 
         /// <summary>
-        /// Set <see cref="Action"/>s using in <see cref="EndStageDoorController"/>
+        /// Set <see cref="Action"/>s using in <see cref="RightEndStageDoorController"/>
         /// </summary>
         protected override void SetActionSubscribers()
         {

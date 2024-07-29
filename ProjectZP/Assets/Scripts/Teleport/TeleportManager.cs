@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using ZP.Villin.World;
 using ZP.SJH.Player;
+using System.Collections.Generic;
 
 namespace ZP.Villin.Teleport
 {
@@ -13,20 +14,28 @@ namespace ZP.Villin.Teleport
     {
         [SerializeField] private Transform _toTransform;
         [SerializeField] private Transform _elevatingTransform;
-        [SerializeField] private Transform _rotatableWorldTransform;
+        [SerializeField] private GameObject _destroyOnBeforeLastStageEnterRight;
+        [SerializeField] private GameObject _destroyOnBeforeLastStageEnterLeft;
         public Action OnRemainTeleportCountZero;
-        public Action OnTeleport;
+        public Action OnRightTeleport;
+        public Action OnLeftTeleport;
         private PlayerManager _playerManager;
         private DynamicWorldConstructor _dynamicWorldConstructor;
-        private EndStageDoorController _endStageDoorController;
+        private RightEndStageDoorController _rightEndStageDoorController;
+        private LeftEndStageDoorController _leftEndStageDoorController;
         private Vector3 _verticalMoveAmount;
-        private Vector3 _teleportOffset = new Vector3 (0f, -2.5f, -15f);
+        private Vector3 _teleportOffset = new Vector3 (0f, -2.92f, 0f);
         private int _nowRemainTeleportCount;
         private bool _isTeleportReady = false;
         private bool _isSyncCoroutineRunning = false;
 
 
-        void Awake()
+        public int GetNowRemainTeleportCount()
+        {
+        return _nowRemainTeleportCount;
+        }
+
+        private void Awake()
         {
             CheckAwakeException();
             SetMoveAmount();
@@ -44,9 +53,10 @@ namespace ZP.Villin.Teleport
                 _playerManager = FindFirstObjectByType<PlayerManager>();
             }
 
-            if (_endStageDoorController == default)
+            if (_rightEndStageDoorController == default || _leftEndStageDoorController == default)
             {
-                _endStageDoorController = FindFirstObjectByType<EndStageDoorController>();
+                _rightEndStageDoorController = FindFirstObjectByType<RightEndStageDoorController>();
+                _leftEndStageDoorController = FindFirstObjectByType<LeftEndStageDoorController>();
             }
 
             if (_dynamicWorldConstructor == default)
@@ -69,6 +79,16 @@ namespace ZP.Villin.Teleport
         private void SetRemainTeleportCount()
         {
             _nowRemainTeleportCount = _dynamicWorldConstructor.GetTeleportableCount();
+            if (_nowRemainTeleportCount % 2 == 0)
+            {
+                OnRightTeleport?.Invoke();
+                Debug.Log("OnRightTeleport Invoked!");
+            }
+            else
+            {
+                OnLeftTeleport?.Invoke();
+                Debug.Log("OnLeftTeleport Invoked!");
+            }
         }
 
         /// <summary>
@@ -78,8 +98,10 @@ namespace ZP.Villin.Teleport
         {
             _playerManager.OnEnterEndStageRegion += SubscribeOnEnterEndStageRegion;
             _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
-            _endStageDoorController.OnEndStageDoorClosed += SubscribeOnEndStageDoorClosed;
-            _endStageDoorController.OnEndStageDoorOpened += SubscribeOnEndStageDoorOpened;
+            _rightEndStageDoorController.OnEndStageDoorClosed += SubscribeOnEndStageDoorClosed;
+            _leftEndStageDoorController.OnEndStageDoorClosed += SubscribeOnEndStageDoorClosed;
+            _rightEndStageDoorController.OnEndStageDoorOpened += SubscribeOnEndStageDoorOpened;
+            _leftEndStageDoorController.OnEndStageDoorOpened += SubscribeOnEndStageDoorOpened;
         }
 
         /// <summary>
@@ -131,8 +153,8 @@ namespace ZP.Villin.Teleport
 
             while (_isTeleportReady == false && _isSyncCoroutineRunning == true && _nowRemainTeleportCount > 0)
             {
-                _toTransform.position = new Vector3(-fromTransform.position.x, fromTransform.position.y + _teleportOffset.y, -fromTransform.position.z + _teleportOffset.z);
-                _toTransform.rotation = fromTransform.rotation * Quaternion.LookRotation(Vector3.back);
+                _toTransform.position = new Vector3(fromTransform.position.x + _teleportOffset.x, fromTransform.position.y + _teleportOffset.y, fromTransform.position.z + _teleportOffset.z);
+                _toTransform.rotation = fromTransform.rotation;
 
                 yield return null;
             }
@@ -151,7 +173,7 @@ namespace ZP.Villin.Teleport
             yield break;
         }
         /// <summary>
-        /// Overwrite inverse position and rotation to <paramref name="fromTransform"/> for simulate upstairs arrival.
+        /// Overwrite position to <paramref name="fromTransform"/> for simulate upstairs arrival.
         /// </summary>
         private void ExecuteTeleport(Transform fromTransform)
         {
@@ -159,12 +181,26 @@ namespace ZP.Villin.Teleport
             {
                 return;
             }
+
             _nowRemainTeleportCount--;
             fromTransform.position = _toTransform.position;
             fromTransform.rotation = _toTransform.rotation;
             _elevatingTransform.position += _verticalMoveAmount;
-            _rotatableWorldTransform.rotation = _rotatableWorldTransform.rotation * Quaternion.LookRotation(Vector3.back);
-            OnTeleport?.Invoke();
+
+            if (_nowRemainTeleportCount == 1)
+            {
+               Destroy(_destroyOnBeforeLastStageEnterLeft);
+               Destroy(_destroyOnBeforeLastStageEnterRight);
+            }
+
+            if (_isTeleportReady == true && (_nowRemainTeleportCount % 2 == 0))
+            {
+                OnRightTeleport?.Invoke();
+            }
+            else
+            {
+                OnLeftTeleport?.Invoke();
+            }
         }
 
         /// <summary>
