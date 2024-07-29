@@ -1,16 +1,20 @@
 using UnityEngine;
 using ZP.BHS.Zombie;
+using ZP.SJH.Player;
 
 namespace ZP.SJH.Weapon
 {
     public class Knife : BaseWeapon, IWeapon
     {
         [SerializeField] private  CapsuleCollider _trigger;
+
         public override WeaponData WeaponData
         {
             get => _weaponData;
             set => _weaponData = value;
         }
+
+        private bool _isHold = false;
 
         protected override void Awake()
         {
@@ -36,6 +40,21 @@ namespace ZP.SJH.Weapon
                 _trigger.isTrigger = false;
         }
 
+        private void Update()
+        {
+
+            _elapsedTime += Time.deltaTime;
+            if (_elapsedTime > 0.1f)
+            {
+                _velocity = ((transform.position - _positionBuffer) / 0.1f).magnitude;
+
+                if (_isHold && _playerManager != null)
+                    _velocity -= Mathf.Abs(_playerManager.MoveValue) * _playerManager.MoveSpeed;
+                _positionBuffer = transform.position;
+                _elapsedTime = 0f;
+            }
+            CalculateDamage();
+        }
 
         private void OnTriggerExit(Collider other)
         {
@@ -61,11 +80,13 @@ namespace ZP.SJH.Weapon
 
         public void Equip(bool isMoving)
         {
+            _isHold = true;
             return;
         }
 
         public void DeEquip()
         {
+            _isHold = false;
             return;
         }
 
