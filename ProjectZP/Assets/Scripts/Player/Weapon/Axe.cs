@@ -11,7 +11,7 @@ namespace ZP.SJH.Weapon
             set => _weaponData = value;
         }
 
-        private int _handCount = 0;
+        [SerializeField] private int _handCount = 0;
 
         protected override void Awake()
         {
@@ -23,12 +23,14 @@ namespace ZP.SJH.Weapon
                 _rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
-            if (collision.gameObject.layer == ZombieLayer && _rigidbody.velocity.magnitude >= _weaponData.MinVelocity && collision.gameObject.GetComponent<ZombieDamageController>())
+            if (other.gameObject.layer == ZombieLayer 
+                && _rigidbody.velocity.magnitude >= _weaponData.MinVelocity 
+                && other.gameObject.GetComponent<ZombieDamageController>())
             {
-                collision.gameObject.GetComponent<ZombieDamageController>()
-                    .OnGetDamaged?.Invoke(CalculateDamage(),this.gameObject);
+                other.gameObject.GetComponent<ZombieDamageController>()
+                    .OnGetDamaged?.Invoke(CalculateDamage(), this.gameObject);
             }
         }
 
@@ -44,9 +46,6 @@ namespace ZP.SJH.Weapon
             if (_handCount < 2)
                 damage /= 3f;
 
-            if (damage > 1f)
-                Debug.Log("DAMANNNNAAAAAAA" + damage);
-
             return damage;
         }
 
@@ -60,14 +59,30 @@ namespace ZP.SJH.Weapon
             return WeaponData.IsOneHanded;
         }
 
-        public void Equip()
+        /// <summary>
+        /// Set its rigidbody constraints freezed
+        /// If it's moving to other hand, no need to increase hand count
+        /// </summary>
+        /// <param name="isMoving"></param>
+        public void Equip(bool isMoving)
         {
-            _handCount++;
+            if(isMoving == false)
+                _handCount++;
+            _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }
 
         public void DeEquip()
         {
-            _handCount--;
+            if (--_handCount <= 0)
+                _rigidbody.constraints = RigidbodyConstraints.None;
+        }
+
+        public void SetConstraint(bool isFreeze) 
+            => _rigidbody.constraints = isFreeze ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
+
+        public int GetHandCount()
+        {
+            return _handCount;
         }
     }
 }

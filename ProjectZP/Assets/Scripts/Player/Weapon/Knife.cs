@@ -21,11 +21,13 @@ namespace ZP.SJH.Weapon
                 _rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
-            if (collision.gameObject.layer == ZombieLayer && _rigidbody.velocity.magnitude >= _weaponData.MinVelocity && collision.gameObject.GetComponent<ZombieDamageController>())
+            if (other.gameObject.layer == ZombieLayer 
+                && _rigidbody.velocity.magnitude >= _weaponData.MinVelocity 
+                && other.gameObject.GetComponent<ZombieDamageController>())
             {
-                collision.gameObject.GetComponent<ZombieDamageController>()
+                other.gameObject.GetComponent<ZombieDamageController>()
                     .OnGetDamaged?.Invoke(CalculateDamage(), this.gameObject);
             }
         }
@@ -33,8 +35,7 @@ namespace ZP.SJH.Weapon
         public float CalculateDamage()
         {
             float damage = _weaponData.Sharpness * _rigidbody.velocity.magnitude;
-            if(damage > 1f)
-                Debug.Log("DAMANNNN" + damage);
+
             return damage;
         }
 
@@ -48,7 +49,7 @@ namespace ZP.SJH.Weapon
             return WeaponData.IsOneHanded;
         }
 
-        public void Equip()
+        public void Equip(bool isMoving)
         {
             return;
         }
@@ -57,5 +58,13 @@ namespace ZP.SJH.Weapon
         {
             return;
         }
+
+        public int GetHandCount()
+        {
+            return -1;
+        }
+
+        public void SetConstraint(bool isFreeze)
+            => _rigidbody.constraints = isFreeze ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
     }
 }

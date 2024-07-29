@@ -218,14 +218,14 @@ MonoBehaviour:
   m_AngularVelocityDamping: 0.5
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
-  m_TightenPosition: 0.1
+  m_TightenPosition: 1
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
-  m_TightenRotation: 0.1
-  m_TrackScale: 1
+  m_TightenRotation: 1
+  m_TrackScale: 0
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4597347263042950721}
   m_Layer: 10
-  m_Name: AttachPoint
+  m_Name: AttachPointGrip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

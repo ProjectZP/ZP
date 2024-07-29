@@ -11,6 +11,8 @@ namespace ZP.SJH.Player
 
         public Action<Transform> OnEnterEndStageRegion;
         public Action OnExitEndStageRegion;
+        public Action<float> OnPlayerDamaged;
+
         public PlayerStatusManager Status => _status;
         
 
@@ -56,5 +58,6 @@ namespace ZP.SJH.Player
             Gizmos.DrawLine(transform.position, transform.position + Vector3.down * RAYCAST_LENGTH);
 #endif
         }
+
     }
 }
