@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
 {
@@ -12,6 +13,7 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
+            _agent.isStopped = true;
             _passedTime = 0;
             DoAttack();
         }
@@ -37,6 +39,10 @@ namespace ZP.BHS.Zombie
         {
             Debug.Log("Attack");
             _passedTime = 0;
+            if(Vector3.Distance(_zombieManager.Target.transform.position,_zombieManager.transform.position) < _zombieManager.zombieStatus.AttackRange)
+            {
+                _zombieManager.Target.GetComponent<PlayerStatusManager>().Hp = 0;
+            }
             //Todo: RotateZombie Body to Player Loaction.
             //Todo: Do AttackAnimation.
         }

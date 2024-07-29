@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 namespace ZP.BHS.Zombie
 {
@@ -8,12 +9,14 @@ namespace ZP.BHS.Zombie
         protected ZombieStateController zombieStateController;
         protected ZombieSightStateController zombieSightStateController;
         protected ZombieManager _zombieManager;
+        protected NavMeshAgent _agent;
 
         public ZombieState(ZombieStateController zombieStateController)
         {
             this.zombieStateController = zombieStateController;
             zombieSightStateController = zombieStateController.zombieSightStateController;
             _zombieManager = zombieStateController.zombieManager;
+            _agent = zombieStateController.zombieAgent;
         }
 
         public abstract void OnStateEnter();

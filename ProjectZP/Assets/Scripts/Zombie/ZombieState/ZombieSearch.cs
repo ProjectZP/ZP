@@ -20,13 +20,13 @@ namespace ZP.BHS.Zombie
         {
             SearchPosition = _zombieManager.targetposition;
             SearchPosition.y = _zombieManager.transform.position.y;
+
+            _agent.isStopped = false;
+            _agent.SetDestination(SearchPosition);
         }
 
         public override void OnStateUpdate()
         {
-            _zombieManager.transform.position +=
-                (SearchPosition - _zombieManager.transform.position).normalized * _zombieManager.zombieStatus.WalkSpeed * Time.deltaTime;
-
             if (Vector3.Distance(SearchPosition, _zombieManager.transform.position) < 0.2f) 
             { zombieStateController.ChangeZombieState(ZombieStates.ZombieLookAround); }
         }

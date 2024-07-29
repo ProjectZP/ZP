@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace ZP.BHS.Zombie
@@ -9,20 +10,46 @@ namespace ZP.BHS.Zombie
 
         ZombieStateController ZombieStateController;
 
+        private List<GameObject> StabbedWeapon = new List<GameObject>(8);
+
+
         private void Awake()
         {
-            OnGetDamaged?.AddListener(CalcuateDamage);
+            ZombieStateController = GetComponentInParent<ZombieStateController>();
+        }
 
+        private void Start()
+        {
+            OnGetDamaged?.AddListener(CalcuateDamage);
         }
 
 
         public void CalcuateDamage(float damage)
         {
-            Debug.Log(damage);
-            if(damage > 50)
+            if (damage > 100)
             {
-                GetComponentInParent<ZombieStateController>().ChangeZombieState(ZombieStates.ZombieDead);
+                ZombieStateController.ChangeZombieState(ZombieStates.ZombieDead);
             }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            //if (collision.gameObject.layer == 1 << LayerMask.NameToLayer("Weapon"))
+            //{
+            //    if (ZombieStateController.currentZombieState == ZombieStates.ZombieDead)
+            //    {
+            //        FixedJoint joint = collision.gameObject.AddComponent<FixedJoint>();
+            //        joint.connectedBody = this.GetComponent<Rigidbody>();
+            //    }
+            //}
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            //if (collision.gameObject.layer == 1 << LayerMask.NameToLayer("Weapon"))
+            //{
+            //    StabbedWeapon.Add(collision.gameObject);
+            //}
         }
     }
 }

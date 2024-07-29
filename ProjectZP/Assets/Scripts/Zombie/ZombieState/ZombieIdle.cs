@@ -12,7 +12,7 @@ namespace ZP.BHS.Zombie
     {
         private float _passedTime = 0;
         private int _waitingTime = 0;
-        private const int _waitingMinimum = 2;
+        private const int _waitingMinimum = 4;
         private const int _waitingMaximum = 6;
         private ZombieSightStateController _zombieSight;
 
@@ -23,6 +23,7 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
+            _agent.isStopped = true;
             _waitingTime = Random.Range(_waitingMinimum, _waitingMaximum);
         }
 

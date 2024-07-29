@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   IsOneHanded: 0
-  Sharpness: 30
+  Sharpness: 20
   MinVelocity: 0.8
