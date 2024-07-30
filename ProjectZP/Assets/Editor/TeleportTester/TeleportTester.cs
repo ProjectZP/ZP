@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using ZP.Villin.Teleport;
@@ -12,7 +14,17 @@ namespace ZP.Villin.TestModule
         [SerializeField] private PlayerManager _playerManager;
         [SerializeField] private RightEndStageDoorController _rightEndStageDoorController;
         [SerializeField] private LeftEndStageDoorController _leftEndStageDoorController;
+        [SerializeField] private StartStageDoorController _startRightStageDoorController;
+        [SerializeField] private StartStageDoorController _startLeftStageDoorController;
+        [SerializeField] private SingleDoorController _singleDoorController;
         [SerializeField] private Vector3 _stairPosition = new Vector3(30.8899994f, 0.519999981f, 2.45000005f);
+
+        private List<object> _buffer = new List<object>();
+
+        private void OnEnable()
+        {
+            
+        }
 
         private void OnGUI()
         {
@@ -47,7 +59,8 @@ namespace ZP.Villin.TestModule
 
         private void DrawTeleportStatePanel()
         {
-            _teleportManager = EditorGUILayout.ObjectField("TeleportManager", _teleportManager, typeof(GameObject), true) as TeleportManager;
+            _stairPosition = EditorGUILayout.Vector3Field("StairPosition", _stairPosition);
+            _teleportManager = (EditorGUILayout.ObjectField("TeleportManager", _teleportManager, typeof(TeleportManager), true) as TeleportManager);
 
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("ExcuteRightTeleport", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
@@ -77,6 +90,27 @@ namespace ZP.Villin.TestModule
                 _playerManager.gameObject.transform.position = Vector3.one;
             }
             GUILayout.EndHorizontal ();
+
+            _startRightStageDoorController = (EditorGUILayout.ObjectField("StartStageDoorController", _startRightStageDoorController, typeof(StartStageDoorController), true) as StartStageDoorController);
+            _startLeftStageDoorController = (EditorGUILayout.ObjectField("StartStageDoorController1", _startLeftStageDoorController, typeof(StartStageDoorController), true) as StartStageDoorController);
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("OpenRightStartStageDoor", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
+            {
+                _startRightStageDoorController.DeactivateCollision();
+            }
+            if (GUILayout.Button("OpenLeftStartStageDoor", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
+            {
+                _startLeftStageDoorController.DeactivateCollision();
+            }
+            GUILayout.EndHorizontal();
+            _singleDoorController = (EditorGUILayout.ObjectField("SelectedDoor", _singleDoorController, typeof(SingleDoorController), true) as SingleDoorController);
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("OpenDoorSelected", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
+            {
+                _singleDoorController.InteractDoor();
+            }
+            GUILayout.EndHorizontal();
         }
 
     }

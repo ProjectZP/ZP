@@ -57,7 +57,7 @@ namespace ZP.Villin.Teleport
         /// <summary>
         /// Actiave collision to prohibit player not go out specific region.
         /// </summary>
-        protected override void DeactivateCollision()
+        public override void DeactivateCollision()
         {
             if (_isFinalStageDoorInteractable == false)
             {
