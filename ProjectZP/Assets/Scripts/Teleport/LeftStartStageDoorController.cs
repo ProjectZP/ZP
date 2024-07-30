@@ -7,7 +7,7 @@ namespace ZP.Villin.Teleport
 {
     public class LeftStartStageDoorController : DoorController
     {
-
+        private bool _isLeftStartStageDoorClosed;
 
         protected override void Awake()
         {
