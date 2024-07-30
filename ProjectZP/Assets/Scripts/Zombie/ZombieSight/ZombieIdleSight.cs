@@ -6,7 +6,7 @@ using ZP.SJH.Player;
 namespace ZP.BHS.Zombie
 {
 
-    class ZombieIdleSight : ZombieSight //Todo: in this class, Using Player as "Player GameObject" but it's not accurate.
+    class ZombieIdleSight : ZombieSight
     {
         private float _checkTime;
         private const float _checkRate = 0.5f;
@@ -68,7 +68,11 @@ namespace ZP.BHS.Zombie
                 zombieSightStateController.transform.position,
                 targetVector,
                 Vector3.Distance(zombieSightStateController.transform.position, prey.transform.position),
-                1 << LayerMask.NameToLayer("Wall")).Length > 0)
+                (1 << LayerMask.NameToLayer("Wall")) |
+                (1 << LayerMask.NameToLayer("Floor")) |
+                (1 << LayerMask.NameToLayer("Stair"))
+                //(1 << LayerMask.NameToLayer("Door")) //Todo:
+                ).Length > 0)
             {
                 return false;
             }

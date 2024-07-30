@@ -10,7 +10,7 @@ namespace ZP.BHS.Zombie
     /// This class is Component of Zombie's Sight GameObject.
     /// Zombie's Runs Event When Player gets in Sight or gets out.
     /// </summary>
-    class ZombieSightStateController : MonoBehaviour //Todo: in this class, Using Player as "Player GameObject" but it's not accurate.
+    class ZombieSightStateController : MonoBehaviour
     {
         public delegate void PlayerGetInSight(PlayerManager player);
         public event PlayerGetInSight OnPlayerGetInSight;

@@ -1,19 +1,31 @@
 ﻿using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using ZP.SJH.Player;
 
 namespace ZP.Villin.Teleport
 {
-    [RequireComponent(typeof(DoorAnimationController))]
+    public enum DoorStateList
+    {
+        None,
+        DoorOpen,
+        DoorClose,
+        Length
+    }
+
+
     public abstract class DoorController : MonoBehaviour
     {
-
-        public Action OnEndStageDoorClosed;
-        [SerializeField] private GameObject _collision;
-        protected DoorAnimationController _controller;
+        [SerializeField] private GameObject _transparentCollision;
+        [SerializeField] private Animator _leftDoorAnimator;
+        [SerializeField] private Animator _rightDoorAnimator;
+        [SerializeField] private DoorStateList _state = DoorStateList.None;
         protected PlayerManager _playerManager;
         protected TeleportManager _teleportManager;
+        protected const float _animationTimeout = 10f;
         protected bool _isPlayerOnEndStageRegion;
+        protected bool _isRightDoorActivated;
 
 
         protected virtual void Awake()
@@ -37,9 +49,9 @@ namespace ZP.Villin.Teleport
                 _playerManager = FindFirstObjectByType<PlayerManager>();
             }
 
-            if (_controller == default)
+            if (_leftDoorAnimator == default || _rightDoorAnimator == default)
             {
-                _controller = GetComponent<DoorAnimationController>();
+                Debug.Log("right or left door animator is default!");
             }
         }
 
@@ -50,6 +62,7 @@ namespace ZP.Villin.Teleport
         {
             _playerManager.OnEnterEndStageRegion += SubscribeOnEnterEndStageRegion;
             _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
+            //_playerManager.OnInteractDoor.AddListener(UpdateAnimation);
         }
 
         /// <summary>
@@ -60,26 +73,92 @@ namespace ZP.Villin.Teleport
         {
 
             _isPlayerOnEndStageRegion = true;
+
+#if UNITY_EDITOR
+            //Debug.Log($"_isPlayerOnEndStageRegion {_isPlayerOnEndStageRegion}");
+#endif
         }
 
         /// <summary>
         /// Set <see cref="_isPlayerOnEndStageRegion"/> false when OnExitEndStageRegion Invoked.
         /// </summary>
-        private void SubscribeOnExitEndStageRegion()
+        protected virtual void SubscribeOnExitEndStageRegion()
         {
             _isPlayerOnEndStageRegion = false;
+#if UNITY_EDITOR
+            //Debug.Log($"_isPlayerOnEndStageRegion {_isPlayerOnEndStageRegion}");
+#endif
         }
-        public virtual void ActivateCollision()
+
+        protected virtual void OnEnable()
         {
-            _collision.SetActive(true);
+
+        }
+
+        private IEnumerator SetStateCoroutine(DoorStateList newState)
+        {
+            _state = newState;
+            if (_leftDoorAnimator == null || _rightDoorAnimator == null)
+            {
+#if UNITY_EDITOR
+                Debug.Log("Animator is null!");
+#endif
+                yield break;
+            }
+
+            _state = newState;
+            _leftDoorAnimator.SetInteger("DoorState", (int)_state);
+            _rightDoorAnimator.SetInteger("DoorState", (int)_state);
+
+            AnimatorStateInfo leftDoorStateInfo = _leftDoorAnimator.GetCurrentAnimatorStateInfo(0);
+            float animationLength = leftDoorStateInfo.length;
+
+            float elapsedTime = 0f;
+            while (elapsedTime < animationLength && elapsedTime < _animationTimeout)
+            {
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            if (elapsedTime >= _animationTimeout)
+            {
+                Debug.LogWarning("Animation timeout occurred!");
+            }
         }
 
         /// <summary>
-        /// Dectiave collision to make player go out StartStageRegion.
+        /// Start Coroutine to Activate Collision.
+        /// </summary>
+        public virtual void ActivateCollision()
+        {
+            StartCoroutine(ActivateCollisionCoroutine());
+        }
+
+        /// <summary>
+        /// Activate collision when DoorClose Aninmation is ended.
+        /// </summary>
+        /// <returns><see cref="SetStateCoroutine"/></returns>
+        protected virtual IEnumerator ActivateCollisionCoroutine()
+        {
+            _transparentCollision.GetComponent<BoxCollider>().enabled = true;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
+        }
+
+        /// <summary>
+        /// Start Coroutine to Deactivate Collision.
         /// </summary>
         protected virtual void DeactivateCollision()
         {
-            _collision.SetActive(false);
+            StartCoroutine(DeactivateCollisionCoroutine());
+        }
+
+        protected virtual IEnumerator DeactivateCollisionCoroutine()
+        {
+#if UNITY_EDITOR
+            Debug.Log("SetStateCoroutine Start");
+#endif
+            _transparentCollision.GetComponent<BoxCollider>().enabled = false;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
         }
     }
 }

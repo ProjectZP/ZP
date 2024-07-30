@@ -1,6 +1,4 @@
-﻿
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ZP.BHS.Zombie
 {
@@ -28,7 +26,7 @@ namespace ZP.BHS.Zombie
                 zombieStateController.RagdollRigidbody[ix].velocity = Vector3.zero;
             }
 
-            _agent.isStopped = true; //Todo:
+            _agent.isStopped = true;
             _agent.velocity = Vector3.zero;
             _agent.acceleration = 0f;
             _agent.updatePosition = false;
@@ -38,6 +36,12 @@ namespace ZP.BHS.Zombie
             zombieStateController.zombieAnimator.applyRootMotion = false;
             zombieStateController.zombieAnimator.enabled = false;
 
+            if (_zombieManager.OnStair)
+            {
+                _zombieManager.OnStairButDead = true;
+                _zombieManager.OnStair = false;
+                Debug.Log("Zombie Died On Stair");
+            }
 
 
             zombieSightStateController.enabled = false;
@@ -46,12 +50,10 @@ namespace ZP.BHS.Zombie
         public override void OnStateUpdate()
         {
             deathTimer += Time.deltaTime;
-            //Todo:
         }
 
         public override void OnStateExit()
         {
-            //Todo:
         }
     }
 }

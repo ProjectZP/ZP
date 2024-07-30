@@ -1,12 +1,15 @@
-﻿using System.Collections;
-using UnityEngine;
-using ZP.SJH.Player;
+﻿using UnityEngine;
 
 namespace ZP.BHS.Zombie
 {
     class ZombieAttack : ZombieState
     {
         private float _passedTime;
+
+        private bool _onAttack = false;
+
+        private bool _tempbool = false; //Todo: delete
+
         public ZombieAttack(ZombieStateController zombieStateController) : base(zombieStateController)
         {
         }
@@ -21,6 +24,20 @@ namespace ZP.BHS.Zombie
         public override void OnStateUpdate()
         {
             _passedTime += Time.deltaTime;
+            if (_onAttack && _passedTime > 0.2f)
+            {
+                _onAttack = false;
+                if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.refTransform.position) < _zombieManager.zombieStatus.AttackRange)
+                {
+                    if (!_tempbool) //Todo: delete
+                    {
+                        _tempbool = true;
+                        _zombieManager.Target.OnPlayerDamaged += tempvoid;
+                    } 
+                    _zombieManager.Target.OnPlayerDamaged(_zombieManager.zombieStatus.ZombieDamage); //Todo: Damage To Player
+                }
+            }
+
             if (_passedTime > _zombieManager.zombieStatus.AttackSpeed)
             {
                 _passedTime = 0;
@@ -30,21 +47,13 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateExit()
         {
-            //
-        }
 
-        //Todo: Using Animation Event. To Judge weather Attack Finished.
+        }
 
         private void DoAttack()
         {
-            Debug.Log("Attack");
             _passedTime = 0;
-            if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.refTransform.position) < _zombieManager.zombieStatus.AttackRange)
-            {
-                _zombieManager.Target.OnPlayerDamaged(_zombieManager.zombieStatus.ZombieDamage); //Todo: Damage To Player
-            }
-            //Todo: RotateZombie Body to Player Loaction.
-            //Todo: Do AttackAnimation.
+            _onAttack = true;
         }
 
         //This method Listen OnAttackEnd event.
@@ -53,13 +62,17 @@ namespace ZP.BHS.Zombie
             if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.refTransform.position)
                 <= _zombieManager.zombieStatus.AttackRange)
             {
-                // _zombieManager.Target.OnPlayerDamaged().Invoke(_zombieManager.zombieStatus.Damage); //Todo:
                 DoAttack();
             }
             else
             {
                 zombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
             }
+        }
+
+        private void tempvoid(float damage) //Todo: Delete
+        {
+            Debug.Log(damage);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.Animations.Rigging;
 
 namespace ZP.BHS.Zombie
 {
-    public class ZombieHeadDefense : MonoBehaviour //Todo:
+    public class ZombieHeadDefense : MonoBehaviour 
     {
         ZombieStateController ZombieStateController;
         ZombieManager ZombieManager;
@@ -20,12 +20,6 @@ namespace ZP.BHS.Zombie
             StopCoroutine(RigWeightReturnstoZero());
             ZombieManager.HeadIK.weight = 1;
         }
-
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    Debug.Log("HeadTrigger With Trigger");
-        //    ZombieManager.HeadIK.weight = 1;
-        //}
 
         private void OnCollisionExit(Collision collision)
         {

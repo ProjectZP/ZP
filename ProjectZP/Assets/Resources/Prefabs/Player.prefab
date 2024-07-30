@@ -1030,6 +1030,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39de46c3f74461429329ea07f09c40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: a4e21f4d-f5aa-49e6-9db0-761cfa9471cb
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  _moveValue: 0
+  _playerInputManager: {fileID: 0}
   _currentLayer: 0
 --- !u!114 &51483801508672739
 MonoBehaviour:

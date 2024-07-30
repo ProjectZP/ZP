@@ -1,4 +1,4 @@
 ZombieType,Defense,WalkSpeed,RunSpeed,AttackSpeed,AttackRange,SightAngle,SightRange,ChaseAngle,ChaseRange,RotationSpeed,ZombieDamage
 WalkerZombie,60,1.5,1.5,1,1,80,10,80,15,540,10
-RunnerZombie,60,2,5,1,1,80,10,80,15,540,10
-CrawlerZombie,60,1,1,1,1.5,80,10,80,15,540,10
+RunnerZombie,60,2,5,1,1,80,10,80,15,540,15
+CrawlerZombie,60,1,1,1,1.5,80,10,80,15,540,5

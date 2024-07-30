@@ -13,6 +13,9 @@ namespace ZP.BHS.Zombie
         public delegate void ZombieStateChanged(ZombieStates zombieState);
         public event ZombieStateChanged OnZombieStateChanged;
 
+        public delegate void ZombieDied();
+        public event ZombieDied OnZombieDied;
+
         public ZombieState currentZombieStateAction { get; private set; }
         public ZombieSightStateController zombieSightStateController { get; private set; }
         public ZombieManager zombieManager { get; private set; }
@@ -71,6 +74,11 @@ namespace ZP.BHS.Zombie
             if (currentZombieState == changingState || currentZombieState == ZombieStates.ZombieDead)
             {
                 return;
+            }
+
+            if (changingState == ZombieStates.ZombieDead)
+            {
+                OnZombieDied();
             }
 
             currentZombieStateAction.OnStateExit();

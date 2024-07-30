@@ -17,24 +17,12 @@ namespace ZP.BHS.Zombie
         public override void OnSightEnter() { }
         public override void OnSightUpdate() 
         {
-            //IsthereAnyProblemWithChaseAngle();
             IsthereAnyProblemWithChaseRange();
             IsthereAnyProblemWithObstacle();
         }
         public override void OnSightExit() { }
 
 
-        //private void IsthereAnyProblemWithChaseAngle()
-        //{
-        //    if (Vector3.Angle(this.transform.forward,
-        //        zombieManager.Target.transform.position - this.transform.position)
-        //        > zombieManager.zombieStatus.ChaseAngle)
-        //    {
-        //        Debug.Log("Angle Problem");
-        //        MissTarget();
-        //        return;
-        //    }
-        //}
 
         private void IsthereAnyProblemWithChaseRange()
         {
@@ -53,7 +41,11 @@ namespace ZP.BHS.Zombie
                 zombieManager.transform.position,
                 (zombieManager.Target.transform.position - zombieManager.transform.position).normalized,
                 Vector3.Distance(zombieManager.transform.position, zombieManager.Target.transform.position),
-                1 << LayerMask.NameToLayer("Wall")).Length > 0) //"Wall" Found.
+                (1 << LayerMask.NameToLayer("Wall")) |
+                (1 << LayerMask.NameToLayer("Floor")) |
+                (1 << LayerMask.NameToLayer("Stair")) |
+                (1 << LayerMask.NameToLayer("Door")) //Todo:
+                ).Length > 0)
             {
                 Debug.Log("ObstacleProblem");
                 MissTarget();
