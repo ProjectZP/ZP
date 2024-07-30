@@ -9,6 +9,8 @@ public class DoorsAndWindowsController : MonoBehaviour
     [SerializeField] TeleportManager _teleportManager;
     private List<GameObject> _trackedObjects = new List<GameObject>();
 
+    public int CurrentFloor 
+        => _dynamicWorldConstructor.GetTotalFloorCount() - _teleportManager.GetNowRemainTeleportCount();
 
     private void Awake()
     {

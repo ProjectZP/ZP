@@ -1,5 +1,5 @@
 using UnityEngine;
-using ZP.SJH.Dummy;
+using ZombieDeathCounter = ZP.BHS.Zombie.ZombieDeathCounter;
 
 namespace ZP.SJH.Player
 {
@@ -19,7 +19,7 @@ namespace ZP.SJH.Player
 
         [SerializeField] private PlayerInputManager _inputManager;
         [SerializeField] private PlayerData _data;
-        [SerializeField] private Dummy.ZombieDeathCounter _zombieDeathCounter;
+        [SerializeField] private ZombieDeathCounter _zombieDeathCounter;
         [SerializeField] private PlayerStateManager _stateManager;
 
 

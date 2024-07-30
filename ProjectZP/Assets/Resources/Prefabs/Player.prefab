@@ -617,7 +617,7 @@ MonoBehaviour:
   m_ConeCastAngle: 6
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1536
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 1
@@ -1030,20 +1030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39de46c3f74461429329ea07f09c40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: a4e21f4d-f5aa-49e6-9db0-761cfa9471cb
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  _moveValue: 0
-  _playerInputManager: {fileID: 0}
   _currentLayer: 0
 --- !u!114 &51483801508672739
 MonoBehaviour:
@@ -1060,23 +1046,14 @@ MonoBehaviour:
   MaxStamina: 0
   CurrentStamina: 0
   StaminaRegen: 0
+  MaxHp: 0
   Hp: 0
   WalkSpeed: 0
   RunSpeed: 0
-  _moveAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Move
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: ee91ee51-e477-4508-9a44-cec8ccbe9d6f
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _playerInputManager: {fileID: 6850788001070442183}
+  _inputManager: {fileID: 4389020115996439971}
   _data: {fileID: 11400000, guid: cbb4c732c2cb7a14d9dfd063b315a6ee, type: 2}
+  _zombieDeathCounter: {fileID: 0}
+  _stateManager: {fileID: 3187737501258845956}
 --- !u!114 &8520182775264037939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1200,6 +1177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7246031803049531542}
+  - component: {fileID: 4389020115996439971}
   - component: {fileID: 7760474497356334111}
   - component: {fileID: 6622626990537476139}
   - component: {fileID: 2078951336877048641}
@@ -1228,6 +1206,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 754859016841906761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4389020115996439971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6850788001070442183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da2af674feae4043b9723b8ad47f7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _manager: {fileID: 0}
+  _moveAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Move
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 9674eb64-eccc-4b18-9c20-5ad8078fccd3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _moveProvider: {fileID: 2078951336877048641}
 --- !u!114 &7760474497356334111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,7 +1881,7 @@ MonoBehaviour:
   m_ConeCastAngle: 6
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1536
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 1
@@ -2189,6 +2193,7 @@ GameObject:
   - component: {fileID: 8159238039539240403}
   - component: {fileID: 4367475076827060809}
   - component: {fileID: 7874852044437334425}
+  - component: {fileID: 3077821302012514662}
   m_Layer: 0
   m_Name: State Manager
   m_TagString: Untagged
@@ -2264,6 +2269,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 3187737501258845956}
+--- !u!114 &3077821302012514662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174699088418028502}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee379cf07d1d26746a6f287264c19c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateManager: {fileID: 3187737501258845956}
+  _inputManager: {fileID: 6850788001070442183}
+  _uiManager: {fileID: 0}
 --- !u!1001 &1198844259779213489
 PrefabInstance:
   m_ObjectHideFlags: 0

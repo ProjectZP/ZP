@@ -305,7 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7941521771002712524}
   - component: {fileID: 1514782225558621783}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1516,7 +1516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7240269908587478933}
   - component: {fileID: 317433985149160118}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair Floor Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2581,7 +2581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1368124806568664961}
   - component: {fileID: 4626637281842167250}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2800,7 +2800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414119678687192594}
   - component: {fileID: 1072549947601244645}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4643,7 +4643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2248652317424923565}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5361,7 +5361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6470930629206128566}
   - component: {fileID: 3498786535810975026}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7492,7 +7492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596556344069812964}
   - component: {fileID: 8877172213352617596}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8367,7 +8367,7 @@ GameObject:
   - component: {fileID: 6436274350767551388}
   - component: {fileID: 772950107836372493}
   - component: {fileID: 6259451349726669122}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8968,7 +8968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4765867298479567149}
   - component: {fileID: 2637865934370767798}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair Floor Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9221,7 +9221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1456811734200558188}
   - component: {fileID: 1405303697610571208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9679,7 +9679,7 @@ GameObject:
   - component: {fileID: 5259534804469222998}
   - component: {fileID: 1654065770891208042}
   - component: {fileID: 3583657042678144712}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10401,7 +10401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 811003567526753923}
   - component: {fileID: 5660863512900991963}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair Floor Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11032,7 +11032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2115272812078059838}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13907,7 +13907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2179500750602803092}
   - component: {fileID: 7740687518032717496}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14740,7 +14740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5609928544459233338}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15186,7 +15186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4920744103509473127}
   - component: {fileID: 3913040743556090270}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15370,7 +15370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5682117820319489859}
   - component: {fileID: 3003116231677605911}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17019,7 +17019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6789969270122549798}
   - component: {fileID: 538139950833984997}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19968,7 +19968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1527760757042616504}
   - component: {fileID: 5009251170706224591}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21099,7 +21099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6081504221586446458}
   - component: {fileID: 863103078797976267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21486,7 +21486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9161813963294115953}
   - component: {fileID: 8666335837175005530}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22816,7 +22816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8522371516332655948}
   - component: {fileID: 7638968127791445220}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23865,7 +23865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6138148545225529849}
   - component: {fileID: 6852186470048426346}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24820,7 +24820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8877904305104294189}
   - component: {fileID: 3571141290385751041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27123,7 +27123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5080773917787158423}
   - component: {fileID: 632419398311822592}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33165,7 +33165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3910500954199816508}
   - component: {fileID: 2374850457064783236}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33524,7 +33524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9163476864775581426}
   - component: {fileID: 5326549959111017368}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35218,7 +35218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7995360985899282913}
   - component: {fileID: 7777092332225396561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35437,7 +35437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6191875965338078273}
   - component: {fileID: 7732629887896068891}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35740,7 +35740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6607150747479132074}
   - component: {fileID: 3923994431254363472}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36101,7 +36101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4540085075118627952}
   - component: {fileID: 8879908114512020650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36154,7 +36154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6966872121574759877}
   - component: {fileID: 6945835872022205528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37612,7 +37612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6030818421842612085}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37650,7 +37650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7174536917089554899}
   - component: {fileID: 1859937711230293052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38315,7 +38315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9148575780170807990}
   - component: {fileID: 6883374697257773532}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39975,7 +39975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8558020914154766851}
   - component: {fileID: 1967356650733789524}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40562,7 +40562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242083771100240419}
   - component: {fileID: 9170084470365836618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41904,7 +41904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 302788492817578284}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42835,7 +42835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4741348959016670982}
   - component: {fileID: 3833041592366664999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43319,7 +43319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2904812561416551613}
   - component: {fileID: 1669875702869734869}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43372,7 +43372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7762367821657296111}
   - component: {fileID: 2479062870276657957}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43997,7 +43997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5482608941029638635}
   - component: {fileID: 5907793221915032109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45887,7 +45887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2732194796849975020}
   - component: {fileID: 4231947736759716801}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46288,7 +46288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 615171460592266290}
   - component: {fileID: 7799304482999189910}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46975,7 +46975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2809917798439460083}
   - component: {fileID: 6391086935106960327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47236,7 +47236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4863614314912718052}
   - component: {fileID: 2228348115747164390}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair Floor Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48807,7 +48807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315267142699498283}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52448,7 +52448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 322877161654721939}
   - component: {fileID: 224358034829392739}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55123,7 +55123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3564417713174652189}
   - component: {fileID: 129239794283339433}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57642,7 +57642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1463138568047151669}
   - component: {fileID: 2719695561506838720}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57694,7 +57694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8939135926554757891}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57981,7 +57981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5861218965601102561}
   - component: {fileID: 960878670814101816}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58867,7 +58867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 852261089875940570}
   - component: {fileID: 5593726402619392810}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59253,7 +59253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6539980530402085816}
   - component: {fileID: 2900623356027373533}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59363,7 +59363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5218635388687457406}
   - component: {fileID: 5165731789742670327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59604,7 +59604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6425192295326182708}
   - component: {fileID: 2801898228057877734}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60145,7 +60145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5328480282387279454}
   - component: {fileID: 620137499865165618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60598,7 +60598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4737772711061333840}
   - component: {fileID: 7449287237385783722}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61983,7 +61983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7052129885451113535}
   - component: {fileID: 5164308669658629763}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62952,7 +62952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5993595179681801429}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stair (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64667,10 +64667,14 @@ MonoBehaviour:
   MaxStamina: 0
   CurrentStamina: 0
   StaminaRegen: 0
+  MaxHp: 0
   Hp: 0
   WalkSpeed: 0
   RunSpeed: 0
+  _inputManager: {fileID: 0}
   _data: {fileID: 11400000, guid: cbb4c732c2cb7a14d9dfd063b315a6ee, type: 2}
+  _zombieDeathCounter: {fileID: 0}
+  _stateManager: {fileID: 0}
 --- !u!114 &1333909476559306593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65990,7 +65994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8684707404159596457}
   - component: {fileID: 5576971367145251650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67370,7 +67374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 179514493567583277}
   - component: {fileID: 4173679999725429858}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67907,6 +67911,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 424572641825135405, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 478683632472292164, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.0972
@@ -67974,6 +67982,10 @@ PrefabInstance:
     - target: {fileID: 666223848476272020, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 896713641133335616, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 901232896404718984, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalPosition.x
@@ -68111,6 +68123,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1484035869315627651, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1552104926681126156, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -68158,6 +68174,10 @@ PrefabInstance:
     - target: {fileID: 2229507414927450527, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329135427501860377, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 2350706528066604382, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: _rightDoorAnimator
@@ -68315,9 +68335,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3156030117087677356, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 3162020291138830560, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_Name
       value: Reusable Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201224837341842411, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 3213648921967505518, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
@@ -68350,6 +68378,10 @@ PrefabInstance:
     - target: {fileID: 3337843144027794226, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3349205358492183496, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 3351091915227715334, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: _rightDoorAnimator
@@ -68422,6 +68454,10 @@ PrefabInstance:
     - target: {fileID: 3497535247854507378, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526687785292291236, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 3608209902632998345, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
@@ -68795,6 +68831,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 6000164327234988347, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 6075053672894832500, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -69026,6 +69066,10 @@ PrefabInstance:
     - target: {fileID: 7758806878543629410, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785471139423105947, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7788039767778264282, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
@@ -69336,15 +69380,42 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3599985879587721552}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8188796637530536258, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4277808084671983515}
     - targetCorrespondingSourceObject: {fileID: 7785471139423105947, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2952823597285320493}
+    - targetCorrespondingSourceObject: {fileID: 7785471139423105947, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 921404955141810526}
     - targetCorrespondingSourceObject: {fileID: 2329135427501860377, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4320213384387600087}
     - targetCorrespondingSourceObject: {fileID: 2329135427501860377, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9116119269275802271}
+    - targetCorrespondingSourceObject: {fileID: 2329135427501860377, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1194977534716676610}
+    - targetCorrespondingSourceObject: {fileID: 3526687785292291236, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5203110132185047192}
+    - targetCorrespondingSourceObject: {fileID: 896713641133335616, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3405692366376431833}
+    - targetCorrespondingSourceObject: {fileID: 3156030117087677356, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2395057544625988730}
+    - targetCorrespondingSourceObject: {fileID: 6000164327234988347, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 28099023647198596}
+    - targetCorrespondingSourceObject: {fileID: 3201224837341842411, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 422656793797090856}
+    - targetCorrespondingSourceObject: {fileID: 3349205358492183496, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5101507864515821039}
   m_SourcePrefab: {fileID: 100100000, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
 --- !u!1 &100689255828955080 stripped
 GameObject:
@@ -69391,11 +69462,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 176590361028494559, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
   m_PrefabInstance: {fileID: 1173462403918859436}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2033724433841252588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 896713641133335616, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+  m_PrefabInstance: {fileID: 1173462403918859436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3405692366376431833
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033724433841252588}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!95 &2227859027723284330 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1054414255006933958, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
   m_PrefabInstance: {fileID: 1173462403918859436}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2358116050258776072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3526687785292291236, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+  m_PrefabInstance: {fileID: 1173462403918859436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5203110132185047192
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358116050258776072}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!4 &2736801260626124347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3869695894536983191, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
@@ -69453,6 +69588,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.44, y: 2.92, z: 3.5}
   m_Center: {x: -30.32, y: 2.92, z: -10.8}
+--- !u!54 &1194977534716676610
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3466146095616928437}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!95 &3573131799334194464 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2440574580594278796, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
@@ -69478,6 +69640,102 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2997384601205373858, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
   m_PrefabInstance: {fileID: 1173462403918859436}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4288695120169928448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3156030117087677356, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+  m_PrefabInstance: {fileID: 1173462403918859436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2395057544625988730
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4288695120169928448}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!1 &4334134999356213063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3201224837341842411, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+  m_PrefabInstance: {fileID: 1173462403918859436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &422656793797090856
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4334134999356213063}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!1 &4481711999807317860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3349205358492183496, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+  m_PrefabInstance: {fileID: 1173462403918859436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5101507864515821039
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4481711999807317860}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &4573149683409281191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3404702345786878987, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
@@ -69488,6 +69746,38 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5909967789638223788, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
   m_PrefabInstance: {fileID: 1173462403918859436}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4831276617807685015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6000164327234988347, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+  m_PrefabInstance: {fileID: 1173462403918859436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &28099023647198596
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831276617807685015}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &4940309506781954575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6108983930548211363, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
@@ -69543,6 +69833,42 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5307604515404788636, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
   m_PrefabInstance: {fileID: 1173462403918859436}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7056167484196894190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8188796637530536258, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+  m_PrefabInstance: {fileID: 1173462403918859436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4277808084671983515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7056167484196894190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 2147483840
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.033333335
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 1a07419e7c8a7e9409fe6d633f6b930a, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &7386049943662506466 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8559228104488271182, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
@@ -69609,6 +69935,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 70, y: 2.92, z: 4.2}
   m_Center: {x: 0, y: 2.92, z: -12.57}
+--- !u!54 &921404955141810526
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8954129222641827639}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &2531834659837168439
 PrefabInstance:
   m_ObjectHideFlags: 0

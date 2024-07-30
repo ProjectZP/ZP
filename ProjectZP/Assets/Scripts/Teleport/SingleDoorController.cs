@@ -8,8 +8,6 @@ namespace ZP.Villin.Teleport
 {
     public class SingleDoorController : DoorController
     {
-
-
         protected override void Awake()
         {
             base.Awake();
