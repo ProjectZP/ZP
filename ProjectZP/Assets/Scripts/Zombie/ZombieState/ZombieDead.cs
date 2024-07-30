@@ -36,6 +36,12 @@ namespace ZP.BHS.Zombie
             zombieStateController.zombieAnimator.applyRootMotion = false;
             zombieStateController.zombieAnimator.enabled = false;
 
+            if (_zombieManager.OnStair)
+            {
+                _zombieManager.OnStairButDead = true;
+                _zombieManager.OnStair = false;
+                Debug.Log("Zombie Died On Stair");
+            }
 
 
             zombieSightStateController.enabled = false;
