@@ -7,6 +7,7 @@ namespace ZP.SJH.Player
     {
         public float Stamina;
         public float StaminaRegen;
+        public float MaxHp;
         public float Hp;
         public float WalkSpeed;
         public float RunSpeed;

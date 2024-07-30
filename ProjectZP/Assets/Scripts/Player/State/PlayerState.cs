@@ -29,8 +29,9 @@ namespace ZP.SJH.Player
             if (_status.CurrentStamina < _status.MaxStamina)
             {
                 float regenAmount = 1 - MathF.Sqrt(1 - MathF.Pow(_status.CurrentStamina / _status.MaxStamina, 2f));
-                _status.CurrentStamina += _status.StaminaRegen * regenAmount;
-                Math.Clamp(_status.CurrentStamina, MIN_STAMINA, _status.MaxStamina);
+                _status.CurrentStamina += _status.StaminaRegen * (regenAmount + 0.1f);
+                if (_status.CurrentStamina > _status.MaxStamina)
+                    _status.CurrentStamina = _status.MaxStamina;
             }
         }
     }

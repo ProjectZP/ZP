@@ -60,6 +60,10 @@ namespace ZP.SJH.Weapon
                 if (_isEquipTwoHandWeapon == true)
                 {
                     _isEquippedInLeftHand = false;
+
+                    if (IWeaponComponent.GetHandCount() == 0)
+                        return;
+
                     CurrentWeaponLH = IWeaponComponent;
 
                     Transform weaponTransform = args.interactableObject.transform;
@@ -97,6 +101,10 @@ namespace ZP.SJH.Weapon
                 if (_isEquipTwoHandWeapon == true)
                 {
                     _isEquippedInLeftHand = true;
+
+                    if (IWeaponComponent.GetHandCount() == 0)
+                        return;
+
                     CurrentWeaponRH = IWeaponComponent;
 
                     Transform weaponTransform = args.interactableObject.transform;

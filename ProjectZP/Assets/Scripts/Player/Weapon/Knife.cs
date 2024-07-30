@@ -29,6 +29,7 @@ namespace ZP.SJH.Weapon
         private void OnTriggerEnter(Collider other)
         {
             var damage = CalculateDamage();
+            Debug.LogWarning($"Knife {damage}");
             if (other.gameObject.layer == ZombieLayer
                 && other.gameObject.GetComponent<ZombieCore>()
                 && damage > 60f)
@@ -40,6 +41,11 @@ namespace ZP.SJH.Weapon
                 _trigger.isTrigger = false;
         }
 
+        private void OnTriggerExit(Collider other)
+        {
+            _trigger.isTrigger = true;
+        }
+
         private void Update()
         {
 
@@ -49,21 +55,20 @@ namespace ZP.SJH.Weapon
                 _velocity = ((transform.position - _positionBuffer) / 0.1f).magnitude;
 
                 if (_isHold && _playerManager != null)
-                    _velocity -= Mathf.Abs(_playerManager.MoveValue) * _playerManager.MoveSpeed;
+                    _velocity -= _playerManager.Input.MoveValue * _playerManager.Status.MoveSpeed;
+                
+                _velocity = Mathf.Abs(_velocity);
+
                 _positionBuffer = transform.position;
                 _elapsedTime = 0f;
             }
             CalculateDamage();
         }
 
-        private void OnTriggerExit(Collider other)
-        {
-            _trigger.isTrigger = true;
-        }
 
         public float CalculateDamage()
         {
-            float damage = _weaponData.Sharpness * _rigidbody.velocity.magnitude;
+            float damage = _weaponData.Sharpness * _velocity;
 
             return damage;
         }
@@ -80,13 +85,17 @@ namespace ZP.SJH.Weapon
 
         public void Equip(bool isMoving)
         {
+            if (_playerManager == null)
+                _playerManager = FindAnyObjectByType<PlayerManager>();
             _isHold = true;
+            _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
             return;
         }
 
         public void DeEquip()
         {
             _isHold = false;
+            _rigidbody.constraints = RigidbodyConstraints.None;
             return;
         }
 

@@ -30,6 +30,7 @@ namespace ZP.SJH.Weapon
         private void OnTriggerEnter(Collider other)
         {
             var damage = CalculateDamage();
+            Debug.LogWarning($"Axe {damage}");
             if (other.gameObject.layer == ZombieLayer
                 && other.gameObject.GetComponent<ZombieCore>()
                 && damage > 60f)
@@ -54,7 +55,10 @@ namespace ZP.SJH.Weapon
                 _velocity = ((transform.position - _positionBuffer) / 0.1f).magnitude;
 
                 if (_handCount > 0 && _playerManager != null)
-                    _velocity -= Mathf.Abs(_playerManager.MoveValue) * _playerManager.MoveSpeed;
+                    _velocity -= _playerManager.Input.MoveValue * _playerManager.Status.MoveSpeed;
+
+                _velocity = Mathf.Abs(_velocity);
+
                 _positionBuffer = transform.position;
                 _elapsedTime = 0f;
             }
@@ -101,14 +105,14 @@ namespace ZP.SJH.Weapon
                 _rigidbody.constraints = RigidbodyConstraints.None;
         }
 
-        public void SetConstraint(bool isFreeze) 
-            => _rigidbody.constraints = isFreeze 
-            ? RigidbodyConstraints.FreezeAll 
-            : RigidbodyConstraints.None;
-
         public int GetHandCount()
         {
             return _handCount;
         }
+
+        public void SetConstraint(bool isFreeze) 
+            => _rigidbody.constraints = isFreeze 
+            ? RigidbodyConstraints.FreezeAll 
+            : RigidbodyConstraints.None;
     }
 }

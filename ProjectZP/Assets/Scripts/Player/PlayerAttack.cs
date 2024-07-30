@@ -35,7 +35,7 @@ namespace ZP.SJH.Player
 
         bool isAttacking;
         float time = 0f;
-        private void FixedUpdate()
+        private void Update()
         {
             if ((_statusManager.CurrentStamina >= ATTACK_STAMINA) && _weaponManager.CurrentWeaponLH != null)
                 CheckLeftHandAttack();

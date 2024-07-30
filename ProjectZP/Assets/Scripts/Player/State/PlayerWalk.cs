@@ -10,7 +10,7 @@ namespace ZP.SJH.Player
             _stateType = PlayerStateType.Walk;
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             RegenStamina();
         }

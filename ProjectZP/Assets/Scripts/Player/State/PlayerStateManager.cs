@@ -13,7 +13,8 @@ namespace ZP.SJH.Player
             Idle,
             Walk,
             Run,
-            Attack
+            Attack,
+            Dead
         }
 
         [SerializeField] private PlayerStatusManager _status;

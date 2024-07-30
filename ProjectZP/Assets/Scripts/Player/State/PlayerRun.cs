@@ -13,12 +13,12 @@ namespace ZP.SJH.Player
             _stateType = PlayerStateType.Run;
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             if (MIN_STAMINA < _status.CurrentStamina)
             {
                 _status.CurrentStamina -= RUN_STAMINA;
-                Math.Clamp(_status.CurrentStamina, MIN_STAMINA, _status.MaxStamina);
+                _status.CurrentStamina = Math.Clamp(_status.CurrentStamina, MIN_STAMINA, _status.MaxStamina);
             }
         }
     }
