@@ -30,6 +30,8 @@ namespace ZP.Villin.Teleport
         protected override void SetActionSubscribers()
         {
             base.SetActionSubscribers();
+            _playerManager.OnEnterEndStageRegion += SubscribeOnEnterEndStageRegion;
+            _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
             _teleportManager.OnRightTeleport += SubscribeOnRightTeleport;
             _teleportManager.OnLeftTeleport += SubscribeOnLeftTeleport;
             _playerManager.OnExitEndStageRegion += DeactivateCollision;
@@ -40,7 +42,6 @@ namespace ZP.Villin.Teleport
             base.OnEnable();
             DeactivateCollision();
         }
-
 
         /// <summary>
         /// Actiave collision to prohibit player not go out Stair layer region.
@@ -58,7 +59,6 @@ namespace ZP.Villin.Teleport
                 Debug.Log("RightEndStage Collision Activated");
 #endif
             }
-
         }
 
         protected override IEnumerator ActivateCollisionCoroutine()
@@ -75,26 +75,25 @@ namespace ZP.Villin.Teleport
 #endif
             yield return base.ActivateCollisionCoroutine();
             OnEndStageDoorClosed?.Invoke();
+            DeactivateCollision();
 #if UNITY_EDITOR
             Debug.Log("OnEndStageDoorClosed Invoked at RightEndStage");
 #endif
+        }
+
+        protected override void SubscribeOnExitEndStageRegion()
+        {
+            base.SubscribeOnExitEndStageRegion();
+            DeactivateCollision();
         }
 
         /// <summary>
         /// Deactivate collision if player is not on Stair layer.
         /// </summary>
         /// 
-        protected override void DeactivateCollision()
+        public override void DeactivateCollision()
         {
-            if (_isPlayerOnEndStageRegion == true)
-            {
-                Debug.Log($"_isPlayerOnEndStageRegion = {_isPlayerOnEndStageRegion}");
-                return;
-            }
-            if (_isRightDoorActivated == true)
-            {
                 base.DeactivateCollision();
-            }
         }
 
         private void SubscribeOnRightTeleport()

@@ -26,6 +26,7 @@ namespace ZP.Villin.Teleport
         protected const float _animationTimeout = 10f;
         protected bool _isPlayerOnEndStageRegion;
         protected bool _isRightDoorActivated;
+        protected bool _isDoorOpened;
 
 
         protected virtual void Awake()
@@ -60,8 +61,6 @@ namespace ZP.Villin.Teleport
         /// </summary>
         protected virtual void SetActionSubscribers()
         {
-            _playerManager.OnEnterEndStageRegion += SubscribeOnEnterEndStageRegion;
-            _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
             //_playerManager.OnInteractDoor.AddListener(UpdateAnimation);
         }
 
@@ -69,7 +68,7 @@ namespace ZP.Villin.Teleport
         /// Set <see cref="_isPlayerOnEndStageRegion"/> true when OnEnterEndStageRegion Invoked.
         /// </summary>
         /// <param name="transform">Get player transform from <see cref="PlayerManager.OnEnterEndStageRegion"/></param>
-        private void SubscribeOnEnterEndStageRegion(Transform transform)
+        protected virtual void SubscribeOnEnterEndStageRegion(Transform transform)
         {
 
             _isPlayerOnEndStageRegion = true;
@@ -97,21 +96,43 @@ namespace ZP.Villin.Teleport
 
         private IEnumerator SetStateCoroutine(DoorStateList newState)
         {
+            if (_state == newState)
+            {
+                yield break;
+            }
             _state = newState;
-            if (_leftDoorAnimator == null || _rightDoorAnimator == null)
+            float animationLength;
+            Animator activeAnimator = null;
+            if (_rightDoorAnimator && _leftDoorAnimator)
+            {
+                _rightDoorAnimator.SetInteger("DoorState", (int)_state);
+                activeAnimator = _leftDoorAnimator;
+            }
+            else if (_leftDoorAnimator != null)
+            {
+                activeAnimator = _leftDoorAnimator;
+            }
+            else if (_rightDoorAnimator != null)
+            {
+                activeAnimator = _rightDoorAnimator;
+            }
+            activeAnimator.SetInteger("DoorState", (int)_state);
+#if UNITY_EDITOR
+            Debug.Log($"now active animator is {activeAnimator.name}");
+#endif
+
+            if (activeAnimator != null)
+            {
+                AnimatorStateInfo stateInfo = activeAnimator.GetCurrentAnimatorStateInfo(0);
+                animationLength = stateInfo.length;
+            }
+            else
             {
 #if UNITY_EDITOR
-                Debug.Log("Animator is null!");
+                Debug.Log("All Animator is null!");
 #endif
                 yield break;
             }
-
-            _state = newState;
-            _leftDoorAnimator.SetInteger("DoorState", (int)_state);
-            _rightDoorAnimator.SetInteger("DoorState", (int)_state);
-
-            AnimatorStateInfo leftDoorStateInfo = _leftDoorAnimator.GetCurrentAnimatorStateInfo(0);
-            float animationLength = leftDoorStateInfo.length;
 
             float elapsedTime = 0f;
             while (elapsedTime < animationLength && elapsedTime < _animationTimeout)
@@ -147,7 +168,7 @@ namespace ZP.Villin.Teleport
         /// <summary>
         /// Start Coroutine to Deactivate Collision.
         /// </summary>
-        protected virtual void DeactivateCollision()
+        public virtual void DeactivateCollision()
         {
             StartCoroutine(DeactivateCollisionCoroutine());
         }
@@ -158,6 +179,30 @@ namespace ZP.Villin.Teleport
             Debug.Log("SetStateCoroutine Start");
 #endif
             _transparentCollision.GetComponent<BoxCollider>().enabled = false;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
+        }
+
+        protected virtual IEnumerator CloseDoorCoroutine()
+        {
+            _isDoorOpened = false;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
+        }
+
+        public virtual void InteractDoor()
+        {
+            if (_isDoorOpened == false)
+            {
+                StartCoroutine(OpenDoorCoroutine());
+            }
+            else
+            {
+                StartCoroutine(CloseDoorCoroutine());
+            }
+        }
+
+        protected virtual IEnumerator OpenDoorCoroutine()
+        {
+            _isDoorOpened = true;
             yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
         }
     }

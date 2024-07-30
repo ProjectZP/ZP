@@ -5,9 +5,9 @@ using ZP.SJH.Player;
 
 namespace ZP.Villin.Teleport
 {
-    public class RightStartStageDoorController : DoorController
+    public class StartStageDoorController : DoorController
     {
-
+        public Action OnStartStageDoorOpened;
 
         protected override void Awake()
         {
@@ -23,22 +23,31 @@ namespace ZP.Villin.Teleport
         }
 
         /// <summary>
-        /// Set <see cref="Action"/>s using in <see cref="RightStartStageDoorController"/>
+        /// Set <see cref="Action"/>s using in <see cref="StartStageDoorController"/>
         /// </summary>
         protected override void SetActionSubscribers()
         {
             base.SetActionSubscribers();
+            _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
+        }
+
+        protected override void SubscribeOnExitEndStageRegion()
+        {
+            base.SubscribeOnExitEndStageRegion();
+            ActivateCollision();
+        }
+
+        public void TestOpenDoor()
+        {
+            DeactivateCollision();
         }
 
         /// <summary>
         /// Dectiave collision to make player go out specific region.
         /// </summary>
-        protected override void DeactivateCollision()
+        public override void DeactivateCollision()
         {
-            if (_isPlayerOnEndStageRegion == true)
-            {
-                return;
-            }
+            OnStartStageDoorOpened?.Invoke();
             base.DeactivateCollision();
         }
 

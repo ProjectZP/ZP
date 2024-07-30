@@ -10,7 +10,6 @@ namespace ZP.Villin.Teleport
         public Action OnEndStageDoorClosed;
         public Action OnEndStageDoorOpened;
 
-
         protected override void Awake()
         {
             base.Awake();
@@ -30,6 +29,8 @@ namespace ZP.Villin.Teleport
         protected override void SetActionSubscribers()
         {
             base.SetActionSubscribers();
+            _playerManager.OnEnterEndStageRegion += SubscribeOnEnterEndStageRegion;
+            _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
             _teleportManager.OnRightTeleport += SubscribeOnRightTeleport;
             _teleportManager.OnLeftTeleport += SubscribeOnLeftTeleport;
             _playerManager.OnExitEndStageRegion += DeactivateCollision;
@@ -71,27 +72,25 @@ namespace ZP.Villin.Teleport
 #endif
             yield return base.ActivateCollisionCoroutine();
             OnEndStageDoorClosed?.Invoke();
+            DeactivateCollision();
 #if UNITY_EDITOR
             Debug.Log("OnEndStageDoorClosed Invoked at LeftEndStage");
 #endif
         }
 
+        protected override void SubscribeOnExitEndStageRegion()
+        {
+            base.SubscribeOnExitEndStageRegion();
+            DeactivateCollision();
+        }
 
         /// <summary>
         /// Deactivate collision if player is not on Stair layer.
         /// </summary>
         /// 
-        protected override void DeactivateCollision()
+        public override void DeactivateCollision()
         {
-            if ( _isPlayerOnEndStageRegion == true)
-            {
-                Debug.Log($"_isPlayerOnEndStageRegion = {_isPlayerOnEndStageRegion}");
-                return;
-            }
-            if (_isRightDoorActivated == false)
-            {
                 base.DeactivateCollision();
-            }
         }
 
         private void SubscribeOnRightTeleport()
