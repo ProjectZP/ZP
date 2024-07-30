@@ -6,7 +6,7 @@ using ZP.SJH.Player;
 namespace ZP.BHS.Zombie
 {
 
-    class ZombieIdleSight : ZombieSight //Todo: in this class, Using Player as "Player GameObject" but it's not accurate.
+    class ZombieIdleSight : ZombieSight
     {
         private float _checkTime;
         private const float _checkRate = 0.5f;

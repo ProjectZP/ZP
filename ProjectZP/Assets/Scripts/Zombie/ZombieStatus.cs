@@ -8,7 +8,7 @@ namespace ZP.BHS.Zombie
     /// <summary>
     /// This class set Zombie's Status By ZombieData.
     /// </summary>
-    public class ZombieStatus //Todo: Get Data. Add Attack Range.
+    public class ZombieStatus
     {
         public ZombieStatus(ZombieType zombieType)
         {

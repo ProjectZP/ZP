@@ -1505,7 +1505,6 @@ GameObject:
   - component: {fileID: 7409728369912156985}
   - component: {fileID: 2522356618610120406}
   - component: {fileID: 5345291620895829583}
-  - component: {fileID: 3952611064916337913}
   - component: {fileID: 7158639732289306266}
   - component: {fileID: 7732730473610127066}
   - component: {fileID: 8711907820171830953}
@@ -1588,18 +1587,6 @@ MonoBehaviour:
   RagdollCollider: []
   characterJoints: []
   zombiedie: 0
---- !u!114 &3952611064916337913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5238225646009838798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47757ff2aab2091479227208f2e84d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &7158639732289306266
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1619,7 +1606,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.8
-  m_BaseOffset: -0.08
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &7732730473610127066
@@ -2009,7 +1996,7 @@ SphereCollider:
     m_Bits: 1024
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2684355583
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -2108,7 +2095,7 @@ MonoBehaviour:
   NeckSpring: {fileID: 4984895420543922533}
   Spine: {fileID: 6573500671178280060}
   Head: {fileID: 6118528571572647854}
-  BloodEffect: {fileID: 0}
+  BloodEffect: {fileID: 1000013355911406, guid: d32aa916f50cac94db11e6f19821a58f, type: 3}
 --- !u!1 &6573500671178280060
 GameObject:
   m_ObjectHideFlags: 0

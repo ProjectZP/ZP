@@ -30,10 +30,8 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateExit()
         {
-            //
+            
         }
-
-        //Todo: Using Animation Event. To Judge weather Attack Finished.
 
         private void DoAttack()
         {
@@ -41,10 +39,8 @@ namespace ZP.BHS.Zombie
             _passedTime = 0;
             if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.refTransform.position) < _zombieManager.zombieStatus.AttackRange)
             {
-                _zombieManager.Target.GetComponent<PlayerStatusManager>().Hp -= 10;
+                //_zombieManager.Target.OnPlayerDamaged(_zombieManager.zombieStatus.ZombieDamage); //Todo: Damage To Player
             }
-            //Todo: RotateZombie Body to Player Loaction.
-            //Todo: Do AttackAnimation.
         }
 
         //This method Listen OnAttackEnd event.
@@ -53,7 +49,6 @@ namespace ZP.BHS.Zombie
             if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.refTransform.position)
                 <= _zombieManager.zombieStatus.AttackRange)
             {
-                // _zombieManager.Target.OnPlayerDamaged().Invoke(_zombieManager.zombieStatus.Damage); //Todo:
                 DoAttack();
             }
             else
