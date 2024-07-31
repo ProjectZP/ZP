@@ -8,15 +8,37 @@ namespace ZP.Villin.Teleport
 {
     public class SingleDoorController : DoorController
     {
-        protected override void Awake()
+        private bool _isDoorOpened;
+
+
+        protected override void SetActionSubscribers()
         {
-            base.Awake();
+            base.SetActionSubscribers();
+            OnInteractDoor += SwitchDoorState;
         }
 
-
-        public override void InteractDoor()
+        private void SwitchDoorState()
         {
-            base.InteractDoor();
+            if (_isDoorOpened == false)
+            {
+                StartCoroutine(OpenDoorCoroutine());
+            }
+            else
+            {
+                StartCoroutine(CloseDoorCoroutine());
+            }
+        }
+
+        private IEnumerator CloseDoorCoroutine()
+        {
+            _isDoorOpened = false;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
+        }
+
+        private IEnumerator OpenDoorCoroutine()
+        {
+            _isDoorOpened = true;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
         }
     }
 }

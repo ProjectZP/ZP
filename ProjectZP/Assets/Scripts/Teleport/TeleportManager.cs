@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using ZP.Villin.World;
 using ZP.SJH.Player;
-using System.Collections.Generic;
 
 namespace ZP.Villin.Teleport
 {
@@ -14,17 +13,19 @@ namespace ZP.Villin.Teleport
     {
         [SerializeField] private Transform _toTransform;
         [SerializeField] private Transform _elevatingTransform;
-        [SerializeField] private GameObject _destroyOnBeforeLastStageEnterRight;
-        [SerializeField] private GameObject _destroyOnBeforeLastStageEnterLeft;
+        [SerializeField] private GameObject _upstairDummyMeshRight;
+        [SerializeField] private GameObject _upstairDummyMeshLeft;
+        [SerializeField] private GameObject _endStageRegionMeshLeft;
+        [SerializeField] private GameObject _endStageRegionMeshRight;
+        [SerializeField] private PlayerManager _playerManager;
         public Action OnRemainTeleportCountZero;
         public Action OnRightTeleport;
         public Action OnLeftTeleport;
-        private PlayerManager _playerManager;
         private DynamicWorldConstructor _dynamicWorldConstructor;
         private RightEndStageDoorController _rightEndStageDoorController;
         private LeftEndStageDoorController _leftEndStageDoorController;
         private Vector3 _verticalMoveAmount;
-        private Vector3 _teleportOffset = new Vector3 (0f, -2.92f, 0f);
+        private Vector3 _teleportOffset = new Vector3(0f, -2.92f, 0f);
         private int _nowRemainTeleportCount;
         private bool _isTeleportReady = false;
         private bool _isSyncCoroutineRunning = false;
@@ -32,7 +33,7 @@ namespace ZP.Villin.Teleport
 
         public int GetNowRemainTeleportCount()
         {
-        return _nowRemainTeleportCount;
+            return _nowRemainTeleportCount;
         }
 
         private void Awake()
@@ -149,7 +150,7 @@ namespace ZP.Villin.Teleport
             {
                 yield break;
             }
-                _isSyncCoroutineRunning = true;
+            _isSyncCoroutineRunning = true;
 
             while (_isTeleportReady == false && _isSyncCoroutineRunning == true && _nowRemainTeleportCount > 0)
             {
@@ -189,8 +190,13 @@ namespace ZP.Villin.Teleport
 
             if (_nowRemainTeleportCount == 1)
             {
-               Destroy(_destroyOnBeforeLastStageEnterLeft);
-               Destroy(_destroyOnBeforeLastStageEnterRight);
+                _upstairDummyMeshLeft.SetActive(false);
+                _upstairDummyMeshRight.SetActive(false);
+            }
+            if (_nowRemainTeleportCount == 0)
+            {
+                _endStageRegionMeshLeft.SetActive(false);
+                _endStageRegionMeshRight.SetActive(false);
             }
 
             if (_isTeleportReady == true && (_nowRemainTeleportCount % 2 == 0))
