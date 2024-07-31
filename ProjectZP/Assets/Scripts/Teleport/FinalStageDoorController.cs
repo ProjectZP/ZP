@@ -1,81 +1,50 @@
 ﻿using System;
-using UnityEngine;
-using ZP.SJH.Player;
+using System.Collections;
 
 namespace ZP.Villin.Teleport
 {
     public class FinalStageDoorController : DoorController
     {
+        public event Action GameClear;
         private bool _isFinalStageDoorInteractable = false;
+        private bool _isDoorOpened;
+        private bool _isGameCleared;
 
 
-        protected override void Awake()
-        {
-            base.Awake();
-        }
-
-        /// <summary>
-        /// Check Exception When <see cref="StairDoorController"/> Awake.
-        /// </summary>
-        protected override void CheckAwakeException()
-        {
-            base.CheckAwakeException();
-        }
-
-        /// <summary>
-        /// Set <see cref="Action"/>s using in <see cref="RightEndStageDoorController"/>
-        /// </summary>
         protected override void SetActionSubscribers()
         {
             base.SetActionSubscribers();
-            _teleportManager.OnRemainTeleportCountZero += MakeIntaractableFinalStageDoor;
+            OnInteractDoor += SwitchDoorState;
         }
 
-        /// <summary>
-        /// Set <see cref="_isPlayerOnEndStageRegion"/> true when OnEnterEndStageRegion Invoked.
-        /// </summary>
-        /// <param name="transform">Get player transform from <see cref="PlayerManager.OnEnterEndStageRegion"/></param>
-        private void SubscribeOnEnterEndStageRegion(Transform transform)
+        private void SwitchDoorState()
         {
-
-            _isPlayerOnEndStageRegion = true;
-        }
-
-        public override void ActivateCollision()
-        {
-            if (_isFinalStageDoorInteractable == false)
+            if (_isGameCleared == true)
             {
                 return;
             }
-            if (_isPlayerOnEndStageRegion == true)
+            GameClear?.Invoke();
+            if (_isDoorOpened == false)
             {
-                return;
+                StartCoroutine(OpenDoorCoroutine());
             }
-            base.ActivateCollision();
+            else
+            {
+                StartCoroutine(CloseDoorCoroutine());
+            }
+            _isGameCleared = true;
         }
 
-        /// <summary>
-        /// Actiave collision to prohibit player not go out specific region.
-        /// </summary>
-        public override void DeactivateCollision()
+        private IEnumerator CloseDoorCoroutine()
         {
-            if (_isFinalStageDoorInteractable == false)
-            {
-                return;
-            }
-            if (_isPlayerOnEndStageRegion == false)
-            {
-                return;
-            }
-            base.DeactivateCollision();
+            _isDoorOpened = false;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
         }
 
-        /// <summary>
-        /// Make true <see cref="_isFinalStageDoorInteractable"/> when <see cref="TeleportManager.OnRemainTeleportCountZero"/> Invoked.
-        /// </summary>
-        private void MakeIntaractableFinalStageDoor()
+        private IEnumerator OpenDoorCoroutine()
         {
-            _isFinalStageDoorInteractable = true;
+            _isDoorOpened = true;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
         }
     }
 }

@@ -7,7 +7,10 @@ namespace ZP.Villin.Teleport
 {
     public class StartStageDoorController : DoorController
     {
+        [SerializeField] private GameObject _transparentCollision;
         public Action OnStartStageDoorOpened;
+        private PlayerManager _playerManager;
+
 
         protected override void Awake()
         {
@@ -20,6 +23,10 @@ namespace ZP.Villin.Teleport
         protected override void CheckAwakeException()
         {
             base.CheckAwakeException();
+            if (_playerManager == default)
+            {
+                _playerManager = FindFirstObjectByType<PlayerManager>();
+            }
         }
 
         /// <summary>
@@ -28,6 +35,7 @@ namespace ZP.Villin.Teleport
         protected override void SetActionSubscribers()
         {
             base.SetActionSubscribers();
+            OnInteractDoor += DeactivateCollision;
             _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
         }
 
@@ -37,23 +45,40 @@ namespace ZP.Villin.Teleport
             ActivateCollision();
         }
 
-        public void TestOpenDoor()
+        /// <summary>
+        /// Start Coroutine to Activate Collision.
+        /// </summary>
+        private void ActivateCollision()
         {
-            DeactivateCollision();
+            StartCoroutine(ActivateCollisionCoroutine());
         }
 
         /// <summary>
-        /// Dectiave collision to make player go out specific region.
+        /// Activate collision when DoorClose Aninmation is ended.
         /// </summary>
-        public override void DeactivateCollision()
+        /// <returns><see cref="SetStateCoroutine"/></returns>
+        private IEnumerator ActivateCollisionCoroutine()
         {
-            OnStartStageDoorOpened?.Invoke();
-            base.DeactivateCollision();
+            _transparentCollision.GetComponent<BoxCollider>().enabled = true;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
         }
 
-        protected override IEnumerator DeactivateCollisionCoroutine()
+        /// <summary>
+        /// Start Coroutine to Deactivate Collision.
+        /// </summary>
+        private void DeactivateCollision()
         {
-            yield return base.DeactivateCollisionCoroutine();
+            OnStartStageDoorOpened?.Invoke();
+            StartCoroutine(DeactivateCollisionCoroutine());
+        }
+
+        private IEnumerator DeactivateCollisionCoroutine()
+        {
+#if UNITY_EDITOR
+            Debug.Log("SetStateCoroutine Start");
+#endif
+            _transparentCollision.GetComponent<BoxCollider>().enabled = false;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
         }
     }
 }

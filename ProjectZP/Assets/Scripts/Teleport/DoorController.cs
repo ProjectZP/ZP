@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using TMPro;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using ZP.SJH.Player;
 
@@ -15,18 +16,18 @@ namespace ZP.Villin.Teleport
     }
 
 
-    public abstract class DoorController : MonoBehaviour
+    public abstract class DoorController : MonoBehaviour, IDoorInteractable
     {
-        [SerializeField] private GameObject _transparentCollision;
+        public Action OnInteractDoor;
+        public Action OnEndStageDoorClosed;
+        public Action OnEndStageDoorOpened;
         [SerializeField] private Animator _leftDoorAnimator;
         [SerializeField] private Animator _rightDoorAnimator;
         [SerializeField] private DoorStateList _state = DoorStateList.None;
-        protected PlayerManager _playerManager;
         protected TeleportManager _teleportManager;
         protected const float _animationTimeout = 10f;
         protected bool _isPlayerOnEndStageRegion;
         protected bool _isRightDoorActivated;
-        protected bool _isDoorOpened;
 
 
         protected virtual void Awake()
@@ -43,11 +44,6 @@ namespace ZP.Villin.Teleport
             if (_teleportManager == default)
             {
                 _teleportManager = FindFirstObjectByType<TeleportManager>();
-            }
-
-            if (_playerManager == default)
-            {
-                _playerManager = FindFirstObjectByType<PlayerManager>();
             }
 
             if (_leftDoorAnimator == default || _rightDoorAnimator == default)
@@ -94,7 +90,7 @@ namespace ZP.Villin.Teleport
 
         }
 
-        private IEnumerator SetStateCoroutine(DoorStateList newState)
+        protected IEnumerator SetStateCoroutine(DoorStateList newState)
         {
             if (_state == newState)
             {
@@ -147,63 +143,9 @@ namespace ZP.Villin.Teleport
             }
         }
 
-        /// <summary>
-        /// Start Coroutine to Activate Collision.
-        /// </summary>
-        public virtual void ActivateCollision()
-        {
-            StartCoroutine(ActivateCollisionCoroutine());
-        }
-
-        /// <summary>
-        /// Activate collision when DoorClose Aninmation is ended.
-        /// </summary>
-        /// <returns><see cref="SetStateCoroutine"/></returns>
-        protected virtual IEnumerator ActivateCollisionCoroutine()
-        {
-            _transparentCollision.GetComponent<BoxCollider>().enabled = true;
-            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
-        }
-
-        /// <summary>
-        /// Start Coroutine to Deactivate Collision.
-        /// </summary>
-        public virtual void DeactivateCollision()
-        {
-            StartCoroutine(DeactivateCollisionCoroutine());
-        }
-
-        protected virtual IEnumerator DeactivateCollisionCoroutine()
-        {
-#if UNITY_EDITOR
-            Debug.Log("SetStateCoroutine Start");
-#endif
-            _transparentCollision.GetComponent<BoxCollider>().enabled = false;
-            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
-        }
-
-        protected virtual IEnumerator CloseDoorCoroutine()
-        {
-            _isDoorOpened = false;
-            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
-        }
-
         public virtual void InteractDoor()
         {
-            if (_isDoorOpened == false)
-            {
-                StartCoroutine(OpenDoorCoroutine());
-            }
-            else
-            {
-                StartCoroutine(CloseDoorCoroutine());
-            }
-        }
-
-        protected virtual IEnumerator OpenDoorCoroutine()
-        {
-            _isDoorOpened = true;
-            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
+            OnInteractDoor?.Invoke();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace ZP.Villin.TestModule
         [SerializeField] private PlayerManager _playerManager;
         [SerializeField] private RightEndStageDoorController _rightEndStageDoorController;
         [SerializeField] private LeftEndStageDoorController _leftEndStageDoorController;
-        [SerializeField] private StartStageDoorController _startRightStageDoorController;
+        [SerializeField] private StartStageDoorController _startStageDoorController;
         [SerializeField] private StartStageDoorController _startLeftStageDoorController;
         [SerializeField] private SingleDoorController _singleDoorController;
         [SerializeField] private Vector3 _stairPosition = new Vector3(30.8899994f, 0.519999981f, 2.45000005f);
@@ -45,9 +45,12 @@ namespace ZP.Villin.TestModule
                 _teleportManager = FindFirstObjectByType<TeleportManager>();
             }
 
-            if (_rightEndStageDoorController == null || _leftEndStageDoorController == null)
+            if (_rightEndStageDoorController == null)
             {
                 _rightEndStageDoorController = FindFirstObjectByType<RightEndStageDoorController>();
+            }
+            if (_leftEndStageDoorController == null)
+            {
                 _leftEndStageDoorController = FindFirstObjectByType<LeftEndStageDoorController>();
             }
 
@@ -65,11 +68,11 @@ namespace ZP.Villin.TestModule
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("ExcuteRightTeleport", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
             {
-                _rightEndStageDoorController.ActivateCollision();
+                _rightEndStageDoorController.InteractDoor();
             }
             if (GUILayout.Button("ExcuteLeftTeleport", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
             {
-                _leftEndStageDoorController.ActivateCollision();
+                _leftEndStageDoorController.InteractDoor();
             }
             GUILayout.EndHorizontal();
 
@@ -79,9 +82,12 @@ namespace ZP.Villin.TestModule
             {
                 if (_teleportManager.GetNowRemainTeleportCount() % 2 == 0)
                 {
+                    _playerManager.gameObject.transform.position = Vector3.one;
                     _playerManager.gameObject.transform.position = _stairPosition;
                 }
-                else {
+                else
+                {
+                    _playerManager.gameObject.transform.position = Vector3.one;
                     _playerManager.gameObject.transform.position = new Vector3(-30.8899994f, 0.519999981f, 2.45000005f);
                 }
             }
@@ -91,20 +97,17 @@ namespace ZP.Villin.TestModule
             }
             GUILayout.EndHorizontal ();
 
-            _startRightStageDoorController = (EditorGUILayout.ObjectField("StartStageDoorController", _startRightStageDoorController, typeof(StartStageDoorController), true) as StartStageDoorController);
-            _startLeftStageDoorController = (EditorGUILayout.ObjectField("StartStageDoorController1", _startLeftStageDoorController, typeof(StartStageDoorController), true) as StartStageDoorController);
+            _startStageDoorController = (EditorGUILayout.ObjectField("StartStageDoorController", _startStageDoorController, typeof(StartStageDoorController), true) as StartStageDoorController);
 
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("OpenRightStartStageDoor", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
             {
-                _startRightStageDoorController.DeactivateCollision();
-            }
-            if (GUILayout.Button("OpenLeftStartStageDoor", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
-            {
-                _startLeftStageDoorController.DeactivateCollision();
+                _startStageDoorController.OnInteractDoor?.Invoke();
             }
             GUILayout.EndHorizontal();
+
             _singleDoorController = (EditorGUILayout.ObjectField("SelectedDoor", _singleDoorController, typeof(SingleDoorController), true) as SingleDoorController);
+
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("OpenDoorSelected", GUILayout.Width(150f), GUILayout.Height(50f)) == true)
             {

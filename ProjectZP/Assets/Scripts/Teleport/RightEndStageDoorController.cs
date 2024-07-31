@@ -7,8 +7,8 @@ namespace ZP.Villin.Teleport
 {
     public class RightEndStageDoorController : DoorController
     {
-        public Action OnEndStageDoorClosed;
-        public Action OnEndStageDoorOpened;
+        [SerializeField] PlayerManager _playerManager;
+        [SerializeField] private Collider _rightTransparentCollision;
 
 
         protected override void Awake()
@@ -22,6 +22,10 @@ namespace ZP.Villin.Teleport
         protected override void CheckAwakeException()
         {
             base.CheckAwakeException();
+            if (_playerManager == default)
+            {
+                _playerManager = FindFirstObjectByType<PlayerManager>();
+            }
         }
 
         /// <summary>
@@ -30,6 +34,7 @@ namespace ZP.Villin.Teleport
         protected override void SetActionSubscribers()
         {
             base.SetActionSubscribers();
+            OnInteractDoor += ActivateCollision;
             _playerManager.OnEnterEndStageRegion += SubscribeOnEnterEndStageRegion;
             _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
             _teleportManager.OnRightTeleport += SubscribeOnRightTeleport;
@@ -43,57 +48,10 @@ namespace ZP.Villin.Teleport
             DeactivateCollision();
         }
 
-        /// <summary>
-        /// Actiave collision to prohibit player not go out Stair layer region.
-        /// </summary>
-        public override void ActivateCollision()
-        {
-            if (_isPlayerOnEndStageRegion == false)
-            {
-                return;
-            }
-            if (_isRightDoorActivated == true)
-            {
-                base.ActivateCollision();
-#if UNITY_EDITOR
-                Debug.Log("RightEndStage Collision Activated");
-#endif
-            }
-        }
-
-        protected override IEnumerator ActivateCollisionCoroutine()
-        {
-            if (_isRightDoorActivated == false)
-            {
-#if UNITY_EDITOR
-                Debug.LogWarning($"Warnig! _isRightDoorActivated is {_isRightDoorActivated}");
-#endif
-                yield break;
-            }
-#if UNITY_EDITOR
-            Debug.Log($"_isRightDoorActivated is {_isRightDoorActivated}");
-#endif
-            yield return base.ActivateCollisionCoroutine();
-            OnEndStageDoorClosed?.Invoke();
-            DeactivateCollision();
-#if UNITY_EDITOR
-            Debug.Log("OnEndStageDoorClosed Invoked at RightEndStage");
-#endif
-        }
-
         protected override void SubscribeOnExitEndStageRegion()
         {
             base.SubscribeOnExitEndStageRegion();
             DeactivateCollision();
-        }
-
-        /// <summary>
-        /// Deactivate collision if player is not on Stair layer.
-        /// </summary>
-        /// 
-        public override void DeactivateCollision()
-        {
-                base.DeactivateCollision();
         }
 
         private void SubscribeOnRightTeleport()
@@ -112,13 +70,75 @@ namespace ZP.Villin.Teleport
 #endif
         }
 
-        protected override IEnumerator DeactivateCollisionCoroutine()
+
+        /// <summary>
+        /// Start Coroutine to Activate Collision.
+        /// </summary>
+        private void ActivateCollision()
         {
-            yield return base.DeactivateCollisionCoroutine();
+            if (_isPlayerOnEndStageRegion == false)
+            {
+                return;
+            }
+            if (_isRightDoorActivated == true)
+            {
+                StartCoroutine(ActivateCollisionCoroutine());
+#if UNITY_EDITOR
+                Debug.Log("RightEndStage Collision Activated");
+#endif
+            }
+        }
+
+        /// <summary>
+        /// Activate collision when DoorClose Aninmation is ended.
+        /// </summary>
+        /// <returns><see cref="SetStateCoroutine"/></returns>
+        private IEnumerator ActivateCollisionCoroutine()
+        {
+            if (_isRightDoorActivated == false)
+            {
+#if UNITY_EDITOR
+                Debug.LogWarning($"Warnig! _isRightDoorActivated is {_isRightDoorActivated}");
+#endif
+                yield break;
+            }
+#if UNITY_EDITOR
+            Debug.Log($"_isRightDoorActivated is {_isRightDoorActivated}");
+#endif
+            _rightTransparentCollision.GetComponent<BoxCollider>().enabled = true;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
+            OnEndStageDoorClosed?.Invoke();
+            if (_teleportManager.GetNowRemainTeleportCount() == 0)
+            {
+                yield break;
+            }
+
+            DeactivateCollision();
+#if UNITY_EDITOR
+            Debug.Log("OnEndStageDoorClosed Invoked at RightEndStage");
+#endif
+        }
+
+        /// <summary>
+        /// Start Coroutine to Deactivate Collision.
+        /// </summary>
+        private void DeactivateCollision()
+        {
+            StartCoroutine(DeactivateCollisionCoroutine());
+        }
+
+        private IEnumerator DeactivateCollisionCoroutine()
+        {
+#if UNITY_EDITOR
+            Debug.Log("SetStateCoroutine Start");
+#endif
+            _rightTransparentCollision.GetComponent<BoxCollider>().enabled = false;
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
             OnEndStageDoorOpened?.Invoke();
 #if UNITY_EDITOR
             Debug.Log("OnEndStageDoorOpened Invoked at RightEndStage");
 #endif
         }
+
     }
 }
