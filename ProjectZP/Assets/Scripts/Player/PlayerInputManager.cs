@@ -7,9 +7,10 @@ namespace ZP.SJH.Player
     public class PlayerInputManager : MonoBehaviour
     {
         private const float IDLE_VALUE = 0.01f;
-        private const float RUN_VALUE = 0.95f;
+        private const float RUN_VALUE = 0.98f;
 
-        private const float MIN_RUN_STAMINA = 20f;
+        private const float MIN_STAMINA = 0.1f;
+        private const float MIN_RUN_STAMINA = 30f;
         private bool _isTired = false;
 
         [SerializeField] private PlayerManager _manager;
@@ -39,7 +40,7 @@ namespace ZP.SJH.Player
             }
             else 
             {
-                if (_manager.Status.CurrentStamina > 0f && _isTired == false)
+                if (_manager.Status.CurrentStamina > MIN_STAMINA && _isTired == false)
                     Run();
                 else
                 {

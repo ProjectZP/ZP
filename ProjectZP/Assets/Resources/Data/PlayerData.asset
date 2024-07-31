@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   Stamina: 100
-  StaminaRegen: 4
+  StaminaRegen: 3
   MaxHp: 100
   Hp: 100
   WalkSpeed: 4

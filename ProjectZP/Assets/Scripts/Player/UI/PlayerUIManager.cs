@@ -43,13 +43,13 @@ namespace ZP.SJH.UI
 
         private void UpdateKillCountText()
         {
-            _killCountText.text = $"<size=0.08>Kill</size>\n{_statusManager.KillCount}";
+            _killCountText.text = $"Kill\n<size=0.1>{_statusManager.KillCount}</size>";
         }
 
         public void OnPlayerDead()
         {
             _isPlayerDead = true;
-            _killCountText.text = "<color=red>YOU ARE DEAD</color>";
+            _killCountText.text = "<color=red>YOU\nARE\nDEAD</color>";
         }
     }
 }
