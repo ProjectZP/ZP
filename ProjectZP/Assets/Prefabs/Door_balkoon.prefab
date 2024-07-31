@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4739504409903044837}
   - component: {fileID: 1340530171247805252}
   - component: {fileID: 7677913018061171889}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_balkoon_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
