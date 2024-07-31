@@ -55,7 +55,10 @@ namespace ZP.SJH.Player
                     if (time >= MIN_ATTACK_TIME)
                     {
                         _statusManager.CurrentStamina -= ATTACK_STAMINA;
-                        time = 0f;
+                        if (_statusManager.CurrentStamina < 0.1f)
+                            _statusManager.CurrentStamina = 0.1f;
+
+                            time = 0f;
                     }
                 }
                 else
@@ -81,6 +84,8 @@ namespace ZP.SJH.Player
                     if (time >= MIN_ATTACK_TIME)
                     {
                         _statusManager.CurrentStamina -= ATTACK_STAMINA;
+                        if (_statusManager.CurrentStamina < 0.1f)
+                            _statusManager.CurrentStamina = 0.1f;
                         time = 0f;
                     }
                 }
