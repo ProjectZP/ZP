@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using Unity.Properties;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations.Rigging;
@@ -14,17 +12,17 @@ namespace ZP.BHS.Zombie
     {
         [SerializeField] private ZombieType zombieType;
 
-        private ZombieStateController zombieStateController;
+        [SerializeField] private Transform _chestTransform;
+
+        public Transform RefTransform { get { return _chestTransform; } }
+
+        private ZombieStateController _zombieStateController;
 
         private ZombieSightStateController _zombieSight;
 
         private NavMeshAgent _navMeshAgent;
 
-        [SerializeField] private Transform _chestTransform;
-
-        public Transform refTransform { get { return _chestTransform; } }
-
-        public ZombieStatus zombieStatus { get; private set; }
+        public ZombieStatus ZombieStatus { get; private set; }
 
         public PlayerManager Target = null;
 
@@ -72,10 +70,10 @@ namespace ZP.BHS.Zombie
 
         private void Awake()
         {
-            zombieStatus = new ZombieStatus(zombieType);
+            ZombieStatus = new ZombieStatus(zombieType);
 
-            zombieStateController = GetComponent<ZombieStateController>();
-            zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle);
+            _zombieStateController = GetComponent<ZombieStateController>();
+            _zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle);
 
             _navMeshAgent = GetComponent<NavMeshAgent>();
 
@@ -84,11 +82,9 @@ namespace ZP.BHS.Zombie
 
             HeadIK.weight = 0;
 
-            _navMeshAgent.speed = zombieStatus.WalkSpeed;
-            _navMeshAgent.angularSpeed = zombieStatus.RotationSpeed;
-            _navMeshAgent.stoppingDistance = 0.5f;
-
-            
+            _navMeshAgent.speed             = ZombieStatus.WalkSpeed;
+            _navMeshAgent.angularSpeed      = ZombieStatus.RotationSpeed;
+            _navMeshAgent.stoppingDistance  = 0.5f;    
         }
 
         private void Update()
@@ -100,7 +96,10 @@ namespace ZP.BHS.Zombie
         {
             _layerCheckRay = new Ray(this.transform.position, Vector3.down);
 
-            if (Physics.Raycast(_layerCheckRay, out _checkHit, 1f, (1 << LayerMask.NameToLayer("Floor")) | (1 << LayerMask.NameToLayer("Stair"))))
+            if (Physics.Raycast(_layerCheckRay, out _checkHit, 1f, 
+                (1 << LayerMask.NameToLayer("Floor")) | 
+                (1 << LayerMask.NameToLayer("Stair"))
+                ))
             {
                 GameObject hitGameObject = _checkHit.collider.gameObject;
 

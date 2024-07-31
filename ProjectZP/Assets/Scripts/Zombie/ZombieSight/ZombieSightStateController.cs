@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Sockets;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using ZP.SJH.Player;
 
@@ -18,76 +16,81 @@ namespace ZP.BHS.Zombie
         public delegate void PlayerGetOutSight(PlayerManager player);
         public event PlayerGetOutSight OnPlayerGetOutSight;
 
-        private ZombieManager zombieManager;
-        private ZombieStateController zombieStateController;
-        private Dictionary<ZombieSightState, ZombieSight> zombieSightStateDictionary;
-        private ZombieSight currentSight;
-
-        
-
-        //private ZombieIdleSight ZombieIdleSight;
-        //private ZombieChasingSight ZombieChasingSight;
+        private ZombieSight _currentSight;
+        private ZombieStateController _zombieStateController;
+        private Dictionary<ZombieSightState, ZombieSight> _zombieSightStateDictionary;
+        private ZombieSightState _currentSightState = ZombieSightState.None;
 
         private void Awake()
         {
-            //if (ZombieIdleSight == null) { ZombieIdleSight = GetComponent<ZombieIdleSight>(); ZombieIdleSight.enabled = false; }
-            //if (ZombieChasingSight == null) { ZombieChasingSight = GetComponent<ZombieChasingSight>(); ZombieChasingSight.enabled = false; }
-            zombieManager = transform.root.GetComponentInChildren<ZombieManager>();
-            zombieStateController = transform.root.GetComponentInChildren<ZombieStateController>();
-            zombieStateController.OnZombieStateChanged += ChangeSightState;
+            _zombieStateController  = transform.root.GetComponent<ZombieStateController>();
+            _zombieStateController.OnZombieStateChanged += ChangeSightState;
+
             InitZombieSightStateDictionary();
-            currentSight = zombieSightStateDictionary[ZombieSightState.Idle];
+            _currentSight = _zombieSightStateDictionary[ZombieSightState.Idle];
         }
 
         private void Update()
         {
-            currentSight.OnSightUpdate();
+            _currentSight.OnSightUpdate();
         }
 
         private void InitZombieSightStateDictionary()
         {
-            zombieSightStateDictionary = new Dictionary<ZombieSightState, ZombieSight>
+            _zombieSightStateDictionary = new Dictionary<ZombieSightState, ZombieSight>
             {
-                { ZombieSightState.Idle, new ZombieIdleSight(this) },
+                { ZombieSightState.Idle , new ZombieIdleSight(this) },
                 { ZombieSightState.Chase, new ZombieChaseSight(this) }
             };
         }
-
-        private ZombieSightState currentSightState = ZombieSightState.None;
-        ZombieSightState previousSightState = ZombieSightState.None;
+        
         public void ChangeSightState(ZombieStates zombieState)
         {
-            ZombieSightState tSight;
+            ZombieSightState temporarySight;
 
-            currentSight.OnSightExit();
-            if (zombieState == ZombieStates.ZombieChase || zombieState == ZombieStates.ZombieAttack)
-            { tSight = ZombieSightState.Chase; }
-            else { tSight = ZombieSightState.Idle; }
+            _currentSight.OnSightExit();
 
-            if(currentSightState == tSight) { return; }
+            if (zombieState == ZombieStates.ZombieChase || 
+                zombieState == ZombieStates.ZombieAttack)
+            { 
+                temporarySight = ZombieSightState.Chase; 
+            }
             else 
             { 
-                previousSightState = currentSightState;
-                currentSightState = tSight;
+                temporarySight = ZombieSightState.Idle; 
             }
 
-            currentSight = zombieSightStateDictionary[currentSightState];
-            currentSight.OnSightEnter();
+            if(_currentSightState == temporarySight) 
+            { 
+                return; 
+            }
+            else 
+            { 
+                _currentSightState = temporarySight;
+            }
+
+            _currentSight = _zombieSightStateDictionary[_currentSightState];
+            _currentSight.OnSightEnter();
         }
 
+        /// <summary>
+        /// This method Runs Event: OnPlayerGetInSight.
+        /// </summary>
+        /// <param name="player">Zombie's Target</param>
         public void FoundTarget(PlayerManager player)
         {
             OnPlayerGetInSight(player);
         }
     }
 
+    /// <summary>
+    /// This Enum has Zombie's Sight State.
+    /// </summary>
     public enum ZombieSightState
     {
         None = -1,
         Idle,
         Chase,
         Length,
-
-        Blind,
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
-using Unity.XR.OpenVR;
 
 namespace ZP.BHS.Zombie
 {
@@ -11,24 +9,15 @@ namespace ZP.BHS.Zombie
     /// </summary>
     public static class ZombieData// Add Attack Range.
     {
-        static string DataPath = "Assets/Resources/Prefabs/BHS/ZombieDataCSV.csv";
-        static public string DataString = File.ReadAllText(DataPath);
+        static private string _dataPath = "Assets/Resources/Prefabs/BHS/ZombieDataCSV.csv";
+        static public string DataString = File.ReadAllText(_dataPath);
         static public List<Dictionary<string, string>> ZombieDatas = ParseCsvFile(DataString);
 
-        //static public float Defense = 10; //??
-        //static public float WalkSpeed = 1;
-        //static public float AttackSpeed = 2f;
-        //static public float AttackRange = 0.5f;
-        //static public float SightAngle = 80;
-        //static public float SightRange = 10;
-        //static public float ChaseAngle = 80;
-        //static public float ChaseRange = 15;
-        //static public float RotationSpeed = 360;
-        //static public float ZombieDamage = 10;
-        //static ZombieType zombieType;
-
-
-
+        /// <summary>
+        /// Returns Single Dictionary From Dictionary List By Using ZombieType.
+        /// </summary>
+        /// <param name="zombieType">Input Zombie Type To Find Data.</param>
+        /// <returns></returns>
         static public Dictionary<string, string> CallDataByType(ZombieType zombieType)
         {
             Dictionary<string, string> outDic = new Dictionary<string,string>();
@@ -43,7 +32,12 @@ namespace ZP.BHS.Zombie
             return outDic;
         }
 
-        public static List<Dictionary<string, string>> ParseCsvFile(string csvContent)
+        /// <summary>
+        /// Return List of Dictionary By Using csv Style string.
+        /// </summary>
+        /// <param name="csvContent">String Want to Parse</param>
+        /// <returns></returns>
+        private static List<Dictionary<string, string>> ParseCsvFile(string csvContent)
         {
             List<Dictionary<string, string>> outdata = new List<Dictionary<string, string>>();
 
@@ -82,6 +76,9 @@ namespace ZP.BHS.Zombie
         }
     }
 
+    /// <summary>
+    /// Zombie Type.
+    /// </summary>
     public enum ZombieType
     {
         WalkerZombie = 0,

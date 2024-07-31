@@ -1,8 +1,10 @@
-﻿using System.Net.Sockets;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ZP.BHS.Zombie
 {
+    /// <summary>
+    /// This class Make Zombie Head Look Forward.
+    /// </summary>
     class ZombieHeadLocPos : MonoBehaviour
     {
         [SerializeField] GameObject Neck;

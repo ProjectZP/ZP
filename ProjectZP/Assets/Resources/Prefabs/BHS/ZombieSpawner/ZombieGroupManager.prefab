@@ -165,8 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zombiePrefabs:
   - {fileID: 5238225646009838798, guid: 07b88b8dc7660f24da90e1c96a52fcfc, type: 3}
-  - {fileID: 5238225646009838798, guid: 7d5011b466084f845868af0db7aa48c0, type: 3}
   - {fileID: 5238225646009838798, guid: e7c82da93673dbb43818f87f490c7393, type: 3}
+  - {fileID: 5238225646009838798, guid: 7d5011b466084f845868af0db7aa48c0, type: 3}
+  _doorsAndWindowsController: {fileID: 0}
   ssus: 0
 --- !u!114 &3950181593409518224
 MonoBehaviour:

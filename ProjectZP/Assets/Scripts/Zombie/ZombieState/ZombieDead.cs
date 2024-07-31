@@ -2,6 +2,10 @@
 
 namespace ZP.BHS.Zombie
 {
+    /// <summary>
+    /// This class controls Zombie's Death.
+    /// And Turn off amount of Components.
+    /// </summary>
     class ZombieDead : ZombieState
     {
         float _deathTimer = 0;
@@ -16,14 +20,15 @@ namespace ZP.BHS.Zombie
 
         public ZombieDead(ZombieStateController zombieStateController) : base(zombieStateController)
         {
+            _zombieAudioManager.PlayAudioClip(_zombieAudioManager.AudioClipDamage);
         }
 
         public override void OnStateEnter()
         {
-            for (int ix = 0; ix < zombieStateController.RagdollRigidbody.Length; ix++)
+            for (int ix = 0; ix < _zombieStateController.RagdollRigidbody.Length; ix++)
             {
-                zombieStateController.RagdollRigidbody[ix].isKinematic = false;
-                zombieStateController.RagdollRigidbody[ix].velocity = Vector3.zero;
+                _zombieStateController.RagdollRigidbody[ix].isKinematic = false;
+                _zombieStateController.RagdollRigidbody[ix].velocity = Vector3.zero;
             }
 
             _agent.isStopped = true;
@@ -33,8 +38,9 @@ namespace ZP.BHS.Zombie
             _agent.updateRotation = false;
             _agent.enabled = false;
 
-            zombieStateController.zombieAnimator.applyRootMotion = false;
-            zombieStateController.zombieAnimator.enabled = false;
+            _zombieStateController.zombieAnimator.applyRootMotion = false;
+            _zombieStateController.zombieAnimator.enabled = false;
+
 
             if (_zombieManager.OnStair)
             {
@@ -44,7 +50,7 @@ namespace ZP.BHS.Zombie
             }
 
 
-            zombieSightStateController.enabled = false;
+            _zombieSightStateController.enabled = false;
         }
 
         public override void OnStateUpdate()

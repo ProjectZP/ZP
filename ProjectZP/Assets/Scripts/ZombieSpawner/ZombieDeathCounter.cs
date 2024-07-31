@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace ZP.BHS.Zombie
 {
     class ZombieDeathCounter : MonoBehaviour
     {
-        private ZombieSpawner _zombieSpawner;
-        [SerializeField] private List<GameObject> _observeZombie;
+        public delegate void SendToPlayer(int killcount);
+        public event SendToPlayer OnZombieKillCountChanged;
 
+        [SerializeField] private List<GameObject> _observeZombie;
+        private ZombieSpawner _zombieSpawner;
+
+        public int ZombieKillCount { get; private set; } = 0;
+
+        
 
         private void Awake()
         {
@@ -29,15 +34,9 @@ namespace ZP.BHS.Zombie
 
             for(int ix = 0; ix < summonedZombie.Count; ix++)
             {
-                summonedZombie[ix].GetComponent<ZombieStateController>().OnZombieDied += AddZombieKillCount;
+                _observeZombie[ix].GetComponent<ZombieStateController>().OnZombieDied += AddZombieKillCount;
             }
         }
-
-
-        public int ZombieKillCount { get; private set; } = 0;
-
-        public delegate void SendToPlayer(int killcount);
-        public event SendToPlayer OnZombieKillCountChanged;
 
         public void AddZombieKillCount()
         {

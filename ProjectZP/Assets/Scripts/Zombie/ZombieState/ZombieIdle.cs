@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-using UnityEngine;
-using ZP.SJH.Player;
+﻿using UnityEngine;
 
 namespace ZP.BHS.Zombie
 {
@@ -11,10 +9,9 @@ namespace ZP.BHS.Zombie
     class ZombieIdle : ZombieState
     {
         private float _passedTime = 0;
-        private float _waitingTime = 0;
-        private const float _waitingMinimum = 4;
-        private const float _waitingMaximum = 6;
-        private ZombieSightStateController _zombieSight;
+        private float _waitingTime;
+        private const float _waitingMinimum = 3;
+        private const float _waitingMaximum = 7;
 
         public ZombieIdle(ZombieStateController zombieStateController) : base(zombieStateController)
         {
@@ -23,7 +20,10 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
+            _zombieAudioManager.PlayAudioClip(_zombieAudioManager.AudioClipIdle);
+
             _agent.isStopped = true;
+
             _waitingTime = Random.Range(_waitingMinimum, _waitingMaximum);
         }
 
@@ -33,13 +33,12 @@ namespace ZP.BHS.Zombie
             if (_passedTime > _waitingTime)
             {
                 _passedTime = 0;
-                zombieStateController.ChangeZombieState(ZombieStates.ZombiePatrol);
+                _zombieStateController.ChangeZombieState(ZombieStates.ZombiePatrol);
             }
         }
 
         public override void OnStateExit()
         {
-            //
         }
     }
 }

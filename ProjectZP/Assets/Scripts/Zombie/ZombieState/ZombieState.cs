@@ -1,22 +1,24 @@
-﻿using UnityEngine;
-using UnityEngine.AI;
+﻿using UnityEngine.AI;
 
 namespace ZP.BHS.Zombie
 {
     abstract class ZombieState
     {
         public ZombieStates zombieState { get; protected set; }
-        protected ZombieStateController zombieStateController;
-        protected ZombieSightStateController zombieSightStateController;
-        protected ZombieManager _zombieManager;
-        protected NavMeshAgent _agent;
+
+        protected ZombieStateController         _zombieStateController;
+        protected ZombieSightStateController    _zombieSightStateController;
+        protected ZombieManager                 _zombieManager;
+        protected NavMeshAgent                  _agent;
+        protected ZombieAudioManager            _zombieAudioManager;
 
         public ZombieState(ZombieStateController zombieStateController)
         {
-            this.zombieStateController = zombieStateController;
-            zombieSightStateController = zombieStateController.zombieSightStateController;
-            _zombieManager = zombieStateController.zombieManager;
-            _agent = zombieStateController.zombieAgent;
+            _zombieStateController      = zombieStateController;
+            _agent                      = zombieStateController.zombieAgent;
+            _zombieManager              = zombieStateController.zombieManager;
+            _zombieAudioManager         = zombieStateController.zombieAudioManager;
+            _zombieSightStateController = zombieStateController.zombieSightStateController;
         }
 
         public abstract void OnStateEnter();

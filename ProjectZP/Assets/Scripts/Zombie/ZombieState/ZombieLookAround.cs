@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
 {
@@ -9,7 +8,7 @@ namespace ZP.BHS.Zombie
     /// </summary>
     class ZombieLookAround : ZombieState
     {
-        private const float _searchingTime = 3f;
+        private const float _searchingTime = 3f; //For 3 second, Zombie Look Around to Find Target.
         private float _passedTime = 0;
 
         public ZombieLookAround(ZombieStateController zombieStateController) : base(zombieStateController)
@@ -18,6 +17,8 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
+            _zombieAudioManager.PlayAudioClip(_zombieAudioManager.AudioClipSearch);
+
             _passedTime = 0;
         }
 
@@ -26,13 +27,12 @@ namespace ZP.BHS.Zombie
             _passedTime += Time.deltaTime;
             if (_passedTime > _searchingTime)
             {
-                zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle);
+                _zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle);
             }
         }
 
         public override void OnStateExit()
         {
-            //
         }
     }
 }

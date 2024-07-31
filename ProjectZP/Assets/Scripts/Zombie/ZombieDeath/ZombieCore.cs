@@ -34,7 +34,7 @@ namespace ZP.BHS.Zombie
             OnGetDamaged?.AddListener(CalcuateDamage);
         }
 
-        public void CalcuateDamage(float damage, GameObject Weapon)
+        private void CalcuateDamage(float damage, GameObject Weapon)
         {
             if (damage > 60f)
             {
@@ -58,11 +58,6 @@ namespace ZP.BHS.Zombie
 
                 Head.GetComponent<CharacterJoint>().connectedBody = Spine.GetComponent<Rigidbody>();
             }
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-
         }
 
         private void OnJointBreak(float breakForce)

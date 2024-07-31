@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine.InputSystem.iOS;
-using UnityEngine.UIElements;
+﻿using System.Collections.Generic;
 
 namespace ZP.BHS.Zombie
 {
@@ -36,8 +33,6 @@ namespace ZP.BHS.Zombie
             this.zombieType = zombieType;
 
             Dictionary<string, string> data = ZombieData.CallDataByType(zombieType);
-
-            
 
             Defense         = float.Parse(data["Defense"]);
             WalkSpeed       = float.Parse(data["WalkSpeed"]);

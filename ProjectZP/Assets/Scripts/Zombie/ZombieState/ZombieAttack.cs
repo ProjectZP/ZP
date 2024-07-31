@@ -16,8 +16,11 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
+            _zombieAudioManager.PlayAudioClip(_zombieAudioManager.AudioClipAttack);
+
             _agent.isStopped = true;
             _passedTime = 0;
+
             DoAttack();
         }
 
@@ -27,18 +30,22 @@ namespace ZP.BHS.Zombie
             if (_onAttack && _passedTime > 0.2f)
             {
                 _onAttack = false;
-                if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.refTransform.position) < _zombieManager.zombieStatus.AttackRange)
+                if (Vector3.Distance(
+                    _zombieManager.Target.transform.position,
+                    _zombieManager.RefTransform.position) <
+                    _zombieManager.ZombieStatus.AttackRange)
                 {
                     if (!_tempbool) //Todo: delete
                     {
                         _tempbool = true;
-                        _zombieManager.Target.OnPlayerDamaged += tempvoid;
-                    } 
-                    _zombieManager.Target.OnPlayerDamaged(_zombieManager.zombieStatus.ZombieDamage); //Todo: Damage To Player
+                        _zombieManager.Target.OnPlayerDamaged += tempvoid; //Todo:
+                    }
+                    _zombieManager.Target.
+                        OnPlayerDamaged(_zombieManager.ZombieStatus.ZombieDamage); //Todo: Damage To Player
                 }
             }
 
-            if (_passedTime > _zombieManager.zombieStatus.AttackSpeed)
+            if (_passedTime > _zombieManager.ZombieStatus.AttackSpeed)
             {
                 _passedTime = 0;
                 JudgeNextState();
@@ -56,17 +63,19 @@ namespace ZP.BHS.Zombie
             _onAttack = true;
         }
 
-        //This method Listen OnAttackEnd event.
+
         private void JudgeNextState()
         {
-            if (Vector3.Distance(_zombieManager.Target.transform.position, _zombieManager.refTransform.position)
-                <= _zombieManager.zombieStatus.AttackRange)
+            if (Vector3.Distance(
+                _zombieManager.Target.transform.position,
+                _zombieManager.RefTransform.position) <=
+                _zombieManager.ZombieStatus.AttackRange)
             {
                 DoAttack();
             }
             else
             {
-                zombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
+                _zombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
             }
         }
 

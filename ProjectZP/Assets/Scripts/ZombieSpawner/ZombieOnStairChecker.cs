@@ -5,9 +5,8 @@ namespace ZP.BHS.Zombie
 {
     class ZombieOnStairChecker : MonoBehaviour
     {
-        private ZombieSpawner _zombieSpawner;
         [SerializeField] private List<GameObject> _observeZombie;
-
+        private ZombieSpawner _zombieSpawner;
         public bool IsLivingZombieOnStair { get; private set; }
 
         private int _onStairZombieCount;
@@ -29,11 +28,11 @@ namespace ZP.BHS.Zombie
 
             for (int ix = 0; ix < summonedZombie.Count; ix++)
             {
-                summonedZombie[ix].GetComponent<ZombieManager>().OnZombieLocationChanged += CountStairZomibeAtStair;
+                _observeZombie[ix].GetComponent<ZombieManager>().OnZombieLocationChanged += CountStairZomibeAtStair;
             }
         }
 
-        [SerializeField] bool stairChecker;
+        [SerializeField] bool stairChecker; //Todo: Delete
         private void Update()
         {
             if(stairChecker)
@@ -45,8 +44,15 @@ namespace ZP.BHS.Zombie
 
         private void CountStairZomibeAtStair(bool onstair)
         {
-            if (onstair) _onStairZombieCount++;
-            else _onStairZombieCount--;
+            if (onstair) 
+            { 
+                _onStairZombieCount++; 
+            }
+            else 
+            { 
+                _onStairZombieCount--; 
+            }
+
 
             if (_onStairZombieCount == 0)
             {
@@ -55,7 +61,9 @@ namespace ZP.BHS.Zombie
             else if (_onStairZombieCount > 0)
             {
                 if (!IsLivingZombieOnStair)
-                { IsLivingZombieOnStair = true; }
+                { 
+                    IsLivingZombieOnStair = true; 
+                }
             }
             else
             {

@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
 
 namespace ZP.BHS.Zombie
 {
+    /// <summary>
+    /// This class Controls Neck Rig Layer's Weight.
+    /// </summary>
     public class ZombieHeadDefense : MonoBehaviour 
     {
-        ZombieStateController ZombieStateController;
         ZombieManager ZombieManager;
-
         private void Awake()
         {
-            ZombieStateController = GetComponentInParent<ZombieStateController>();
             ZombieManager = GetComponentInParent<ZombieManager>();
         }
 

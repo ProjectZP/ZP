@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using ZP.SJH.Player;
 
@@ -9,11 +8,12 @@ namespace ZP.BHS.Zombie
     class ZombieIdleSight : ZombieSight
     {
         private float _checkTime;
-        private const float _checkRate = 0.5f;
+        private const float _checkRate = 0.5f; //Check Player in every 0.5f seconds.
 
         public ZombieIdleSight(ZombieSightStateController zombieSightStateController) : base(zombieSightStateController)
         {
         }
+
         public override void OnSightEnter() 
         {
             _checkTime = 0;
@@ -26,31 +26,37 @@ namespace ZP.BHS.Zombie
                 _checkTime = 0;
 
                 if (Physics.OverlapSphere
-                    (zombieSightStateController.transform.position,
-                    zombieManager.zombieStatus.SightRange,
+                    (ZombieSightStateController.transform.position,
+                    ZombieManager.ZombieStatus.SightRange,
                     1 << LayerMask.NameToLayer("Player")).Length > 0)
                 {
                     Collider prey = Physics.OverlapSphere
-                        (zombieSightStateController.transform.position,
-                        zombieManager.zombieStatus.SightRange,
+                        (ZombieSightStateController.transform.position,
+                        ZombieManager.ZombieStatus.SightRange,
                         1 << LayerMask.NameToLayer("Player"))[0];
 
 
                     if (JudgePreyIsOnSightAngle(prey) && JudgePreyIsNoObstacle(prey))
                     {
-                        zombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
-                        zombieSightStateController.FoundTarget(prey.transform.root.GetComponentInChildren<PlayerManager>());
+                        ZombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
+                        ZombieSightStateController.FoundTarget(prey.transform.root.GetComponentInChildren<PlayerManager>());
                     }
                 }
             }
         }
         public override void OnSightExit() { }
 
+
+        /// <summary>
+        /// Caculate Angle Between Zombie's Forward Vector and prey-Zombie Vector, and Return bool.
+        /// </summary>
+        /// <param name="prey">Collider Which Layer is Player</param>
+        /// <returns></returns>
         private bool JudgePreyIsOnSightAngle(Collider prey)
         {
-            Vector3 targetVector = prey.transform.position - zombieSightStateController.transform.position;
+            Vector3 targetVector = prey.transform.position - ZombieSightStateController.transform.position;
 
-            if (MathF.Abs(Vector3.Angle(targetVector, zombieSightStateController.transform.forward)) <= zombieManager.zombieStatus.SightAngle)
+            if (MathF.Abs(Vector3.Angle(targetVector, ZombieSightStateController.transform.forward)) <= ZombieManager.ZombieStatus.SightAngle)
             {
                 return true;
             }
@@ -60,14 +66,19 @@ namespace ZP.BHS.Zombie
             }
         }
 
+        /// <summary>
+        /// Find Obstacle Between Zombie and prey, and Return bool.
+        /// </summary>
+        /// <param name="prey">Collider Which Layer is Player</param>
+        /// <returns></returns>
         private bool JudgePreyIsNoObstacle(Collider prey)
         {
-            Vector3 targetVector = (prey.transform.position - zombieSightStateController.transform.position).normalized;
+            Vector3 targetVector = (prey.transform.position - ZombieSightStateController.transform.position).normalized;
 
             if (Physics.RaycastAll(
-                zombieSightStateController.transform.position,
+                ZombieSightStateController.transform.position,
                 targetVector,
-                Vector3.Distance(zombieSightStateController.transform.position, prey.transform.position),
+                Vector3.Distance(ZombieSightStateController.transform.position, prey.transform.position),
                 (1 << LayerMask.NameToLayer("Wall")) |
                 (1 << LayerMask.NameToLayer("Floor")) |
                 (1 << LayerMask.NameToLayer("Stair"))

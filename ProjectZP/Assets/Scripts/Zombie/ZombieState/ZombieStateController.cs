@@ -21,28 +21,32 @@ namespace ZP.BHS.Zombie
         public ZombieManager zombieManager { get; private set; }
         public NavMeshAgent zombieAgent { get; private set; }
         public Animator zombieAnimator { get; private set; }
+        public ZombieAudioManager zombieAudioManager { get; private set; }
+        public ZombieStates currentZombieState { get; private set; }
 
         public Rigidbody[] RagdollRigidbody;
         public Collider[] RagdollCollider;
         public CharacterJoint[] characterJoints;
-
-        public ZombieStates currentZombieState { get; private set; }
-        private Dictionary<ZombieStates, ZombieState> zombieStateDictionary;
+        
+        private Dictionary<ZombieStates, ZombieState> _zombieStateDictionary;
 
         private void Awake()
         {
-            zombieAgent = GetComponent<NavMeshAgent>();
-            zombieAnimator = GetComponent<Animator>();
+            zombieAnimator      = GetComponent<Animator>();
+            zombieAgent         = GetComponent<NavMeshAgent>();
+            zombieManager       = GetComponent<ZombieManager>();
+            zombieAudioManager  = GetComponent<ZombieAudioManager>();
+
             zombieSightStateController = GetComponentInChildren<ZombieSightStateController>();
-            zombieManager = GetComponent<ZombieManager>();
+            
             InitZombieStateDictionary();
 
-            RagdollRigidbody = transform.GetChild(0).GetComponentsInChildren<Rigidbody>();
-            RagdollCollider = transform.GetChild(0).GetComponentsInChildren<Collider>();
+            RagdollRigidbody    = transform.GetChild(0).GetComponentsInChildren<Rigidbody>();
+            RagdollCollider     = transform.GetChild(0).GetComponentsInChildren<Collider>();
 
             characterJoints = GetComponentsInChildren<CharacterJoint>();
 
-            for(int ix = 0; ix < characterJoints.Length; ix++)
+            for (int ix = 0; ix < characterJoints.Length; ix++)
             {
                 characterJoints[ix].enableProjection = true;
             }
@@ -58,7 +62,7 @@ namespace ZP.BHS.Zombie
 
         private void OnEnable()
         {
-            currentZombieStateAction = zombieStateDictionary[ZombieStates.ZombieIdle];
+            currentZombieStateAction = _zombieStateDictionary[ZombieStates.ZombieIdle];
         }
 
         private void Update()
@@ -85,14 +89,14 @@ namespace ZP.BHS.Zombie
             currentZombieState = changingState;
             OnZombieStateChanged(changingState);
             zombieAnimator.SetInteger("ZombieState", (int)changingState);
-            currentZombieStateAction = zombieStateDictionary[changingState];
+            currentZombieStateAction = _zombieStateDictionary[changingState];
             currentZombieStateAction.OnStateEnter();
         }
 
         //To Add States, This Manages.
         private void InitZombieStateDictionary()
         {
-            zombieStateDictionary = new Dictionary<ZombieStates, ZombieState>
+            _zombieStateDictionary = new Dictionary<ZombieStates, ZombieState>
             {
                 { ZombieStates.ZombieIdle, new ZombieIdle(this) },
                 { ZombieStates.ZombiePatrol, new ZombiePatrol(this) },
@@ -106,6 +110,9 @@ namespace ZP.BHS.Zombie
 
     }
 
+    /// <summary>
+    /// Zombie's States
+    /// </summary>
     enum ZombieStates
     {
         None = -1,

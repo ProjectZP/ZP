@@ -3,16 +3,14 @@
 namespace ZP.BHS.Zombie
 {
     /// <summary>
-    /// When Zombie Lost Target, This Enables.
-    /// Zombie walk toward the point where target last seen.
-    /// when Zombie arrive that point, state changes into LookAround.
+    /// Zombie Move to Position Where Target Last seen.
+    /// If zombie cant reach to the position in some reason, after few seconds its state changes into idle.
     /// </summary>
     class ZombieSearch : ZombieState
     {
-        Vector3 SearchPosition;
-
-        private float searchTime;
-        private float searchEndTime = 10f;
+        private Vector3 _searchPosition;
+        private float _searchTime;
+        private const float _searchEndTime = 10f;
 
         public ZombieSearch(ZombieStateController zombieStateController) : base(zombieStateController)
         {
@@ -21,21 +19,30 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
-            SearchPosition = _zombieManager.targetposition;
+            _zombieAudioManager.PlayAudioClip(_zombieAudioManager.AudioClipAngry);
 
-            _agent.speed = _zombieManager.zombieStatus.RunSpeed;
+            _searchPosition = _zombieManager.targetposition;
+
+            _agent.speed = _zombieManager.ZombieStatus.RunSpeed;
             _agent.isStopped = false;
-            _agent.SetDestination(SearchPosition);
+            _agent.SetDestination(_searchPosition);
         }
 
         public override void OnStateUpdate()
         {
-            searchTime += Time.deltaTime;
-            if (Vector3.Distance(SearchPosition, _zombieManager.refTransform.position) < 1f) 
-            { zombieStateController.ChangeZombieState(ZombieStates.ZombieLookAround); }
+            _searchTime += Time.deltaTime;
+            if (Vector3.Distance(
+                _searchPosition, 
+                _zombieManager.RefTransform.position) < 
+                1f) 
+            { 
+                _zombieStateController.ChangeZombieState(ZombieStates.ZombieLookAround); 
+            }
 
-            if ( searchTime > searchEndTime)
-            { zombieStateController.ChangeZombieState(ZombieStates.ZombieLookAround); }
+            if ( _searchTime > _searchEndTime)
+            { 
+                _zombieStateController.ChangeZombieState(ZombieStates.ZombieLookAround); 
+            }
         }
 
         public override void OnStateExit()

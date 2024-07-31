@@ -2,9 +2,12 @@
 
 namespace ZP.BHS.Zombie
 {
+    /// <summary>
+    /// Zombie's Blood Effects Should Destroy In Any Seconds.
+    /// </summary>
     class ZombieBlood : MonoBehaviour
     {
-        float passedTime;
+        float passedTime = 0;
 
         private void Update()
         {

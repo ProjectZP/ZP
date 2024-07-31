@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using UnityEngine;
-using ZP.SJH.Player;
+﻿using UnityEngine;
 
 namespace ZP.BHS.Zombie
 {
     /// <summary>
-    /// Zombie Chasing contains Two Phase.
-    /// Phase 1. Rotate itself toward target found.
-    /// Phase 2. Slowly move toward target. and rotate itself toward Target.
+    /// Chase Target.
     /// </summary>
     class ZombieChase : ZombieState
     {
@@ -17,11 +13,17 @@ namespace ZP.BHS.Zombie
 
         public override void OnStateEnter()
         {
+            _zombieAudioManager.PlayAudioClip(_zombieAudioManager.AudioClipAngry);
+
             _agent.isStopped = false;
-            _agent.speed = _zombieManager.zombieStatus.RunSpeed;
+            _agent.speed = _zombieManager.ZombieStatus.RunSpeed;
         }
 
         float reChaseTime = 0;
+
+        /// <summary>
+        /// Chase Target in every 0.3f seconds.
+        /// </summary>
         public override void OnStateUpdate()
         {
             reChaseTime += Time.deltaTime;
@@ -32,16 +34,17 @@ namespace ZP.BHS.Zombie
                 _agent.SetDestination(_zombieManager.Target.transform.position);
             }
 
-            if (Vector3.Distance(_zombieManager.Target.transform.position,
-                    _zombieManager.refTransform.position) < _zombieManager.zombieStatus.AttackRange)
-            { zombieStateController.ChangeZombieState(ZombieStates.ZombieAttack); }
-
-            
+            if (Vector3.Distance(
+                _zombieManager.Target.transform.position,
+                _zombieManager.RefTransform.position) < 
+                _zombieManager.ZombieStatus.AttackRange)
+            { 
+                _zombieStateController.ChangeZombieState(ZombieStates.ZombieAttack); 
+            }
         }
 
         public override void OnStateExit()
         {
-            //
         }
     }
 }

@@ -1,19 +1,16 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace ZP.BHS.Zombie
+﻿namespace ZP.BHS.Zombie
 {
     abstract class ZombieSight
     {
-        protected ZombieSightStateController zombieSightStateController;
-        protected ZombieManager zombieManager;
-        protected ZombieStateController zombieStateController;
+        protected ZombieManager ZombieManager;
+        protected ZombieStateController ZombieStateController;
+        protected ZombieSightStateController ZombieSightStateController;
 
         public ZombieSight(ZombieSightStateController zombieSightStateController)
         {
-            this.zombieSightStateController = zombieSightStateController;
-            zombieManager = zombieSightStateController.GetComponentInParent<ZombieManager>();
-            zombieStateController = zombieSightStateController.GetComponentInParent<ZombieStateController>();
+            this.ZombieSightStateController = zombieSightStateController;
+            this.ZombieManager              = zombieSightStateController.transform.root.GetComponent<ZombieManager>();
+            this.ZombieStateController      = zombieSightStateController.transform.root.GetComponent<ZombieStateController>();
         }
 
         public abstract void OnSightEnter();
