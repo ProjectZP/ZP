@@ -24,8 +24,6 @@ namespace ZP.BHS.Zombie
         private void Start()
         {
             _zombieSpawner.OnZombieSummoned += SubscribeZombie;
-
-            OnZombieKillCountChanged += tempvoid;
         }
 
         private void SubscribeZombie(List<GameObject> summonedZombie)
@@ -42,11 +40,6 @@ namespace ZP.BHS.Zombie
         {
             ZombieKillCount++;
             OnZombieKillCountChanged(ZombieKillCount);
-        }
-
-        private void tempvoid(int i) //Todo: Delete
-        {
-            Debug.Log(ZombieKillCount);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace ZP.BHS.Zombie
                 joint = attachedWeapon.gameObject.AddComponent<FixedJoint>();
                 joint.connectedBody = this.GetComponent<Rigidbody>();
 
-                joint.enableCollision = false; //collision between two game objects.
+                joint.enableCollision = false;
                 joint.breakForce = 500f;
                 joint.breakTorque = 500f;
 

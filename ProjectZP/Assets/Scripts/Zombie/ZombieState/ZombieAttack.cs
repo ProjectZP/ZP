@@ -8,8 +8,6 @@ namespace ZP.BHS.Zombie
 
         private bool _onAttack = false;
 
-        private bool _tempbool = false; //Todo: delete
-
         public ZombieAttack(ZombieStateController zombieStateController) : base(zombieStateController)
         {
         }
@@ -35,13 +33,8 @@ namespace ZP.BHS.Zombie
                     _zombieManager.RefTransform.position) <
                     _zombieManager.ZombieStatus.AttackRange)
                 {
-                    if (!_tempbool) //Todo: delete
-                    {
-                        _tempbool = true;
-                        _zombieManager.Target.OnPlayerDamaged += tempvoid; //Todo:
-                    }
                     _zombieManager.Target.
-                        OnPlayerDamaged(_zombieManager.ZombieStatus.ZombieDamage); //Todo: Damage To Player
+                        OnPlayerDamaged(_zombieManager.ZombieStatus.ZombieDamage);
                 }
             }
 
@@ -77,11 +70,6 @@ namespace ZP.BHS.Zombie
             {
                 _zombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
             }
-        }
-
-        private void tempvoid(float damage) //Todo: Delete
-        {
-            Debug.Log(damage);
         }
     }
 }

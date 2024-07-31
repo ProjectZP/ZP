@@ -68,11 +68,15 @@ namespace ZP.BHS.Zombie
         private void Update()
         {
             currentZombieStateAction.OnStateUpdate();
+#if UNITY_EDITOR
             if (zombiedie) { ChangeZombieState(ZombieStates.ZombieDead); }
+#endif
         }
 
+#if UNITY_EDITOR
+        [SerializeField] private bool zombiedie; //Todo:
+#endif
 
-        public bool zombiedie; //Todo:
         public void ChangeZombieState(ZombieStates changingState)
         {
             if (currentZombieState == changingState || currentZombieState == ZombieStates.ZombieDead)

@@ -46,7 +46,7 @@ namespace ZP.BHS.Zombie
                 (1 << LayerMask.NameToLayer("Wall")) |
                 (1 << LayerMask.NameToLayer("Floor")) |
                 (1 << LayerMask.NameToLayer("Stair")) |
-                (1 << LayerMask.NameToLayer("Door")) //Todo:
+                (1 << LayerMask.NameToLayer("Door"))
                 ).Length > 0)
             {
                 Debug.Log("ObstacleProblem");
@@ -62,7 +62,7 @@ namespace ZP.BHS.Zombie
         {
             Debug.Log("Miss Target");
             ZombieManager.targetposition = ZombieManager.Target.transform.position;
-            ZombieStateController.ChangeZombieState(ZombieStates.ZombieSearch); //ZombieState change => that event => sightstate change.
+            ZombieStateController.ChangeZombieState(ZombieStates.ZombieSearch);
         }
     }
 }

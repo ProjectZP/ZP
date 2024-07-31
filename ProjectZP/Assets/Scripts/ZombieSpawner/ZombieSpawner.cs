@@ -13,8 +13,8 @@ namespace ZP.BHS.Zombie
 
         private GameObject _zombieSpawner; //spawn point
         private GameObject[] _spawnPoint;
-        private List<GameObject> _zombiesDieOnStair; // Todo:
-        private List<GameObject> _summonedZombies; // Todo:
+        private List<GameObject> _zombiesDieOnStair;
+        private List<GameObject> _summonedZombies;
 
         [SerializeField] private int _currentFloor; //Todo: delete serialize
 

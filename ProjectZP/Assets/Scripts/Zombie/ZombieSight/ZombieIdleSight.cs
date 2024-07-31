@@ -81,8 +81,8 @@ namespace ZP.BHS.Zombie
                 Vector3.Distance(ZombieSightStateController.transform.position, prey.transform.position),
                 (1 << LayerMask.NameToLayer("Wall")) |
                 (1 << LayerMask.NameToLayer("Floor")) |
-                (1 << LayerMask.NameToLayer("Stair"))
-                //(1 << LayerMask.NameToLayer("Door")) //Todo:
+                (1 << LayerMask.NameToLayer("Stair")) |
+                (1 << LayerMask.NameToLayer("Door"))
                 ).Length > 0)
             {
                 return false;
