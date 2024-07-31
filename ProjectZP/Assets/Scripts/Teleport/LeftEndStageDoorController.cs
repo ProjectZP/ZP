@@ -122,6 +122,7 @@ namespace ZP.Villin.Teleport
         private void DeactivateCollision()
         {
             StartCoroutine(DeactivateCollisionCoroutine());
+            _leftTransparentCollision.GetComponent<BoxCollider>().enabled = false;
         }
 
         private IEnumerator DeactivateCollisionCoroutine()

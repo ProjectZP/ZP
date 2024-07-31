@@ -42,7 +42,11 @@ namespace ZP.Villin.Teleport
         protected override void SubscribeOnExitEndStageRegion()
         {
             base.SubscribeOnExitEndStageRegion();
-            ActivateCollision();
+            CloseDoorCoroutine();
+        }
+        private IEnumerator CloseDoorCoroutine()
+        {
+            yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
         }
 
         /// <summary>

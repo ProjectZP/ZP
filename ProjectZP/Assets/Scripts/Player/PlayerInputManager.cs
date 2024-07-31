@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
+using ZP.Villin.Teleport;
 
 namespace ZP.SJH.Player
 {
@@ -74,6 +75,15 @@ namespace ZP.SJH.Player
         {
             ChangeMoveSpeed(_manager.Status.RunSpeed);
             _manager.State.SetState(PlayerStateManager.PlayerStateType.Run);
+        }
+
+        public void OnActivateDoor(ActivateEventArgs args)
+        {
+            Debug.Log(args.interactableObject.transform.gameObject.name);
+
+            var door = args.interactableObject.transform.GetComponent<IDoorInteractable>();
+            if(door != null) 
+                door.InteractDoor();
         }
     }
 

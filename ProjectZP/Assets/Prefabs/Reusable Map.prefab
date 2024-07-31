@@ -2179,7 +2179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 6660050902315851442}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -4165,7 +4164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 9019992645823617624}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -4807,7 +4805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 1015237599275933253}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -6045,7 +6042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 3840707787970136226}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -14090,7 +14086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 0}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -17361,7 +17356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 1458952956517836490}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -21078,7 +21072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 6907830209423858375}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -35943,7 +35936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 191532559213070380}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -36628,7 +36620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 8654049595710655966}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -38699,7 +38690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 3206635929602098131}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -40591,7 +40581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 7690621430502886864}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -50523,7 +50512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 0}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -51532,7 +51520,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 418646413949500516}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -54373,7 +54360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 5829042519965514261}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -55258,7 +55244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 0}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -61867,7 +61852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 9093516022931651530}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -64322,7 +64306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 2604875473640442898}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -64791,7 +64774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 5392483121909374192}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -72793,7 +72775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 5882685302415079869}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -74601,7 +74582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 6012952222434352578}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -75525,7 +75505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 7209006450671957436}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -75849,7 +75828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 4808620852283049230}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -79173,7 +79151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 0}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -84420,7 +84397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 6368327511233403764}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -84735,7 +84711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 8451722937287890298}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -86311,7 +86286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 2529414360297425219}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -86743,7 +86717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 889334321933289744}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -94195,7 +94168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 3205862976626694565}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -97891,7 +97863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 5632963406807175896}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -99233,7 +99204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 6423685995072108709}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -105326,7 +105296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 7279004296081266213}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
@@ -110871,7 +110840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267732b652f77934087b2280362e7872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparentCollision: {fileID: 745879474186348007}
   _leftDoorAnimator: {fileID: 0}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
