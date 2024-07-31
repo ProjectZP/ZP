@@ -178,7 +178,7 @@ namespace ZP.Villin.Teleport
         /// </summary>
         private void ExecuteTeleport(Transform fromTransform)
         {
-            if (_isTeleportReady == false)
+            if (_isTeleportReady == false || _nowRemainTeleportCount <= 0)
             {
                 return;
             }
