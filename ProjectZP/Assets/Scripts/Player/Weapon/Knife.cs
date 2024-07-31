@@ -29,12 +29,11 @@ namespace ZP.SJH.Weapon
         private void OnTriggerEnter(Collider other)
         {
             var damage = CalculateDamage();
-            Debug.LogWarning($"Knife {damage} / {other.gameObject.layer} / {other.gameObject.GetComponent<ZombieCore>()}");
             if (other.gameObject.layer == ZombieLayer
                 && other.gameObject.GetComponent<ZombieCore>()
                 && damage > 60f)
             {
-                Debug.LogWarning("IM HERE");
+            Debug.LogWarning($"Knife {damage} / {other.gameObject.layer} / {other.gameObject.GetComponent<ZombieCore>()}");
                 other.gameObject.GetComponent<ZombieCore>()
                     .OnGetDamaged?.Invoke(damage, this.gameObject);
             }

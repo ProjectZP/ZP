@@ -38,8 +38,8 @@ namespace ZP.SJH.Player
         private void Start()
         {
             ChangeMoveSpeed(WalkSpeed);
-            //_zombieDeathCounter.OnZombieKillCountChanged += 
-            //    (killCount) => KillCount = killCount;
+            _zombieDeathCounter.OnZombieKillCountChanged += 
+                (killCount) => KillCount = killCount;
         }
 
         public void LoadPlayerData()
