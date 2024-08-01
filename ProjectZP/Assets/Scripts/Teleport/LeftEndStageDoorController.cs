@@ -86,7 +86,7 @@ namespace ZP.Villin.Teleport
             {
                 return;
             }
-            if (_zombieOnStairChecker.IsLivingZombieOnStair == true)
+            if (_zombieOnStairChecker.IsLivingZombieOnStairLeft == true)
             {
 #if UNITY_EDITOR
                 Debug.Log("Zombie is in Stair!");

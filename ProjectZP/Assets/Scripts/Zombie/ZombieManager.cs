@@ -31,7 +31,7 @@ namespace ZP.BHS.Zombie
         [SerializeField] public Rig HeadIK;
 
         private bool _onStair = false;
-        public bool OnStair
+        public bool OnStairRight
         {
             get
             {
@@ -43,6 +43,23 @@ namespace ZP.BHS.Zombie
                 { 
                     _onStair = value;
                     OnZombieLocationChanged(_onStair);
+                }
+                else { return; }
+            }
+        }
+        private bool _onStairLeft = false;
+        public bool OnStairLeft
+        {
+            get
+            {
+                return _onStairLeft;
+            }
+            set
+            {
+                if (_onStairLeft != value) 
+                {
+                    _onStairLeft = value;
+                    OnZombieLocationChangedLeft(_onStairLeft);
                 }
                 else { return; }
             }
@@ -64,6 +81,8 @@ namespace ZP.BHS.Zombie
 
         public delegate void ZombieLocationChange(bool onstair);
         public event ZombieLocationChange OnZombieLocationChanged;
+        public delegate void ZombieLocationChangeLeft(bool onstair);
+        public event ZombieLocationChangeLeft OnZombieLocationChangedLeft;
 
         private Ray _layerCheckRay;
         private RaycastHit _checkHit;
@@ -98,18 +117,24 @@ namespace ZP.BHS.Zombie
 
             if (Physics.Raycast(_layerCheckRay, out _checkHit, 1f, 
                 (1 << LayerMask.NameToLayer("Floor")) | 
-                (1 << LayerMask.NameToLayer("Stair"))
+                (1 << LayerMask.NameToLayer("Stair")) |
+                (1 << LayerMask.NameToLayer("StairLeft"))
                 ))
             {
                 GameObject hitGameObject = _checkHit.collider.gameObject;
 
                 if (hitGameObject.layer == LayerMask.NameToLayer("Floor") && !OnStairButDead)
                 {
-                    OnStair = false;
+                    OnStairRight = false;
+                    OnStairLeft = false;
                 }
                 else if (hitGameObject.layer == LayerMask.NameToLayer("Stair") && !OnStairButDead)
                 {
-                    OnStair = true;
+                    OnStairRight = true;
+                }
+                else if (hitGameObject.layer == LayerMask.NameToLayer("StairLeft") && !OnStairButDead)
+                {
+                    OnStairLeft = true;
                 }
                 else
                 {
