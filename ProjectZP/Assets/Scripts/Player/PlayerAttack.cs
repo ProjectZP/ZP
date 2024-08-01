@@ -20,7 +20,6 @@ namespace ZP.SJH.Player
         [SerializeField] private Rigidbody _rigidbodyRH;
         private Vector3 _prevPositionRH = Vector3.zero;
 
-
         private void Awake()
         {
             if (_controllerLH == null)
