@@ -14,8 +14,8 @@ namespace ZP.BHS.Zombie
 
         GameObject attachedWeapon;
         FixedJoint joint;
-        ZombieManager zombieManager;
-        ZombieStateController zombieStateController;
+        private ZombieManager _zombieManager;
+        private ZombieStateController _zombieStateController;
         [SerializeField] SpringJoint NeckSpring;
         [SerializeField] GameObject Spine;
         [SerializeField] GameObject Head;
@@ -24,8 +24,8 @@ namespace ZP.BHS.Zombie
 
         private void Awake()
         {
-            zombieManager = GetComponentInParent<ZombieManager>();
-            zombieStateController = GetComponentInParent<ZombieStateController>();
+            _zombieManager = GetComponentInParent<ZombieManager>();
+            _zombieStateController = GetComponentInParent<ZombieStateController>();
             neck = NeckSpring.gameObject;
         }
 
@@ -36,9 +36,9 @@ namespace ZP.BHS.Zombie
 
         private void CalcuateDamage(float damage, GameObject Weapon)
         {
-            if (damage > 60f)
+            if (damage > _zombieManager.ZombieStatus.Defense)
             {
-                zombieStateController.ChangeZombieState(ZombieStates.ZombieDead);
+                _zombieStateController.ChangeZombieState(ZombieStates.ZombieDead);
 
                 attachedWeapon = Weapon.transform.gameObject;
                 joint = attachedWeapon.gameObject.AddComponent<FixedJoint>();
@@ -48,7 +48,7 @@ namespace ZP.BHS.Zombie
                 joint.breakForce = 500f;
                 joint.breakTorque = 500f;
 
-                zombieManager.HeadIK.transform.GetComponentInChildren<TwoBoneIKConstraint>().weight = 0;
+                _zombieManager.HeadIK.transform.GetComponentInChildren<TwoBoneIKConstraint>().weight = 0;
 
                 Instantiate(BloodEffect, transform.position, Weapon.transform.rotation);
                 

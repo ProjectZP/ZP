@@ -75,8 +75,12 @@ namespace ZP.BHS.Zombie
 
         private void WhenDoorClose()
         {
+            _currentFloor = _doorsAndWindowsController.CurrentFloor;
             RemoveZombie();
             SummonZombie();
+#if UNITY_EDITOR
+            Debug.LogAssertion("Current Floor: " + _currentFloor);
+#endif
         }
 
         public void RemoveZombie()
@@ -140,13 +144,9 @@ namespace ZP.BHS.Zombie
 
             SuddenSummonEvent();
 
-            Debug.Log(_walkerZombieSummonWeight);
-            Debug.Log(_crawlerZombieSummonWeight);
-            Debug.Log(_runnerZombieSummonWeight);
-            Debug.Log(_walkerZombieSummonWeight + _crawlerZombieSummonWeight + _runnerZombieSummonWeight);
             Debug.Log("Total Weight : " + _totalSummonWeight);
 
-            for (currentSummonWeight = 0; currentSummonWeight <= _totalSummonWeight;)
+            for (currentSummonWeight = 0; currentSummonWeight < _totalSummonWeight;)
             {
                 float summonRandom = UnityEngine.Random.Range(0f, _walkerZombieSummonWeight + _crawlerZombieSummonWeight + _runnerZombieSummonWeight);
                 int randomPoint = UnityEngine.Random.Range(0, _spawnPoint.Length);
@@ -157,30 +157,22 @@ namespace ZP.BHS.Zombie
                     currentSummonWeight += 1f;
                     temporarySummonedZombie =
                     Instantiate(_zombiePrefabs[0], _spawnPoint[randomPoint].transform.position, Quaternion.identity);
-                    Debug.Log("Summoned Zombie : Walker");
-                    Debug.Log("Current Weight : " + currentSummonWeight);
                 }
                 else if (summonRandom < _walkerZombieSummonWeight + _crawlerZombieSummonWeight)
                 {
                     currentSummonWeight += 1.5f;
                     temporarySummonedZombie =
                     Instantiate(_zombiePrefabs[1], _spawnPoint[randomPoint].transform.position, Quaternion.identity);
-                    Debug.Log("Summoned Zombie : Crawler");
-                    Debug.Log("Current Weight : " + currentSummonWeight);
                 }
                 else
                 {
                     currentSummonWeight += 2f;
                     temporarySummonedZombie =
                     Instantiate(_zombiePrefabs[2], _spawnPoint[randomPoint].transform.position, Quaternion.identity);
-                    Debug.Log("Summoned Zombie : Runner");
-                    Debug.Log("Current Weight : " + currentSummonWeight);
                 }
                 _summonedZombies.Add(temporarySummonedZombie);
             }
             OnZombieSummoned(_summonedZombies);
-            Debug.Log("Summon Complete Weight : " + currentSummonWeight);
-            Debug.Log(_summonedZombies.Count);
         }
 
         private float _totalSummonWeight;
