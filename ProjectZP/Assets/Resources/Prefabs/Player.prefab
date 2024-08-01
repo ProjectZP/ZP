@@ -1761,6 +1761,7 @@ GameObject:
   - component: {fileID: 51483801508672739}
   - component: {fileID: 8520182775264037939}
   - component: {fileID: 5580947004434781167}
+  - component: {fileID: 4436512150482170648}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1839,7 +1840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 8642653065666290093}
   m_OriginBaseGameObject: {fileID: 5744496607163957886}
-  m_CameraFloorOffsetObject: {fileID: 8244219973225471500}
+  m_CameraFloorOffsetObject: {fileID: 3060989212868137605}
   m_RequestedTrackingOriginMode: 2
   m_CameraYOffset: 1.5
 --- !u!143 &5580947004434781167
@@ -1868,6 +1869,21 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4436512150482170648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5744496607163957886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d1788909cfe6f4989f44021a8fa0dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocomotionProvider: {fileID: 2078951336877048641}
+  m_MinHeight: 1.3
+  m_MaxHeight: 2.6
 --- !u!1 &6546921120901185559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,7 +2282,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 5f743cfb10b7bdc4a9b903a494c2732a, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 97f3a643956bf6b47af3eeff95e0df04, type: 2}
 --- !u!1 &8064973015016713043
 GameObject:
   m_ObjectHideFlags: 0
