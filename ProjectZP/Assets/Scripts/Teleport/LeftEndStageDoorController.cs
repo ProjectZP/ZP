@@ -62,17 +62,17 @@ namespace ZP.Villin.Teleport
 
         private void SubscribeOnRightTeleport()
         {
-            _isRightDoorActivated = false;
+            _isRightDoorActivating = false;
 #if UNITY_EDITOR
-            Debug.Log($"_isRightDoorActivated{_isRightDoorActivated} at RightTeleport");
+            Debug.Log($"_isRightDoorActivated{_isRightDoorActivating} at RightTeleport");
 #endif
         }
 
         private void SubscribeOnLeftTeleport()
         {
-            _isRightDoorActivated = true;
+            _isRightDoorActivating = true;
 #if UNITY_EDITOR
-            Debug.Log($"_isRightDoorActivated{_isRightDoorActivated} at LeftTeleport");
+            Debug.Log($"_isRightDoorActivated{_isRightDoorActivating} at LeftTeleport");
 #endif
         }
 
@@ -93,10 +93,6 @@ namespace ZP.Villin.Teleport
 #endif
                 return;
             }
-            if (_isRightDoorActivated == true)
-            {
-                return;
-            }
             StartCoroutine(ActivateCollisionCoroutine());
 #if UNITY_EDITOR
                 Debug.Log("LeftEndStage Collision Activated");
@@ -113,21 +109,26 @@ namespace ZP.Villin.Teleport
             {
                 yield break;
             }
-            if (_isRightDoorActivated == true)
+            if (_isRightDoorActivating == true)
             {
 #if UNITY_EDITOR
-            Debug.Log($"_isRightDoorActivated is {_isRightDoorActivated}. So break Coroutine.");
+            Debug.Log($"_isRightDoorActivated is {_isRightDoorActivating}. So break Coroutine.");
 #endif
                 yield break;
             }
             _leftTransparentCollision.GetComponent<BoxCollider>().enabled = true;
             yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
-            OnEndStageDoorClosed?.Invoke();
+            if (_zombieOnStairChecker.IsLivingZombieOnStairLeft == true)
+            {
+                DeactivateCollision();
+                yield break;
+            }
             if (_teleportManager.GetNowRemainTeleportCount() == 0)
             {
                 yield break;
             }
             DeactivateCollision();
+            OnEndStageDoorClosed?.Invoke();
 #if UNITY_EDITOR
             Debug.Log("OnEndStageDoorClosed Invoked at LeftEndStage");
 #endif

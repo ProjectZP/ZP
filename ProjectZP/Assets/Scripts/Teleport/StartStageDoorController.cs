@@ -10,7 +10,7 @@ namespace ZP.Villin.Teleport
         [SerializeField] private GameObject _transparentCollision;
         public Action OnStartStageDoorOpened;
         private PlayerManager _playerManager;
-
+        private bool _isFirstOpen = true;
 
         protected override void Awake()
         {
@@ -37,6 +37,8 @@ namespace ZP.Villin.Teleport
             base.SetActionSubscribers();
             OnInteractDoor += DeactivateCollision;
             _playerManager.OnExitEndStageRegion += SubscribeOnExitEndStageRegion;
+            _teleportManager.OnLeftTeleport += SubscribeOnteleport;
+            _teleportManager.OnRightTeleport += SubscribeOnteleport;
         }
 
         protected override void SubscribeOnExitEndStageRegion()
@@ -72,8 +74,13 @@ namespace ZP.Villin.Teleport
         /// </summary>
         private void DeactivateCollision()
         {
+            if (_isFirstOpen == false)
+            {
+                return;
+            }
             OnStartStageDoorOpened?.Invoke();
             StartCoroutine(DeactivateCollisionCoroutine());
+            _isFirstOpen = false;
         }
 
         private IEnumerator DeactivateCollisionCoroutine()
@@ -83,6 +90,11 @@ namespace ZP.Villin.Teleport
 #endif
             _transparentCollision.GetComponent<BoxCollider>().enabled = false;
             yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
+        }
+
+        private void SubscribeOnteleport()
+        {
+            _isFirstOpen = true;
         }
     }
 }

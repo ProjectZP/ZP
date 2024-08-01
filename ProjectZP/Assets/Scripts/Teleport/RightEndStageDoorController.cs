@@ -62,17 +62,17 @@ namespace ZP.Villin.Teleport
 
         private void SubscribeOnRightTeleport()
         {
-            _isRightDoorActivated = false;
+            _isRightDoorActivating = false;
 #if UNITY_EDITOR
-            Debug.Log($"_isRightDoorActivated{_isRightDoorActivated} at RightTeleport");
+            Debug.Log($"_isRightDoorActivating changed value to {_isRightDoorActivating} because of RightTeleport");
 #endif
         }
 
         private void SubscribeOnLeftTeleport()
         {
-            _isRightDoorActivated = true;
+            _isRightDoorActivating = true;
 #if UNITY_EDITOR
-            Debug.Log($"_isRightDoorActivated{_isRightDoorActivated} at LeftTeleport");
+            Debug.Log($"_isRightDoorActivating changed value to {_isRightDoorActivating} because of LeftTeleport");
 #endif
         }
 
@@ -84,6 +84,9 @@ namespace ZP.Villin.Teleport
         {
             if (_isPlayerOnEndStageRegion == false)
             {
+#if UNITY_EDITOR
+                Debug.Log("Player is not on Stair!");
+#endif
                 return;
             }
             if (_zombieOnStairChecker.IsLivingZombieOnStair == true)
@@ -92,10 +95,6 @@ namespace ZP.Villin.Teleport
                 Debug.Log("Zombie is in Stair!");
 #endif
                 return;
-            }
-            if (_isRightDoorActivated == false)
-            {
-                return ;
             }
                 StartCoroutine(ActivateCollisionCoroutine());
 #if UNITY_EDITOR
@@ -113,25 +112,30 @@ namespace ZP.Villin.Teleport
             {
                 yield break;
             }
-            if (_isRightDoorActivated == false)
+            if (_isRightDoorActivating == false)
             {
 #if UNITY_EDITOR
-                Debug.LogWarning($"Warnig! _isRightDoorActivated is {_isRightDoorActivated}");
+                Debug.LogWarning($"Warnig! _isRightDoorActivated is {_isRightDoorActivating}");
 #endif
                 yield break;
             }
 #if UNITY_EDITOR
-            Debug.Log($"_isRightDoorActivated is {_isRightDoorActivated}");
+            Debug.Log($"_isRightDoorActivated is {_isRightDoorActivating}");
 #endif
             _rightTransparentCollision.GetComponent<BoxCollider>().enabled = true;
             yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorClose));
-            OnEndStageDoorClosed?.Invoke();
+            if (_zombieOnStairChecker.IsLivingZombieOnStair == true)
+            {
+                DeactivateCollision();
+                yield break;
+            }
             if (_teleportManager.GetNowRemainTeleportCount() == 0)
             {
                 yield break;
             }
 
             DeactivateCollision();
+            OnEndStageDoorClosed?.Invoke();
 #if UNITY_EDITOR
             Debug.Log("OnEndStageDoorClosed Invoked at RightEndStage");
 #endif

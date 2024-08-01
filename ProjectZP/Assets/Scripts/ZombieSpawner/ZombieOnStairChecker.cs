@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using ZP.Villin.Teleport;
 
 namespace ZP.BHS.Zombie
 {
@@ -7,6 +8,7 @@ namespace ZP.BHS.Zombie
     {
         [SerializeField] private List<GameObject> _observeZombie;
         private ZombieSpawner _zombieSpawner;
+        private TeleportManager _teleportManager;
         public bool IsLivingZombieOnStair { get; private set; }
         public bool IsLivingZombieOnStairLeft { get; private set; }
 
@@ -17,11 +19,14 @@ namespace ZP.BHS.Zombie
         {
             _zombieSpawner = GetComponent<ZombieSpawner>();
             _observeZombie = new List<GameObject>();
+            _teleportManager = FindFirstObjectByType<TeleportManager>();
         }
 
         private void Start()
         {
             _zombieSpawner.OnZombieSummoned += SubscribeZombie;
+            _teleportManager.OnLeftTeleport += ResetCount;
+            _teleportManager.OnRightTeleport += ResetCount;
         }
 
         private void SubscribeZombie(List<GameObject> summonedZombie)
@@ -103,6 +108,12 @@ namespace ZP.BHS.Zombie
             {
                 Debug.Log("On Left Stair Zombie Count Is Minus");
             }
+        }
+
+        private void ResetCount()
+        {
+            _onStairZombieCount = 0;
+            _onStairZombieCountLeft = 0;
         }
     }
 }
