@@ -6,7 +6,6 @@ namespace ZP.Villin.Teleport
     public class FinalStageDoorController : DoorController
     {
         public event Action GameClear;
-        private bool _isFinalStageDoorInteractable = false;
         private bool _isDoorOpened;
         private bool _isGameCleared;
 

@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 4622512629691632529}
   - component: {fileID: 2863419343110798972}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (7)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 7262086999364867822}
   - component: {fileID: 4594134675330396418}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (8)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10308,7 +10308,7 @@ GameObject:
   - component: {fileID: 165620395855968427}
   - component: {fileID: 333242558870082871}
   m_Layer: 0
-  m_Name: Doors_2_Elevator (1)
+  m_Name: Door_Elevator Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10530,7 +10530,7 @@ GameObject:
   - component: {fileID: 69433748900506975}
   - component: {fileID: 2461406005563265050}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (6)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11180,7 +11180,7 @@ GameObject:
   - component: {fileID: 7868151142519131734}
   - component: {fileID: 4176247961140006299}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (7)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11491,7 +11491,7 @@ GameObject:
   - component: {fileID: 7100949196909012797}
   - component: {fileID: 785310526647666708}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (7)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11553,7 +11553,7 @@ GameObject:
   - component: {fileID: 2573774429116695826}
   - component: {fileID: 1046837871278812746}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (6)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12678,7 +12678,7 @@ GameObject:
   - component: {fileID: 6114178334342468333}
   - component: {fileID: 3080207448166214718}
   m_Layer: 0
-  m_Name: Doors_2_Elevator (1)
+  m_Name: Door_Elevator Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15046,7 +15046,7 @@ GameObject:
   - component: {fileID: 5285462636459837196}
   - component: {fileID: 2041976611308162383}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (6)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15253,7 +15253,7 @@ GameObject:
   - component: {fileID: 7480842815065501994}
   - component: {fileID: 4223847989877824389}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (7)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15481,7 +15481,7 @@ GameObject:
   - component: {fileID: 227961343615757229}
   - component: {fileID: 2161313981032667371}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (7)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16580,7 +16580,7 @@ GameObject:
   - component: {fileID: 3964164634702132223}
   - component: {fileID: 950196955016125875}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (6)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17275,7 +17275,7 @@ GameObject:
   - component: {fileID: 1151296965230516520}
   - component: {fileID: 1871133883718374238}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (7)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17962,7 +17962,7 @@ GameObject:
   - component: {fileID: 5247584865021845347}
   - component: {fileID: 3779110420839445512}
   m_Layer: 0
-  m_Name: Door_balkoon_1 (8)
+  m_Name: Door_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

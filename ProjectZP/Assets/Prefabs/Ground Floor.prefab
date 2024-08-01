@@ -193,6 +193,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2188497427603046779}
     m_Modifications:
+    - target: {fileID: 1048127823129768, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108760154054368, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111071423994326, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124969927654052, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127433906244732, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182281899791924, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210976861723296, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214888849585362, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1273218865588274, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317368505826404, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447972886729622, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501983074056356, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1656664829495942, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838248369690316, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840843901475076, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
     - target: {fileID: 1922299118793186, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
       propertyPath: m_Name
       value: ORB_6_Center_Ground
@@ -307,6 +367,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8634849784657498484}
     m_Modifications:
+    - target: {fileID: 1048127823129768, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108760154054368, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111071423994326, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124969927654052, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127433906244732, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182281899791924, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210976861723296, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214888849585362, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1273218865588274, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317368505826404, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447972886729622, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501983074056356, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1656664829495942, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838248369690316, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840843901475076, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
+      propertyPath: m_Name
+      value: Door_Dummy
+      objectReference: {fileID: 0}
     - target: {fileID: 1922299118793186, guid: 206d8ef97782e364bb01157fd415754f, type: 3}
       propertyPath: m_Name
       value: ORB_6_Center_Ground

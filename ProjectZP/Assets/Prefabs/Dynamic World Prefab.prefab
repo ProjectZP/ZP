@@ -1570,6 +1570,7 @@ GameObject:
   - component: {fileID: 3763810674844496254}
   - component: {fileID: 3530973386407957633}
   - component: {fileID: 2844550379907578156}
+  - component: {fileID: 7331999832954765340}
   m_Layer: 9
   m_Name: Doors_2_Elevator (1)
   m_TagString: Untagged
@@ -1632,6 +1633,122 @@ MonoBehaviour:
   _rightDoorAnimator: {fileID: 7374435149849172685}
   _state: 0
   _transparentCollision: {fileID: 6036483207403393995}
+--- !u!114 &7331999832954765340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244943920809156257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 4250436855396190701}
+  - {fileID: 6168162877666170099}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &261319253646760203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,6 +2011,7 @@ GameObject:
   - component: {fileID: 4268822582685447850}
   - component: {fileID: 5259416561074600128}
   - component: {fileID: 104604990323289153}
+  - component: {fileID: 1156410968921343520}
   m_Layer: 9
   m_Name: Door_balkoon_1 (7)
   m_TagString: Untagged
@@ -1982,6 +2100,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1156410968921343520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281818446527507259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 5758994215756959608}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &282398861148779105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,6 +3401,7 @@ GameObject:
   - component: {fileID: 5327090870413574273}
   - component: {fileID: 7036536856741863682}
   - component: {fileID: 8217567058208939743}
+  - component: {fileID: 372354730486143133}
   m_Layer: 9
   m_Name: Door_5_apartment (3)
   m_TagString: Untagged
@@ -3248,6 +3482,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &372354730486143133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473344800972719033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 4570860182213078546}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &479035402761749662
 GameObject:
   m_ObjectHideFlags: 0
@@ -4868,7 +5217,7 @@ GameObject:
   - component: {fileID: 1894137132114409121}
   - component: {fileID: 361383880972866727}
   m_Layer: 0
-  m_Name: Door_1_apartment (5)
+  m_Name: Door_apartment_Stage_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6123,7 +6472,7 @@ GameObject:
   - component: {fileID: 6011819337134115678}
   - component: {fileID: 5145374007800465509}
   - component: {fileID: 7928649423777532165}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_5_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10772,7 +11121,7 @@ GameObject:
   - component: {fileID: 1679010354819241993}
   - component: {fileID: 4883494037654431153}
   - component: {fileID: 7719512781186483688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_5_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11521,7 +11870,7 @@ GameObject:
   - component: {fileID: 1496917793324502423}
   - component: {fileID: 4950530256534995780}
   - component: {fileID: 3063507873240943071}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_1_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11626,7 +11975,7 @@ GameObject:
   - component: {fileID: 8134732316663717110}
   - component: {fileID: 5345706224736536572}
   - component: {fileID: 6790668441402337660}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_5_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12829,7 +13178,7 @@ GameObject:
   - component: {fileID: 6009960438724261834}
   - component: {fileID: 1336469211471500703}
   m_Layer: 0
-  m_Name: Door_1_apartment (6)
+  m_Name: Door_Dummy_Stage_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13851,7 +14200,7 @@ GameObject:
   - component: {fileID: 3633899377556315240}
   - component: {fileID: 5479013658461367668}
   - component: {fileID: 7132595343317371635}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_5_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15505,7 +15854,7 @@ GameObject:
   - component: {fileID: 5733664141050882455}
   - component: {fileID: 6868431556179000154}
   m_Layer: 0
-  m_Name: Door_1_apartment (4)
+  m_Name: Door_apartment_Stage_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16229,7 +16578,7 @@ GameObject:
   - component: {fileID: 6720609227511568290}
   - component: {fileID: 8011243047077825723}
   m_Layer: 0
-  m_Name: Door_1_apartment (5)
+  m_Name: Door_apartment_Stage_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16493,7 +16842,7 @@ GameObject:
   - component: {fileID: 802019721879135730}
   - component: {fileID: 2335522313677370653}
   - component: {fileID: 4250436855396190701}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_2_Elevator_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17630,6 +17979,7 @@ GameObject:
   - component: {fileID: 4257056819848534459}
   - component: {fileID: 2512712425248274728}
   - component: {fileID: 2516289006515530271}
+  - component: {fileID: 8582616056523805578}
   m_Layer: 9
   m_Name: Door_balkoon_1 (7)
   m_TagString: Untagged
@@ -17718,6 +18068,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8582616056523805578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2498254665436816763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 6212343320563769885}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2505965223820380812
 GameObject:
   m_ObjectHideFlags: 0
@@ -18706,6 +19171,7 @@ GameObject:
   - component: {fileID: 8805498566796470757}
   - component: {fileID: 5638410804799799086}
   - component: {fileID: 5846076624691684364}
+  - component: {fileID: 7048925883302365884}
   m_Layer: 9
   m_Name: Door_balkoon_1 (7)
   m_TagString: Untagged
@@ -18794,6 +19260,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7048925883302365884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615408168675952672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 7809912139817670499}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2620213281146337483
 GameObject:
   m_ObjectHideFlags: 0
@@ -19222,7 +19803,7 @@ GameObject:
   - component: {fileID: 3120831942212972239}
   - component: {fileID: 222552950598131116}
   - component: {fileID: 7809912139817670499}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_balkoon_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19746,7 +20327,7 @@ GameObject:
   - component: {fileID: 8999290222405067425}
   - component: {fileID: 5372781466703694051}
   m_Layer: 0
-  m_Name: Door_1_apartment (8)
+  m_Name: Door_Dummy_Stage_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19801,6 +20382,7 @@ GameObject:
   - component: {fileID: 8667443886754905914}
   - component: {fileID: 3930878444163717270}
   - component: {fileID: 6356638698911649106}
+  - component: {fileID: 2897165901126855705}
   m_Layer: 9
   m_Name: Door_5_apartment (2)
   m_TagString: Untagged
@@ -19881,6 +20463,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2897165901126855705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738897794129976373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 7928649423777532165}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2760175642803376285
 GameObject:
   m_ObjectHideFlags: 0
@@ -22188,7 +22885,7 @@ GameObject:
   - component: {fileID: 7464416459304751278}
   - component: {fileID: 7840803194443234707}
   - component: {fileID: 6212343320563769885}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_balkoon_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23784,7 +24481,7 @@ GameObject:
   - component: {fileID: 5405877263137846690}
   - component: {fileID: 2719104509714366319}
   - component: {fileID: 5695050875403092734}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_balkoon_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25778,7 +26475,7 @@ GameObject:
   - component: {fileID: 2254868188030963632}
   - component: {fileID: 7074366465177804628}
   - component: {fileID: 5758994215756959608}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_balkoon_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25986,7 +26683,7 @@ GameObject:
   - component: {fileID: 1599643234896166630}
   - component: {fileID: 3453551172285547710}
   - component: {fileID: 7156993951634877551}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_5_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27435,6 +28132,7 @@ GameObject:
   - component: {fileID: 9115791262611488128}
   - component: {fileID: 41196810650024459}
   - component: {fileID: 8219032303177676648}
+  - component: {fileID: 138492904291763059}
   m_Layer: 9
   m_Name: Door_5_apartment (3)
   m_TagString: Untagged
@@ -27515,6 +28213,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &138492904291763059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3726589237476534963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 1341547459415381990}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3737803450669159043
 GameObject:
   m_ObjectHideFlags: 0
@@ -27868,7 +28681,7 @@ GameObject:
   - component: {fileID: 6736162705222899973}
   - component: {fileID: 638092067257957989}
   - component: {fileID: 4570860182213078546}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_5_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31613,6 +32426,7 @@ GameObject:
   - component: {fileID: 1963403629397126562}
   - component: {fileID: 437990194141162523}
   - component: {fileID: 4289817015716491869}
+  - component: {fileID: 4163712549097519299}
   m_Layer: 9
   m_Name: Door_5_apartment (3)
   m_TagString: Untagged
@@ -31693,6 +32507,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4163712549097519299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4269813560211160570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 7719512781186483688}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4273404197463100548
 GameObject:
   m_ObjectHideFlags: 0
@@ -32892,7 +33821,7 @@ GameObject:
   - component: {fileID: 1623765841896024829}
   - component: {fileID: 6465043910133340729}
   - component: {fileID: 6792668562731911037}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_5_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34394,7 +35323,7 @@ GameObject:
   - component: {fileID: 5102603714457536409}
   - component: {fileID: 7374435149849172685}
   - component: {fileID: 6168162877666170099}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_2_Elevator_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35103,6 +36032,7 @@ GameObject:
   - component: {fileID: 7485188478868546797}
   - component: {fileID: 6033901467999339964}
   - component: {fileID: 6001503786505127812}
+  - component: {fileID: 1977673849744175461}
   m_Layer: 9
   m_Name: Door_1_apartment (2)
   m_TagString: Untagged
@@ -35183,6 +36113,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1977673849744175461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4643795768317547839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 4909757849284052698}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4648224638029942531
 GameObject:
   m_ObjectHideFlags: 0
@@ -35867,7 +36912,7 @@ GameObject:
   - component: {fileID: 5106475072600059175}
   - component: {fileID: 34438111641699933}
   - component: {fileID: 1987914602167940108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_1_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40782,6 +41827,7 @@ GameObject:
   - component: {fileID: 3155212655008941321}
   - component: {fileID: 6055805912918623156}
   - component: {fileID: 8327659533555319430}
+  - component: {fileID: 5295220462088732775}
   m_Layer: 9
   m_Name: Door_1_apartment (2)
   m_TagString: Untagged
@@ -40862,6 +41908,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5295220462088732775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5415102893859059654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 59308028301690048}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5428727053562310306
 GameObject:
   m_ObjectHideFlags: 0
@@ -41367,7 +42528,7 @@ GameObject:
   - component: {fileID: 7453177491414693240}
   - component: {fileID: 1189659127152246162}
   m_Layer: 0
-  m_Name: Door_1_apartment (9)
+  m_Name: Door_Dummy_Stage_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41671,7 +42832,7 @@ GameObject:
   - component: {fileID: 8156290253627130955}
   - component: {fileID: 846297750144910703}
   - component: {fileID: 1579005384094044333}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_1_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44709,6 +45870,7 @@ GameObject:
   - component: {fileID: 7772599350243318580}
   - component: {fileID: 3727287825170139339}
   - component: {fileID: 4240749640958712791}
+  - component: {fileID: 833906048215050507}
   m_Layer: 9
   m_Name: Door_5_apartment (2)
   m_TagString: Untagged
@@ -44789,6 +45951,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &833906048215050507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5964302600335138872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 6790668441402337660}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5986636144989265349
 GameObject:
   m_ObjectHideFlags: 0
@@ -47264,7 +48541,7 @@ GameObject:
   - component: {fileID: 5032787403423567629}
   - component: {fileID: 624067393493289681}
   - component: {fileID: 7792416288553989370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_1_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48990,6 +50267,7 @@ GameObject:
   - component: {fileID: 981737113293850470}
   - component: {fileID: 4136616497295315479}
   - component: {fileID: 4192489772028923520}
+  - component: {fileID: 6563880094117057299}
   m_Layer: 9
   m_Name: Door_balkoon_1 (7)
   m_TagString: Untagged
@@ -49078,6 +50356,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6563880094117057299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499989513026133624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 5695050875403092734}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6501516063107568621
 GameObject:
   m_ObjectHideFlags: 0
@@ -50779,6 +52172,7 @@ GameObject:
   - component: {fileID: 1935996721632865089}
   - component: {fileID: 5990968618584649668}
   - component: {fileID: 7997829537618587964}
+  - component: {fileID: 5837643429819668076}
   m_Layer: 9
   m_Name: Door_5_apartment (2)
   m_TagString: Untagged
@@ -50859,6 +52253,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5837643429819668076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626625323312171563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 7132595343317371635}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6644386140719915336
 GameObject:
   m_ObjectHideFlags: 0
@@ -50869,6 +52378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6758247583832325393}
   - component: {fileID: 7465170067565331882}
+  - component: {fileID: 1657300521068715861}
   m_Layer: 0
   m_Name: Left Stage End Door
   m_TagString: Untagged
@@ -50913,6 +52423,122 @@ MonoBehaviour:
   _state: 0
   _playerManager: {fileID: 0}
   _leftTransparentCollision: {fileID: 7629858767393373055}
+--- !u!114 &1657300521068715861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644386140719915336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 1101207497107187732}
+  - {fileID: 4840872456537973596}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6670100151891728771
 GameObject:
   m_ObjectHideFlags: 0
@@ -51173,7 +52799,7 @@ GameObject:
   - component: {fileID: 1035214802847916169}
   - component: {fileID: 222559822406493646}
   m_Layer: 0
-  m_Name: Door_1_apartment (7)
+  m_Name: Door_Dummy_Stage_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52309,6 +53935,8 @@ Transform:
   - {fileID: 1035214802847916169}
   - {fileID: 8999290222405067425}
   - {fileID: 7453177491414693240}
+  - {fileID: 4010731973785572941}
+  - {fileID: 720314698466453174}
   m_Father: {fileID: 7871429238819251567}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &38072466824878169
@@ -52430,7 +54058,7 @@ GameObject:
   - component: {fileID: 3712291714812027610}
   - component: {fileID: 754802825530834005}
   - component: {fileID: 2703952026545766802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_1_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52911,7 +54539,7 @@ GameObject:
   - component: {fileID: 850731332017710411}
   - component: {fileID: 8027720476126128969}
   - component: {fileID: 5571917753855786396}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_2_Elevator_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53349,6 +54977,7 @@ GameObject:
   - component: {fileID: 2325923756654288112}
   - component: {fileID: 6492126261692663118}
   - component: {fileID: 9112403826575251520}
+  - component: {fileID: 9013655114251228254}
   m_Layer: 9
   m_Name: Door_1_apartment (2)
   m_TagString: Untagged
@@ -53429,6 +55058,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9013655114251228254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065554505827674010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 4650002647711172782}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7081460610708926603
 GameObject:
   m_ObjectHideFlags: 0
@@ -53680,6 +55424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6118298871662005636}
   - component: {fileID: 1403108740365029668}
+  - component: {fileID: 622232928084154670}
   m_Layer: 0
   m_Name: Right Stage End Door
   m_TagString: Untagged
@@ -53724,6 +55469,122 @@ MonoBehaviour:
   _state: 0
   _playerManager: {fileID: 0}
   _rightTransparentCollision: {fileID: 5658853489694537009}
+--- !u!114 &622232928084154670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118951598721913090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 3099355239354224353}
+  - {fileID: 7576449104231588889}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7131665782339197270
 GameObject:
   m_ObjectHideFlags: 0
@@ -54390,7 +56251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7871429238819251567}
+  m_Father: {fileID: 4045778536016841026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4805409017438194783
 MeshFilter:
@@ -57099,7 +58960,7 @@ GameObject:
   - component: {fileID: 5329881229688919618}
   - component: {fileID: 1691364146821998214}
   - component: {fileID: 36021084401217015}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_1_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58745,7 +60606,7 @@ GameObject:
   - component: {fileID: 6814727742304769089}
   - component: {fileID: 6492866979784956386}
   - component: {fileID: 931527007689302435}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_2_Elevator_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59316,7 +61177,7 @@ GameObject:
   - component: {fileID: 3665894197934559671}
   - component: {fileID: 236724620388144495}
   - component: {fileID: 8627261204318192818}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_1_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59556,6 +61417,7 @@ GameObject:
   - component: {fileID: 1053223202015351237}
   - component: {fileID: 7482638411350557169}
   - component: {fileID: 6809624031511846284}
+  - component: {fileID: 806922583722160829}
   m_Layer: 9
   m_Name: Doors_2_Elevator (1)
   m_TagString: Untagged
@@ -59618,6 +61480,122 @@ MonoBehaviour:
   _rightDoorAnimator: {fileID: 8027720476126128969}
   _state: 0
   _transparentCollision: {fileID: 5285610468370602888}
+--- !u!114 &806922583722160829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7827336704588335893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 931527007689302435}
+  - {fileID: 5571917753855786396}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7827601468325167534
 GameObject:
   m_ObjectHideFlags: 0
@@ -59629,7 +61607,7 @@ GameObject:
   - component: {fileID: 4447644605215327509}
   - component: {fileID: 5196603246229104578}
   m_Layer: 0
-  m_Name: Door_1_apartment (4)
+  m_Name: Door_apartment_Stage_Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59896,11 +61874,11 @@ Transform:
   m_GameObject: {fileID: 7859900172899807197}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0, z: 0}
+  m_LocalPosition: {x: 0.39999962, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7871429238819251567}
+  m_Father: {fileID: 4045778536016841026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &641745344188952251
 MeshFilter:
@@ -60214,6 +62192,7 @@ GameObject:
   - component: {fileID: 8519041017194219755}
   - component: {fileID: 1744096797471622005}
   - component: {fileID: 8022030674206954026}
+  - component: {fileID: 5884547217111700883}
   m_Layer: 9
   m_Name: Door_1_apartment (2)
   m_TagString: Untagged
@@ -60294,6 +62273,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5884547217111700883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905971113408376680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 9172028341945800628}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7944142112178646870
 GameObject:
   m_ObjectHideFlags: 0
@@ -62565,6 +64659,7 @@ GameObject:
   - component: {fileID: 2512049241808598430}
   - component: {fileID: 7077448809929218056}
   - component: {fileID: 3858411892900119826}
+  - component: {fileID: 264819542248211825}
   m_Layer: 9
   m_Name: Door_5_apartment (3)
   m_TagString: Untagged
@@ -62645,6 +64740,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &264819542248211825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259108980180999357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 6792668562731911037}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8262815330869697741
 GameObject:
   m_ObjectHideFlags: 0
@@ -64929,7 +67139,7 @@ GameObject:
   - component: {fileID: 7943636580444905711}
   - component: {fileID: 7788532965550928015}
   - component: {fileID: 8689350454475301142}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_1_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65923,6 +68133,7 @@ GameObject:
   - component: {fileID: 6225150458101848047}
   - component: {fileID: 8312668352695715878}
   - component: {fileID: 8862833172248208231}
+  - component: {fileID: 6387973570229924908}
   m_Layer: 9
   m_Name: Door_5_apartment (2)
   m_TagString: Untagged
@@ -66003,6 +68214,121 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6387973570229924908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8719133587768376855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 7156993951634877551}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8719856762240677799
 GameObject:
   m_ObjectHideFlags: 0
@@ -66671,7 +68997,7 @@ GameObject:
   - component: {fileID: 6875037699196815285}
   - component: {fileID: 5893254704950303537}
   - component: {fileID: 1341547459415381990}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_5_apartment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69579,6 +71905,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 210206050687994092, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 228197199903654253, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -69647,6 +71977,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 525950608754023472, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 544704373544128439, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.z
       value: 20.26
@@ -69694,6 +72028,10 @@ PrefabInstance:
     - target: {fileID: 666223848476272020, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 745879474186348007, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 896713641133335616, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_Layer
@@ -69849,11 +72187,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1483514343517298513, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.433759
+      value: 0.09872298
       objectReference: {fileID: 0}
     - target: {fileID: 1483514343517298513, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.1261448
+      value: 0.033820637
       objectReference: {fileID: 0}
     - target: {fileID: 1484035869315627651, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_Layer
@@ -69902,6 +72240,26 @@ PrefabInstance:
     - target: {fileID: 2108041507815976798, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114393758715612680, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114393758715612680, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114393758715612680, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114393758715612680, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114393758715612680, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2134205848894179604, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
@@ -70167,6 +72525,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3449494717396890103, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3455506048034127999, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_Size.y
       value: 5.84
@@ -70243,6 +72605,34 @@ PrefabInstance:
       propertyPath: _transparentCollision
       value: 
       objectReference: {fileID: 8132992930345035053}
+    - target: {fileID: 4052299955878777863, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052299955878777863, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052299955878777863, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052299955878777863, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052299955878777863, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149638739311578259, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09721777
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149638739311578259, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.03034086
+      objectReference: {fileID: 0}
     - target: {fileID: 4153479947422348336, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -70266,6 +72656,26 @@ PrefabInstance:
     - target: {fileID: 4179661086798724699, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191971863317398832, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191971863317398832, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191971863317398832, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191971863317398832, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191971863317398832, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4269633020796497206, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70411,6 +72821,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1.307
       objectReference: {fileID: 0}
+    - target: {fileID: 4959615417062227757, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Size.z
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5003508319333991915, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -70479,6 +72893,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5355836677233832335, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355836677233832335, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355836677233832335, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355836677233832335, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355836677233832335, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5392483121909374192, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -70527,6 +72961,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5639429107826505082, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639429107826505082, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639429107826505082, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639429107826505082, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639429107826505082, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5666799650147215981, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -70547,6 +73001,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 5690263333940725355, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690263333940725355, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690263333940725355, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690263333940725355, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690263333940725355, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5771243247311428540, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.z
       value: 20.26
@@ -70559,9 +73033,33 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5882685302415079869, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5953590575207888098, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985000424857490471, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985000424857490471, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985000424857490471, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985000424857490471, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985000424857490471, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5993939662635715781, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
@@ -70739,6 +73237,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.7943
       objectReference: {fileID: 0}
+    - target: {fileID: 6907830209423858375, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6935665545760243416, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -70767,6 +73269,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7209006450671957436, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7232045262095443248, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
@@ -70786,6 +73292,10 @@ PrefabInstance:
     - target: {fileID: 7239543114389320618, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279004296081266213, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7405858529467989390, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70813,7 +73323,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7509311193441458512, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_Size.z
-      value: 17.45
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509311193441458512, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Center.z
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7592567981291102000, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70843,6 +73357,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 7690621430502886864, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7758806878543629410, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -70854,6 +73372,74 @@ PrefabInstance:
     - target: {fileID: 7788039767778264282, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796631330696637795, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796631330696637795, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796631330696637795, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796631330696637795, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796631330696637795, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799351434405054639, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799351434405054639, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799351434405054639, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799351434405054639, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799351434405054639, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814734865795024079, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814734865795024079, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814734865795024079, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814734865795024079, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814734865795024079, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861310754060442621, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.3017632
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861310754060442621, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.049571186
       objectReference: {fileID: 0}
     - target: {fileID: 7868227983121836398, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
@@ -70931,6 +73517,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.000001
       objectReference: {fileID: 0}
+    - target: {fileID: 8377607639817622228, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377607639817622228, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377607639817622228, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377607639817622228, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377607639817622228, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8385504039929026177, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.067
@@ -70946,6 +73552,30 @@ PrefabInstance:
     - target: {fileID: 8385504039929026177, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450801332272441313, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450801332272441313, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450801332272441313, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivateDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450801332272441313, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450801332272441313, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451722937287890298, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8559228104488271182, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_Layer
@@ -70975,6 +73605,10 @@ PrefabInstance:
       propertyPath: _transparentCollision
       value: 
       objectReference: {fileID: 5452202168754511860}
+    - target: {fileID: 8654049595710655966, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8717965911979470206, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -71043,6 +73677,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9089226590287093224, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.3017632
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089226590287093224, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.04535883
+      objectReference: {fileID: 0}
     - target: {fileID: 9165233641208252420, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: _rightDoorAnimator
       value: 
@@ -71066,6 +73708,10 @@ PrefabInstance:
     - target: {fileID: 9170780360626779720, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_Center.z
       value: 10.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223046154469502590, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -71155,12 +73801,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9039875533041428931, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4045778536016841026}
-    - targetCorrespondingSourceObject: {fileID: 9039875533041428931, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4010731973785572941}
-    - targetCorrespondingSourceObject: {fileID: 9039875533041428931, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 720314698466453174}
     - targetCorrespondingSourceObject: {fileID: 6790016732932011467, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4197293422460932626}
@@ -71192,18 +73832,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6108983930548211363, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5112754375356623243}
-    - targetCorrespondingSourceObject: {fileID: 5882685302415079869, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7151816993773421145}
-    - targetCorrespondingSourceObject: {fileID: 7279004296081266213, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 409099888261875080}
-    - targetCorrespondingSourceObject: {fileID: 525950608754023472, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5559681358041022670}
-    - targetCorrespondingSourceObject: {fileID: 8451722937287890298, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5486239388133655325}
     - targetCorrespondingSourceObject: {fileID: 8188796637530536258, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4277808084671983515}
@@ -71271,6 +73899,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2034925635020548604, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
   m_PrefabInstance: {fileID: 1173462403918859436}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1188522873051495446 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 15343235026464954, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
+  m_PrefabInstance: {fileID: 1173462403918859436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1204352704745291663 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 71566875238314787, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
@@ -71286,32 +73919,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 176590361028494559, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
   m_PrefabInstance: {fileID: 1173462403918859436}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1658578776326607004 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 525950608754023472, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
-  m_PrefabInstance: {fileID: 1173462403918859436}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &5559681358041022670
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658578776326607004}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2214173, y: 2.003568, z: 0.06767897}
-  m_Center: {x: -0.57551175, y: 1.0055571, z: -0.0000013504177}
 --- !u!4 &1660054425078889350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 522781918253053738, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
@@ -71606,32 +74213,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5895029545215492814, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
   m_PrefabInstance: {fileID: 1173462403918859436}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4750038440861545745 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5882685302415079869, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
-  m_PrefabInstance: {fileID: 1173462403918859436}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &7151816993773421145
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4750038440861545745}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2214173, y: 2.003568, z: 0.06767897}
-  m_Center: {x: -0.5755127, y: 1.0055571, z: -0.0000013504177}
 --- !u!95 &4777357899183622912 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5909967789638223788, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
@@ -71688,7 +74269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_Colliders:
-  - {fileID: 7151816993773421145}
+  - {fileID: 1188522873051495446}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -72000,32 +74581,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 1a07419e7c8a7e9409fe6d633f6b930a, type: 2}
   m_BuildHeightMesh: 0
---- !u!1 &7278508512123869654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8451722937287890298, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
-  m_PrefabInstance: {fileID: 1173462403918859436}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &5486239388133655325
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7278508512123869654}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2214177, y: 2.003568, z: 0.06767899}
-  m_Center: {x: -0.57551384, y: 1.0055571, z: -0.0000013504181}
 --- !u!1 &7386049943662506466 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8559228104488271182, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
@@ -72076,32 +74631,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7129332313733583095, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
   m_PrefabInstance: {fileID: 1173462403918859436}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8452357107120560777 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7279004296081266213, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
-  m_PrefabInstance: {fileID: 1173462403918859436}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &409099888261875080
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8452357107120560777}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2214177, y: 2.003568, z: 0.06767899}
-  m_Center: {x: -0.57551384, y: 1.0055571, z: -0.0000013504181}
 --- !u!4 &8548694309477632133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7416278465827914793, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
@@ -76776,6 +79305,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3980790990530011487}
     m_Modifications:
+    - target: {fileID: 2631306905904577857, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2874489180170475827, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 200
@@ -76828,6 +79361,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8886451890704283972, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8886683453276778764, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -76841,6 +79378,12 @@ PrefabInstance:
     - {fileID: 8886416217089568454, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
     - {fileID: 8911365551099992409, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
     - {fileID: 8911275144139469597, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+    - {fileID: 5242619135281402215, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+    - {fileID: 8887200114399710850, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+    - {fileID: 8886575067817775084, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+    - {fileID: 5773556221528295981, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+    - {fileID: 7152703819822345895, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+    - {fileID: 5695490009541204650, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8886683453276778764, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
@@ -76849,12 +79392,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8886683453276778764, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1814130036128686253}
+    - targetCorrespondingSourceObject: {fileID: 8886683453276778764, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6182900447752128689}
     - targetCorrespondingSourceObject: {fileID: 6759200594730128372, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1570043478285149288}
     - targetCorrespondingSourceObject: {fileID: 6759200594730128372, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7848466013498497849}
+    - targetCorrespondingSourceObject: {fileID: 6759200594730128372, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2249815128854224116}
   m_SourcePrefab: {fileID: 100100000, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
 --- !u!1 &1585851549130683503 stripped
 GameObject:
@@ -76873,7 +79422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77172242884f5d84595dcd2b459abd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftDoorAnimator: {fileID: 0}
+  _leftDoorAnimator: {fileID: 1814130036128686253}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
 --- !u!95 &1814130036128686253
@@ -76897,6 +79446,126 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6182900447752128689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585851549130683503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 1652697438937446745}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &1652697438937446745 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8916647328767081530, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+  m_PrefabInstance: {fileID: 7877292799258297699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3502750690130204311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6759200594730128372, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
@@ -76914,7 +79583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77172242884f5d84595dcd2b459abd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftDoorAnimator: {fileID: 0}
+  _leftDoorAnimator: {fileID: 7848466013498497849}
   _rightDoorAnimator: {fileID: 0}
   _state: 0
 --- !u!95 &7848466013498497849
@@ -76938,6 +79607,126 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2249815128854224116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502750690130204311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 4168943702624367800}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.PlayerInputManager, Assembly-CSharp
+        m_MethodName: OnActivateDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &4168943702624367800 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6091914701620277723, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
+  m_PrefabInstance: {fileID: 7877292799258297699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4306434227622605620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6238122159685760599, guid: b5a0d4d38aa40934ba82393d6e5c37db, type: 3}
@@ -76964,6 +79753,22 @@ PrefabInstance:
       propertyPath: _elevatingTransform
       value: 
       objectReference: {fileID: 2889476527063375909}
+    - target: {fileID: 835592115755433209, guid: b273eb2695c81574a874373ab7868c2d, type: 3}
+      propertyPath: _upstairDummyMeshLeft
+      value: 
+      objectReference: {fileID: 6901784005899714645}
+    - target: {fileID: 835592115755433209, guid: b273eb2695c81574a874373ab7868c2d, type: 3}
+      propertyPath: _upstairDummyMeshRight
+      value: 
+      objectReference: {fileID: 581746389609255488}
+    - target: {fileID: 835592115755433209, guid: b273eb2695c81574a874373ab7868c2d, type: 3}
+      propertyPath: _endStageRegionMeshLeft
+      value: 
+      objectReference: {fileID: 2163176325927929126}
+    - target: {fileID: 835592115755433209, guid: b273eb2695c81574a874373ab7868c2d, type: 3}
+      propertyPath: _endStageRegionMeshRight
+      value: 
+      objectReference: {fileID: 7905994291981283580}
     - target: {fileID: 835592115755433209, guid: b273eb2695c81574a874373ab7868c2d, type: 3}
       propertyPath: _rotatableWorldTransform
       value: 
