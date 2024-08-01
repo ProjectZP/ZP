@@ -8,8 +8,10 @@ namespace ZP.BHS.Zombie
         [SerializeField] private List<GameObject> _observeZombie;
         private ZombieSpawner _zombieSpawner;
         public bool IsLivingZombieOnStair { get; private set; }
+        public bool IsLivingZombieOnStairLeft { get; private set; }
 
         private int _onStairZombieCount;
+        private int _onStairZombieCountLeft;
 
         private void Awake()
         {
@@ -29,8 +31,11 @@ namespace ZP.BHS.Zombie
             for (int ix = 0; ix < summonedZombie.Count; ix++)
             {
                 _observeZombie[ix].GetComponent<ZombieManager>().OnZombieLocationChanged += CountStairZomibeAtStair;
+                _observeZombie[ix].GetComponent<ZombieManager>().OnZombieLocationChangedLeft += CountStairZomibeAtStairLeft;
             }
         }
+
+
 
         [SerializeField] bool stairChecker; //Todo: Delete
         private void Update()
@@ -67,7 +72,36 @@ namespace ZP.BHS.Zombie
             }
             else
             {
-                Debug.Log("On Stair Zombie Count Is Minus");
+                Debug.Log("On Right Stair Zombie Count Is Minus");
+            }
+        }
+        
+        private void CountStairZomibeAtStairLeft(bool onstair)
+        {
+            if (onstair) 
+            {
+                _onStairZombieCountLeft++; 
+            }
+            else 
+            {
+                _onStairZombieCountLeft--; 
+            }
+
+
+            if (_onStairZombieCountLeft == 0)
+            {
+                IsLivingZombieOnStairLeft = false;
+            }
+            else if (_onStairZombieCountLeft > 0)
+            {
+                if (!IsLivingZombieOnStairLeft)
+                {
+                    IsLivingZombieOnStairLeft = true; 
+                }
+            }
+            else
+            {
+                Debug.Log("On Left Stair Zombie Count Is Minus");
             }
         }
     }

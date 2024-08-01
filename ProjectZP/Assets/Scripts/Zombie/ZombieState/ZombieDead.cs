@@ -42,10 +42,10 @@ namespace ZP.BHS.Zombie
             _zombieStateController.zombieAnimator.enabled = false;
 
 
-            if (_zombieManager.OnStair)
+            if (_zombieManager.OnStairRight)
             {
                 _zombieManager.OnStairButDead = true;
-                _zombieManager.OnStair = false;
+                _zombieManager.OnStairRight = false;
                 Debug.Log("Zombie Died On Stair");
             }
 

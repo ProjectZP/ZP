@@ -8,7 +8,8 @@ namespace ZP.SJH.Player
     public class PlayerManager : MonoBehaviour
     {
         private const float RAYCAST_LENGTH = 2f;
-        private readonly string LAYER_STAIR = "Stair";
+        private readonly string LAYER_STAIR_RIGHT = "Stair";
+        private readonly string LAYER_STAIR_LEFT = "StairLeft";
 
         public Action<Transform> OnEnterEndStageRegion;
         public Action OnExitEndStageRegion;
@@ -23,7 +24,8 @@ namespace ZP.SJH.Player
         private PlayerStateManager _state;
 
         [SerializeField] private int _currentLayer;
-        private int _stairLayer;
+        private int _stairLayerRight;
+        private int _stairLayerLeft;
 
         private void Awake()
         {
@@ -33,7 +35,8 @@ namespace ZP.SJH.Player
                 _input = transform.Find("Input Manager").GetComponent<PlayerInputManager>();
             if (_state == null)
                 _state = transform.Find("State Manager").GetComponent<PlayerStateManager>();
-            _stairLayer = LayerMask.NameToLayer(LAYER_STAIR);
+            _stairLayerRight = LayerMask.NameToLayer(LAYER_STAIR_RIGHT);
+            _stairLayerLeft = LayerMask.NameToLayer(LAYER_STAIR_LEFT);
             _status.LoadPlayerData();
         }
 
@@ -50,12 +53,12 @@ namespace ZP.SJH.Player
                 if (_currentLayer == hitLayer)
                     return;
 
-                if (_currentLayer == _stairLayer && hitLayer != _stairLayer)
+                if (_currentLayer == _stairLayerRight && hitLayer != _stairLayerRight || _currentLayer == _stairLayerLeft && hitLayer != _stairLayerLeft)
                     OnExitEndStageRegion?.Invoke();
 
                 _currentLayer = hitLayer;
 
-                if (_currentLayer == _stairLayer)
+                if (_currentLayer == _stairLayerRight || _currentLayer == _stairLayerLeft)
                     OnEnterEndStageRegion?.Invoke(transform);
             }
         }

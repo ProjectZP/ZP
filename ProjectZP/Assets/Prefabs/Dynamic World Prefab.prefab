@@ -305,7 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7941521771002712524}
   - component: {fileID: 1514782225558621783}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3102,7 +3102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414119678687192594}
   - component: {fileID: 1072549947601244645}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8004,7 +8004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596556344069812964}
   - component: {fileID: 8877172213352617596}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8898,7 +8898,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3407765964487982876}
   m_Father: {fileID: 3963769995744459892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2994280220236065667
@@ -10210,7 +10211,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1604667312467140316}
   m_Father: {fileID: 6141996651518399223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2566148247109021598
@@ -10913,7 +10915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 811003567526753923}
   - component: {fileID: 5660863512900991963}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Stair Floor Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11583,7 +11585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2115272812078059838}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Stair (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14850,7 +14852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2179500750602803092}
   - component: {fileID: 7740687518032717496}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15717,7 +15719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5609928544459233338}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Stair (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16180,7 +16182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4920744103509473127}
   - component: {fileID: 3913040743556090270}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18052,7 +18054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6789969270122549798}
   - component: {fileID: 538139950833984997}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21141,7 +21143,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 20, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9115787525032281970}
+  m_Father: {fileID: 2449663063124001370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3292919861414629419
 BoxCollider:
@@ -21569,7 +21571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1527760757042616504}
   - component: {fileID: 5009251170706224591}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22700,7 +22702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6081504221586446458}
   - component: {fileID: 863103078797976267}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24473,7 +24475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8522371516332655948}
   - component: {fileID: 7638968127791445220}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25622,7 +25624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6138148545225529849}
   - component: {fileID: 6852186470048426346}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35469,7 +35471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3910500954199816508}
   - component: {fileID: 2374850457064783236}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38054,7 +38056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6191875965338078273}
   - component: {fileID: 7732629887896068891}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38785,7 +38787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4540085075118627952}
   - component: {fileID: 8879908114512020650}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40313,7 +40315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6030818421842612085}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40351,7 +40353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7174536917089554899}
   - component: {fileID: 1859937711230293052}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43421,7 +43423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242083771100240419}
   - component: {fileID: 9170084470365836618}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45762,7 +45764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4741348959016670982}
   - component: {fileID: 3833041592366664999}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46299,7 +46301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7762367821657296111}
   - component: {fileID: 2479062870276657957}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47039,7 +47041,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5482608941029638635}
   - component: {fileID: 5907793221915032109}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47686,7 +47688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9115787525032281970}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Stair Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47712,7 +47714,6 @@ Transform:
   - {fileID: 2115272812078059838}
   - {fileID: 811003567526753923}
   - {fileID: 4863614314912718052}
-  - {fileID: 1604667312467140316}
   m_Father: {fileID: 6141996651518399223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6066854466717917209
@@ -48930,7 +48931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2732194796849975020}
   - component: {fileID: 4231947736759716801}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50296,7 +50297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4863614314912718052}
   - component: {fileID: 2228348115747164390}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Stair Floor Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51999,7 +52000,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315267142699498283}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Stair (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53420,6 +53421,7 @@ MonoBehaviour:
   _state: 0
   _playerManager: {fileID: 0}
   _leftTransparentCollision: {fileID: 7629858767393373055}
+  _zombieOnStairChecker: {fileID: 0}
 --- !u!114 &1657300521068715861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56637,6 +56639,7 @@ MonoBehaviour:
   _state: 0
   _playerManager: {fileID: 0}
   _rightTransparentCollision: {fileID: 5658853489694537009}
+  _zombieOnStairChecker: {fileID: 0}
 --- !u!114 &622232928084154670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57701,7 +57704,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 20, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3599985879587721552}
+  m_Father: {fileID: 1760638905965832625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3067520141279438483
 BoxCollider:
@@ -62533,7 +62536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5861218965601102561}
   - component: {fileID: 960878670814101816}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63801,7 +63804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 852261089875940570}
   - component: {fileID: 5593726402619392810}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64358,7 +64361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5218635388687457406}
   - component: {fileID: 5165731789742670327}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65593,7 +65596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4737772711061333840}
   - component: {fileID: 7449287237385783722}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68621,7 +68624,6 @@ Transform:
   - {fileID: 5993595179681801429}
   - {fileID: 4765867298479567149}
   - {fileID: 7240269908587478933}
-  - {fileID: 3407765964487982876}
   m_Father: {fileID: 3963769995744459892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8595635562296878940
@@ -70021,6 +70023,7 @@ MonoBehaviour:
   RunSpeed: 0
   _inputManager: {fileID: 0}
   _data: {fileID: 11400000, guid: cbb4c732c2cb7a14d9dfd063b315a6ee, type: 2}
+  _effectController: {fileID: 0}
   _zombieDeathCounter: {fileID: 0}
   _stateManager: {fileID: 0}
 --- !u!114 &1333909476559306593
@@ -71381,7 +71384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8684707404159596457}
   - component: {fileID: 5576971367145251650}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76201,7 +76204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1284062094988287313, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1299547023306265000, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
@@ -76237,7 +76240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1484035869315627651, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1552104926681126156, guid: 8e873ba493487244c9a842ce972d6948, type: 3}
       propertyPath: m_LocalScale.x
