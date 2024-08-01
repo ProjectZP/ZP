@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
+using ZP.SJH.Player;
 
 namespace ZP.SJH.Weapon
 {
@@ -19,18 +20,6 @@ namespace ZP.SJH.Weapon
             get => _currentWeaponRH;
             private set => _currentWeaponRH = value;
         }
-        /*        
-        public IWeapon CurrentWeaponLH
-        {
-            get { return _currentWeaponLH; }
-            private set { _currentWeaponLH = value; Debug.Log("LH : " + _currentWeaponLH); }
-        }
-        public IWeapon CurrentWeaponRH
-        {
-            get { return _currentWeaponRH; }
-            private set { _currentWeaponRH = value; Debug.Log("RH : " + _currentWeaponRH); }
-        }
-        */
 
         private IWeapon _currentWeaponLH;
         [SerializeField] private XRRayInteractor _rayInteractorLH;
@@ -47,8 +36,14 @@ namespace ZP.SJH.Weapon
 
         private readonly Vector3 DEFAULT_ROTATION_RH = new Vector3(0, 0, -90);
         private readonly Vector3 DEFAULT_ROTATION_LH = new Vector3(0, 0, 90);
+
+        [SerializeField] private HapticEventManager _hapticEventManager;
+
         private void Awake()
         {
+            if (_hapticEventManager == null)
+                _hapticEventManager = transform.root.Find("HapticEventManager").GetComponent<HapticEventManager>();
+
             // Attach Event
             _rayInteractorLH.selectEntered.AddListener(args =>
             {
@@ -77,12 +72,13 @@ namespace ZP.SJH.Weapon
                     _handModelLH.localPosition = Vector3.zero;
                     _rayInteractorLH.maxRaycastDistance = 0f;
                     IWeaponComponent.Equip(false);
-
+                    _hapticEventManager.ActivateVibration(_rayInteractorLH);
                     return;
                 }
 
                 // Equip weapon
                 EquipWeapon(_attachLH, args.interactableObject.transform, IWeaponComponent, false);
+                _hapticEventManager.ActivateVibration(_rayInteractorLH);
 
                 _isEquipTwoHandWeapon = !IWeaponComponent.IsOneHanded();
                 if (IWeaponComponent.IsOneHanded() == false)
@@ -118,12 +114,14 @@ namespace ZP.SJH.Weapon
                     _handModelRH.localPosition = Vector3.zero;
                     _rayInteractorRH.maxRaycastDistance = 0f;
                     IWeaponComponent.Equip(false);
+                    _hapticEventManager.ActivateVibration(_rayInteractorRH);
 
                     return;
                 }
 
                 // Equip weapon
                 EquipWeapon(_attachRH, args.interactableObject.transform, IWeaponComponent, false);
+                _hapticEventManager.ActivateVibration(_rayInteractorRH);
 
                 _isEquipTwoHandWeapon = !IWeaponComponent.IsOneHanded();
                 if (IWeaponComponent.IsOneHanded() == false)

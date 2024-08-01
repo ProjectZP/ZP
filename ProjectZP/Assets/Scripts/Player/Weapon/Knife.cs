@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using ZP.BHS.Zombie;
 using ZP.SJH.Player;
 
@@ -33,7 +34,8 @@ namespace ZP.SJH.Weapon
                 && other.gameObject.GetComponent<ZombieCore>()
                 && damage > 60f)
             {
-            Debug.LogWarning($"Knife {damage} / {other.gameObject.layer} / {other.gameObject.GetComponent<ZombieCore>()}");
+                _hapticEventManager.ActivateVibration(transform.parent.parent.GetComponent<XRRayInteractor>());
+
                 other.gameObject.GetComponent<ZombieCore>()
                     .OnGetDamaged?.Invoke(damage, this.gameObject);
             }
@@ -87,6 +89,8 @@ namespace ZP.SJH.Weapon
         {
             if (_playerManager == null)
                 _playerManager = FindAnyObjectByType<PlayerManager>();
+
+
             _isHold = true;
             _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
             return;

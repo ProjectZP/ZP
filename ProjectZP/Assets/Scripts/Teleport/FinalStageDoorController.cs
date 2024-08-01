@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using UnityEngine;
 
 namespace ZP.Villin.Teleport
 {
@@ -7,7 +8,7 @@ namespace ZP.Villin.Teleport
     {
         public event Action GameClear;
         private bool _isDoorOpened;
-        private bool _isGameCleared;
+        private bool _isGameCleared = false;
 
 
         protected override void SetActionSubscribers()
@@ -18,8 +19,14 @@ namespace ZP.Villin.Teleport
 
         private void SwitchDoorState()
         {
+#if UNITY_EDITOR
+            Debug.Log("SwitchDoorState has called!");
+#endif
             if (_isGameCleared == true)
             {
+#if UNITY_EDITOR
+                Debug.Log("Do nothing because game has cleared!");
+#endif
                 return;
             }
             GameClear?.Invoke();
@@ -31,7 +38,6 @@ namespace ZP.Villin.Teleport
             {
                 StartCoroutine(CloseDoorCoroutine());
             }
-            _isGameCleared = true;
         }
 
         private IEnumerator CloseDoorCoroutine()

@@ -8,7 +8,6 @@ namespace ZP.SJH.Player
     {
         [SerializeField] private GameObject _inputManager;
         [SerializeField] private PlayerUIManager _uiManager;
-        [SerializeField] private EffectController _effectController;
 
         protected override void Awake()
         {
@@ -17,8 +16,7 @@ namespace ZP.SJH.Player
                 _inputManager = transform.root.Find("Input Manager").gameObject;
             if(_uiManager == null)
                 _uiManager = FindFirstObjectByType<PlayerUIManager>();
-            if(_effectController == null)
-                _effectController = transform.root.Find("Effect Controller").GetComponent<EffectController>();
+
             _stateType = PlayerStateType.Dead;
         }
 
@@ -27,8 +25,8 @@ namespace ZP.SJH.Player
             _stateType = PlayerStateType.Dead;
             _inputManager.SetActive(false);
             _uiManager.OnPlayerDead();
-            _effectController.SetGrayScaleEffect();
-            _effectController.SetGrainEffect();
+            _effect.PlayGrayScaleEffect();
+            _effect.PlayGrainEffect();
             Time.timeScale = 0.02f;
         }
     }

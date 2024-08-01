@@ -9,7 +9,6 @@ namespace ZP.SJH.Player
         public PlayerStatusManager Status => _status;
         public enum PlayerStateType
         {
-            None,
             Idle,
             Walk,
             Run,

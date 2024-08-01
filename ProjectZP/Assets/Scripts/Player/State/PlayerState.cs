@@ -17,10 +17,15 @@ namespace ZP.SJH.Player
 
         protected PlayerStateType _stateType;
 
+        [SerializeField] protected EffectController _effect;
+
+
         protected virtual void Awake()
         {
             if (_stateManager == null)
                 _stateManager = GetComponent<PlayerStateManager>();
+            if(_effect == null)
+                _effect = FindFirstObjectByType<EffectController>();
         }
 
         protected void RegenStamina()

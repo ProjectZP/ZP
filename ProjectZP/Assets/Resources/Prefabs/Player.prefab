@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &318991323150895507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7931341972422713066}
+  - component: {fileID: 1487009612599505803}
+  m_Layer: 0
+  m_Name: AttackedEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7931341972422713066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318991323150895507}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7966160787685057743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1487009612599505803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318991323150895507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 1
+  blendDistance: 0
+  weight: 0.5
+  sharedProfile: {fileID: 11400000, guid: 40faaf94a61b71f4cb14c6730941bc67, type: 2}
 --- !u!1 &408321415973987550
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +80,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7048560052509841886}
+  - {fileID: 7716524055568210380}
+  - {fileID: 7931341972422713066}
   m_Father: {fileID: 754859016841906761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8455048294085337408
@@ -45,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce77e296265f5b84d9592f6dccbf6650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _volume: {fileID: 7338645778510480764}
+  _youDiedVolume: {fileID: 7338645778510480764}
+  _runningVolume: {fileID: 1197135572383686977}
+  _attackedVolume: {fileID: 1487009612599505803}
 --- !u!1 &2061345441104081765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1227,19 @@ MonoBehaviour:
   m_StartingTargetFilter: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3463069217465607625}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.HapticEventManager, Assembly-CSharp
+        m_MethodName: RayOnDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
       m_Calls: []
@@ -1216,23 +1281,23 @@ MonoBehaviour:
   m_AudioClipForOnHoverCanceled: {fileID: 0}
   m_AllowHoverAudioWhileSelecting: 1
   m_PlayHapticsOnSelectEntered: 0
-  m_HapticSelectEnterIntensity: 0
-  m_HapticSelectEnterDuration: 0
+  m_HapticSelectEnterIntensity: 1
+  m_HapticSelectEnterDuration: 1
   m_PlayHapticsOnSelectExited: 0
-  m_HapticSelectExitIntensity: 0
-  m_HapticSelectExitDuration: 0
+  m_HapticSelectExitIntensity: 1
+  m_HapticSelectExitDuration: 1
   m_PlayHapticsOnSelectCanceled: 0
-  m_HapticSelectCancelIntensity: 0
-  m_HapticSelectCancelDuration: 0
+  m_HapticSelectCancelIntensity: 1
+  m_HapticSelectCancelDuration: 1
   m_PlayHapticsOnHoverEntered: 0
-  m_HapticHoverEnterIntensity: 0
-  m_HapticHoverEnterDuration: 0
+  m_HapticHoverEnterIntensity: 1
+  m_HapticHoverEnterDuration: 1
   m_PlayHapticsOnHoverExited: 0
-  m_HapticHoverExitIntensity: 0
-  m_HapticHoverExitDuration: 0
+  m_HapticHoverExitIntensity: 1
+  m_HapticHoverExitDuration: 1
   m_PlayHapticsOnHoverCanceled: 0
-  m_HapticHoverCancelIntensity: 0
-  m_HapticHoverCancelDuration: 0
+  m_HapticHoverCancelIntensity: 1
+  m_HapticHoverCancelDuration: 1
   m_AllowHoverHapticsWhileSelecting: 1
   m_LineType: 0
   m_BlendVisualLinePoints: 1
@@ -1552,6 +1617,50 @@ MonoBehaviour:
   m_OverrideInteractorLineOrigin: 1
   m_LineOriginTransform: {fileID: 0}
   m_LineOriginOffset: 0
+--- !u!1 &4085387137490549982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6453175814916395100}
+  - component: {fileID: 3463069217465607625}
+  m_Layer: 0
+  m_Name: HapticEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6453175814916395100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085387137490549982}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 754859016841906761}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3463069217465607625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085387137490549982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc36808c0dcbf7409724360db54371d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4151683087690227735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,6 +1870,7 @@ GameObject:
   - component: {fileID: 51483801508672739}
   - component: {fileID: 8520182775264037939}
   - component: {fileID: 5580947004434781167}
+  - component: {fileID: 4436512150482170648}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1787,6 +1897,7 @@ Transform:
   - {fileID: 3209464054409605919}
   - {fileID: 6918772768544697862}
   - {fileID: 7966160787685057743}
+  - {fileID: 6453175814916395100}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5261997003661444873
@@ -1823,6 +1934,7 @@ MonoBehaviour:
   RunSpeed: 0
   _inputManager: {fileID: 4389020115996439971}
   _data: {fileID: 11400000, guid: cbb4c732c2cb7a14d9dfd063b315a6ee, type: 2}
+  _effectController: {fileID: 8455048294085337408}
   _zombieDeathCounter: {fileID: 0}
   _stateManager: {fileID: 3187737501258845956}
 --- !u!114 &8520182775264037939
@@ -1839,7 +1951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 8642653065666290093}
   m_OriginBaseGameObject: {fileID: 5744496607163957886}
-  m_CameraFloorOffsetObject: {fileID: 8244219973225471500}
+  m_CameraFloorOffsetObject: {fileID: 3060989212868137605}
   m_RequestedTrackingOriginMode: 2
   m_CameraYOffset: 1.5
 --- !u!143 &5580947004434781167
@@ -1868,6 +1980,21 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4436512150482170648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5744496607163957886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d1788909cfe6f4989f44021a8fa0dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocomotionProvider: {fileID: 2078951336877048641}
+  m_MinHeight: 1.3
+  m_MaxHeight: 2.6
 --- !u!1 &6546921120901185559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,6 +2048,7 @@ MonoBehaviour:
   _attachRH: {fileID: 4524945197595481679}
   _isEquipTwoHandWeapon: 0
   _isEquippedInLeftHand: 0
+  _hapticEventManager: {fileID: 3463069217465607625}
 --- !u!114 &5132781372604333387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2187,6 +2315,55 @@ MonoBehaviour:
   m_DefaultActionMap: Debug
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &7032980184512606319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7716524055568210380}
+  - component: {fileID: 1197135572383686977}
+  m_Layer: 0
+  m_Name: RunningEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7716524055568210380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032980184512606319}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7966160787685057743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1197135572383686977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032980184512606319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0.5
+  sharedProfile: {fileID: 11400000, guid: 10dc4ae665ed42343af33e39a3c7eb2d, type: 2}
 --- !u!1 &7647660918244432216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,7 +2406,7 @@ GameObject:
   - component: {fileID: 7048560052509841886}
   - component: {fileID: 7338645778510480764}
   m_Layer: 0
-  m_Name: PostProcessVolume
+  m_Name: YouDiedEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2263,10 +2440,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 2
   blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 5f743cfb10b7bdc4a9b903a494c2732a, type: 2}
+  weight: 0.5
+  sharedProfile: {fileID: 11400000, guid: 97f3a643956bf6b47af3eeff95e0df04, type: 2}
 --- !u!1 &8064973015016713043
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,7 +3011,19 @@ MonoBehaviour:
   m_StartingTargetFilter: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3463069217465607625}
+        m_TargetAssemblyTypeName: ZP.SJH.Player.HapticEventManager, Assembly-CSharp
+        m_MethodName: RayOnDoor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
       m_Calls: []
@@ -3275,6 +3464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 3187737501258845956}
+  _effect: {fileID: 8455048294085337408}
 --- !u!114 &4367475076827060809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3288,6 +3478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 3187737501258845956}
+  _effect: {fileID: 8455048294085337408}
 --- !u!114 &7874852044437334425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3301,6 +3492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 3187737501258845956}
+  _effect: {fileID: 8455048294085337408}
 --- !u!114 &3077821302012514662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3314,9 +3506,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 3187737501258845956}
+  _effect: {fileID: 8455048294085337408}
   _inputManager: {fileID: 6850788001070442183}
   _uiManager: {fileID: 8776941915834430105}
-  _effectController: {fileID: 8455048294085337408}
 --- !u!1001 &1198844259779213489
 PrefabInstance:
   m_ObjectHideFlags: 0

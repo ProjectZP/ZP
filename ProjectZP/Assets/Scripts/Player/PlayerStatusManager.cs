@@ -19,6 +19,7 @@ namespace ZP.SJH.Player
 
         [SerializeField] private PlayerInputManager _inputManager;
         [SerializeField] private PlayerData _data;
+        [SerializeField] private EffectController _effectController;
         [SerializeField] private ZombieDeathCounter _zombieDeathCounter;
         [SerializeField] private PlayerStateManager _stateManager;
 
@@ -29,6 +30,8 @@ namespace ZP.SJH.Player
                 _data = Resources.Load("Data/PlayerData") as PlayerData;
             if (_inputManager == null)
                 _inputManager = transform.Find("Input Manager").GetComponent<PlayerInputManager>();
+            if(_effectController == null)
+                _effectController = FindFirstObjectByType<EffectController>();
             if (_zombieDeathCounter == null)
                 _zombieDeathCounter = FindAnyObjectByType<ZombieDeathCounter>();
             if(_stateManager == null)
@@ -67,8 +70,8 @@ namespace ZP.SJH.Player
 
         public void OnPlayerDamaged(float damage)
         {
-            Debug.Log(damage);
             Hp -= damage;
+            _effectController.PlayAttackedEffect();
             if(Hp < 0)
             {
                 Hp = 0;
