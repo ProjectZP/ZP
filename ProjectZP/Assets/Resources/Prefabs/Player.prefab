@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &318991323150895507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7931341972422713066}
+  - component: {fileID: 1487009612599505803}
+  m_Layer: 0
+  m_Name: AttackedEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7931341972422713066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318991323150895507}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7966160787685057743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1487009612599505803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318991323150895507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 1
+  blendDistance: 0
+  weight: 0.5
+  sharedProfile: {fileID: 11400000, guid: 40faaf94a61b71f4cb14c6730941bc67, type: 2}
 --- !u!1 &408321415973987550
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +80,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7048560052509841886}
+  - {fileID: 7716524055568210380}
+  - {fileID: 7931341972422713066}
   m_Father: {fileID: 754859016841906761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8455048294085337408
@@ -45,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce77e296265f5b84d9592f6dccbf6650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _volume: {fileID: 7338645778510480764}
+  _youDiedVolume: {fileID: 7338645778510480764}
+  _runningVolume: {fileID: 1197135572383686977}
+  _attackedVolume: {fileID: 1487009612599505803}
 --- !u!1 &2061345441104081765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,6 +1934,7 @@ MonoBehaviour:
   RunSpeed: 0
   _inputManager: {fileID: 4389020115996439971}
   _data: {fileID: 11400000, guid: cbb4c732c2cb7a14d9dfd063b315a6ee, type: 2}
+  _effectController: {fileID: 8455048294085337408}
   _zombieDeathCounter: {fileID: 0}
   _stateManager: {fileID: 3187737501258845956}
 --- !u!114 &8520182775264037939
@@ -2261,6 +2315,55 @@ MonoBehaviour:
   m_DefaultActionMap: Debug
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &7032980184512606319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7716524055568210380}
+  - component: {fileID: 1197135572383686977}
+  m_Layer: 0
+  m_Name: RunningEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7716524055568210380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032980184512606319}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7966160787685057743}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1197135572383686977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032980184512606319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0.5
+  sharedProfile: {fileID: 11400000, guid: 10dc4ae665ed42343af33e39a3c7eb2d, type: 2}
 --- !u!1 &7647660918244432216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,7 +2406,7 @@ GameObject:
   - component: {fileID: 7048560052509841886}
   - component: {fileID: 7338645778510480764}
   m_Layer: 0
-  m_Name: PostProcessVolume
+  m_Name: YouDiedEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2337,9 +2440,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 2
   blendDistance: 0
-  weight: 1
+  weight: 0.5
   sharedProfile: {fileID: 11400000, guid: 97f3a643956bf6b47af3eeff95e0df04, type: 2}
 --- !u!1 &8064973015016713043
 GameObject:
@@ -3361,6 +3464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 3187737501258845956}
+  _effect: {fileID: 8455048294085337408}
 --- !u!114 &4367475076827060809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3374,6 +3478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 3187737501258845956}
+  _effect: {fileID: 8455048294085337408}
 --- !u!114 &7874852044437334425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3387,6 +3492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 3187737501258845956}
+  _effect: {fileID: 8455048294085337408}
 --- !u!114 &3077821302012514662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3400,9 +3506,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 3187737501258845956}
+  _effect: {fileID: 8455048294085337408}
   _inputManager: {fileID: 6850788001070442183}
   _uiManager: {fileID: 8776941915834430105}
-  _effectController: {fileID: 8455048294085337408}
 --- !u!1001 &1198844259779213489
 PrefabInstance:
   m_ObjectHideFlags: 0

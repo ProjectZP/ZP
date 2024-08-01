@@ -13,6 +13,12 @@ namespace ZP.SJH.Player
             _stateType = PlayerStateType.Run;
         }
 
+        private void OnEnable()
+        {
+            _stateType = PlayerStateType.Run;
+            _effect.PlayRunningEffect();
+        }
+
         private void Update()
         {
             if (MIN_STAMINA < _status.CurrentStamina)

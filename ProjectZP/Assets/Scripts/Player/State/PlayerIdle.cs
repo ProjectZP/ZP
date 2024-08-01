@@ -10,6 +10,12 @@ namespace ZP.SJH.Player
             _stateType = PlayerStateType.Idle;
         }
 
+        private void OnEnable()
+        {
+            _stateType = PlayerStateType.Idle;
+            _effect.StopRunningEffect();
+        }
+
         private void Update()
         {
             RegenStamina();
