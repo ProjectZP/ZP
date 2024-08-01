@@ -49,7 +49,7 @@ namespace ZP.BHS.Zombie
                 (1 << LayerMask.NameToLayer("Door"))
                 ).Length > 0)
             {
-                Debug.Log("ObstacleProblem");
+                Debug.Log("");
                 MissTarget();
                 return;
             }
