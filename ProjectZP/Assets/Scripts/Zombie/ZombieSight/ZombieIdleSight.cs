@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using ZP.SJH.Player;
 
@@ -30,16 +31,17 @@ namespace ZP.BHS.Zombie
                     ZombieManager.ZombieStatus.SightRange,
                     1 << LayerMask.NameToLayer("Player")).Length > 0)
                 {
-                    Collider prey = Physics.OverlapSphere
+                    Collider cPrey = Physics.OverlapSphere
                         (ZombieSightStateController.transform.position,
                         ZombieManager.ZombieStatus.SightRange,
                         1 << LayerMask.NameToLayer("Player"))[0];
 
+                    Camera prey = cPrey.GetComponentInChildren<Camera>();
 
                     if (JudgePreyIsOnSightAngle(prey) && JudgePreyIsNoObstacle(prey))
                     {
                         ZombieStateController.ChangeZombieState(ZombieStates.ZombieChase);
-                        ZombieSightStateController.FoundTarget(prey.transform.root.GetComponentInChildren<PlayerManager>());
+                        ZombieSightStateController.FoundTarget(prey);
                     }
                 }
             }
@@ -52,7 +54,7 @@ namespace ZP.BHS.Zombie
         /// </summary>
         /// <param name="prey">Collider Which Layer is Player</param>
         /// <returns></returns>
-        private bool JudgePreyIsOnSightAngle(Collider prey)
+        private bool JudgePreyIsOnSightAngle(Camera prey)
         {
             Vector3 targetVector = prey.transform.position - ZombieSightStateController.transform.position;
 
@@ -71,7 +73,7 @@ namespace ZP.BHS.Zombie
         /// </summary>
         /// <param name="prey">Collider Which Layer is Player</param>
         /// <returns></returns>
-        private bool JudgePreyIsNoObstacle(Collider prey)
+        private bool JudgePreyIsNoObstacle(Camera prey)
         {
             Vector3 targetVector = (prey.transform.position - ZombieSightStateController.transform.position).normalized;
 

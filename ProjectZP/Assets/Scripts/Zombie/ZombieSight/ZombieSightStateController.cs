@@ -10,10 +10,10 @@ namespace ZP.BHS.Zombie
     /// </summary>
     class ZombieSightStateController : MonoBehaviour
     {
-        public delegate void PlayerGetInSight(PlayerManager player);
+        public delegate void PlayerGetInSight(Camera player);
         public event PlayerGetInSight OnPlayerGetInSight;
 
-        public delegate void PlayerGetOutSight(PlayerManager player);
+        public delegate void PlayerGetOutSight(Camera player);
         public event PlayerGetOutSight OnPlayerGetOutSight;
 
         private ZombieSight _currentSight;
@@ -77,7 +77,7 @@ namespace ZP.BHS.Zombie
         /// This method Runs Event: OnPlayerGetInSight.
         /// </summary>
         /// <param name="player">Zombie's Target</param>
-        public void FoundTarget(PlayerManager player)
+        public void FoundTarget(Camera player)
         {
             OnPlayerGetInSight(player);
         }

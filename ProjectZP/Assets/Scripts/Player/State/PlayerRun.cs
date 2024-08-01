@@ -16,7 +16,6 @@ namespace ZP.SJH.Player
         private void OnEnable()
         {
             _stateType = PlayerStateType.Run;
-            _effect.PlayRunningEffect();
         }
 
         private void Update()

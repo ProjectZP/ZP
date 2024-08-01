@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
 {
@@ -33,7 +34,7 @@ namespace ZP.BHS.Zombie
                     _zombieManager.RefTransform.position) <
                     _zombieManager.ZombieStatus.AttackRange)
                 {
-                    _zombieManager.Target.
+                    _zombieManager.Target.transform.root.GetComponentInChildren<PlayerManager>().
                         OnPlayerDamaged(_zombieManager.ZombieStatus.ZombieDamage);
                 }
             }

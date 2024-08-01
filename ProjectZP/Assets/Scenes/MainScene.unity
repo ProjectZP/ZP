@@ -326,6 +326,14 @@ PrefabInstance:
       propertyPath: m_SelectActionTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4436512150482170648, guid: f03faa08d8a6b0643a81a282e8823bd2, type: 3}
+      propertyPath: m_MaxHeight
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436512150482170648, guid: f03faa08d8a6b0643a81a282e8823bd2, type: 3}
+      propertyPath: m_MinHeight
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5744496607163957886, guid: f03faa08d8a6b0643a81a282e8823bd2, type: 3}
       propertyPath: m_Name
       value: Player

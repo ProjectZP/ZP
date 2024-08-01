@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 namespace ZP.BHS.Zombie
 {
@@ -24,7 +25,7 @@ namespace ZP.BHS.Zombie
         /// </summary>
         private void IsthereAnyProblemWithChaseRange()
         {
-            if (Vector3.Distance(ZombieManager.transform.position,
+            if (Vector3.Distance(ZombieManager.RefTransform.position,
                 ZombieManager.Target.transform.position)
                 > ZombieManager.ZombieStatus.ChaseRange)
             {
@@ -40,16 +41,16 @@ namespace ZP.BHS.Zombie
         private void IsthereAnyProblemWithObstacle()
         {
             if (Physics.RaycastAll(
-                ZombieManager.transform.position,
-                (ZombieManager.Target.transform.position - ZombieManager.transform.position).normalized,
-                Vector3.Distance(ZombieManager.transform.position, ZombieManager.Target.transform.position),
+                ZombieManager.RefTransform.position,
+                (ZombieManager.Target.transform.position - ZombieManager.RefTransform.position).normalized,
+                Vector3.Distance(ZombieManager.RefTransform.position, ZombieManager.Target.transform.position),
                 (1 << LayerMask.NameToLayer("Wall")) |
                 (1 << LayerMask.NameToLayer("Floor")) |
                 (1 << LayerMask.NameToLayer("Stair")) |
                 (1 << LayerMask.NameToLayer("Door"))
                 ).Length > 0)
             {
-                Debug.Log("");
+                Debug.Log("obstacle problem");
                 MissTarget();
                 return;
             }

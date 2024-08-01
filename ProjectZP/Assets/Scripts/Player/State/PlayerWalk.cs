@@ -13,7 +13,6 @@ namespace ZP.SJH.Player
         private void OnEnable()
         {
             _stateType = PlayerStateType.Walk;
-            _effect.StopRunningEffect();
         }
 
         private void Update()

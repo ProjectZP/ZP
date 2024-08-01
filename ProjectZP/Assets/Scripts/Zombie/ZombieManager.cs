@@ -24,7 +24,7 @@ namespace ZP.BHS.Zombie
 
         public ZombieStatus ZombieStatus { get; private set; }
 
-        public PlayerManager Target = null;
+        public Camera Target = null;
 
         public Vector3 targetposition;
 
@@ -118,7 +118,7 @@ namespace ZP.BHS.Zombie
             }
         }
 
-        private void SetTarget(PlayerManager target)
+        private void SetTarget(Camera target)
         {
             Target = target;
         }
