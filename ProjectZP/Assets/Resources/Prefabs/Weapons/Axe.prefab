@@ -113,6 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e129528201d4742bba5f862ea0d1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerManager: {fileID: 0}
+  _hapticEventManager: {fileID: 0}
   _weaponData: {fileID: 11400000, guid: ed705d4ad35296741bd796d7a4763482, type: 2}
   _rigidbody: {fileID: 7025345393213450723}
   _trigger: {fileID: 5348826349244431705}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using ZP.BHS.Zombie;
 using ZP.SJH.Player;
 
@@ -30,11 +31,12 @@ namespace ZP.SJH.Weapon
         private void OnTriggerEnter(Collider other)
         {
             var damage = CalculateDamage();
-            Debug.LogWarning($"Axe {damage}");
             if (other.gameObject.layer == ZombieLayer
                 && other.gameObject.GetComponent<ZombieCore>()
                 && damage > 60f)
             {
+                _hapticEventManager.ActivateVibration(transform.parent.parent.GetComponent<XRRayInteractor>());
+
                 other.gameObject.GetComponent<ZombieCore>()
                     .OnGetDamaged?.Invoke(damage, this.gameObject);
             }
