@@ -28,6 +28,7 @@ namespace ZP.Villin.Teleport
         protected const float _animationTimeout = 10f;
         protected bool _isPlayerOnEndStageRegion;
         protected bool _isRightDoorActivated;
+        protected bool _isInteractable = true;
 
 
         protected virtual void Awake()
@@ -46,7 +47,7 @@ namespace ZP.Villin.Teleport
                 _teleportManager = FindFirstObjectByType<TeleportManager>();
             }
 
-            if (_leftDoorAnimator == default || _rightDoorAnimator == default)
+            if (_leftDoorAnimator == default && _rightDoorAnimator == default)
             {
                 Debug.Log("right or left door animator is default!");
             }
@@ -92,6 +93,10 @@ namespace ZP.Villin.Teleport
 
         protected IEnumerator SetStateCoroutine(DoorStateList newState)
         {
+            if (_isInteractable == false)
+            {
+                yield break;
+            }
             if (_state == newState)
             {
                 yield break;
@@ -131,6 +136,7 @@ namespace ZP.Villin.Teleport
             }
 
             float elapsedTime = 0f;
+            _isInteractable = false;
             while (elapsedTime < animationLength && elapsedTime < _animationTimeout)
             {
                 elapsedTime += Time.deltaTime;
@@ -141,6 +147,7 @@ namespace ZP.Villin.Teleport
             {
                 Debug.LogWarning("Animation timeout occurred!");
             }
+            _isInteractable = true;
         }
 
         public virtual void InteractDoor()
