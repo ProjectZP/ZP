@@ -79,7 +79,7 @@ namespace ZP.BHS.Zombie
             RemoveZombie();
             SummonZombie();
 #if UNITY_EDITOR
-            Debug.LogAssertion("Current Floor: " + _currentFloor);
+            Debug.LogWarning("Current Floor: " + _currentFloor);
 #endif
         }
 
