@@ -46,7 +46,13 @@ namespace ZP.BHS.Zombie
             {
                 _zombieManager.OnStairButDead = true;
                 _zombieManager.OnStairRight = false;
-                Debug.Log("Zombie Died On Stair");
+                Debug.Log("Zombie Died On right Stair");
+            }
+            if (_zombieManager.OnStairLeft) 
+            {
+                _zombieManager.OnStairButDead = true;
+                _zombieManager.OnStairLeft = false;
+                Debug.Log("Zombie Died On left Stair");
             }
 
 
