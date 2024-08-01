@@ -95,6 +95,10 @@ namespace ZP.Villin.Teleport
         /// <returns><see cref="SetStateCoroutine"/></returns>
         private IEnumerator ActivateCollisionCoroutine()
         {
+            if (_isInteractable == false)
+            {
+                yield break;
+            }
             if (_isRightDoorActivated == false)
             {
 #if UNITY_EDITOR
@@ -130,6 +134,10 @@ namespace ZP.Villin.Teleport
 
         private IEnumerator DeactivateCollisionCoroutine()
         {
+            if (_isInteractable == false)
+            {
+                yield break;
+            }
 #if UNITY_EDITOR
             Debug.Log("SetStateCoroutine Start");
 #endif

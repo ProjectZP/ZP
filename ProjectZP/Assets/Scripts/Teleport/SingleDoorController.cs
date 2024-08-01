@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using TMPro;
-using UnityEngine;
-using ZP.SJH.Player;
+﻿using System.Collections;
+using Random = UnityEngine.Random;
 
 namespace ZP.Villin.Teleport
 {
@@ -11,10 +8,21 @@ namespace ZP.Villin.Teleport
         private bool _isDoorOpened;
 
 
+        protected override void Awake()
+        {
+            base.Awake();
+            RandomOpenDoor();
+        }
+
+
+
+
         protected override void SetActionSubscribers()
         {
             base.SetActionSubscribers();
             OnInteractDoor += SwitchDoorState;
+            _teleportManager.OnRightTeleport += RandomOpenDoor;
+            _teleportManager.OnLeftTeleport += RandomOpenDoor;
         }
 
         private void SwitchDoorState()
@@ -39,6 +47,12 @@ namespace ZP.Villin.Teleport
         {
             _isDoorOpened = true;
             yield return StartCoroutine(SetStateCoroutine(DoorStateList.DoorOpen));
+        }
+
+        private void RandomOpenDoor()
+        {
+            _isDoorOpened = Random.Range(0f, 1f) >= 0.5f;
+            SwitchDoorState();
         }
     }
 }
