@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using ZP.SJH.Player;
+using ZP.BHS.Zombie;
 
 namespace ZP.Villin.Teleport
 {
@@ -9,6 +10,7 @@ namespace ZP.Villin.Teleport
     {
         [SerializeField] PlayerManager _playerManager;
         [SerializeField] private Collider _rightTransparentCollision;
+        [SerializeField] private ZombieOnStairChecker _zombieOnStairChecker;
 
 
         protected override void Awake()
@@ -25,6 +27,10 @@ namespace ZP.Villin.Teleport
             if (_playerManager == default)
             {
                 _playerManager = FindFirstObjectByType<PlayerManager>();
+            }
+            if (_zombieOnStairChecker == default)
+            {
+                _zombieOnStairChecker = FindFirstObjectByType<ZombieOnStairChecker>();
             }
         }
 
@@ -80,13 +86,21 @@ namespace ZP.Villin.Teleport
             {
                 return;
             }
-            if (_isRightDoorActivated == true)
+            if (_zombieOnStairChecker.IsLivingZombieOnStair == true)
             {
+#if UNITY_EDITOR
+                Debug.Log("Zombie is in Stair!");
+#endif
+                return;
+            }
+            if (_isRightDoorActivated == false)
+            {
+                return ;
+            }
                 StartCoroutine(ActivateCollisionCoroutine());
 #if UNITY_EDITOR
                 Debug.Log("RightEndStage Collision Activated");
 #endif
-            }
         }
 
         /// <summary>
