@@ -18,6 +18,7 @@ namespace ZP.Villin.Teleport
         [SerializeField] private GameObject _endStageRegionMeshLeft;
         [SerializeField] private GameObject _endStageRegionMeshRight;
         [SerializeField] private PlayerManager _playerManager;
+        [SerializeField] private Vector3 _teleportOffset = new Vector3(0f, -2.94f, 0f);
         public Action OnRemainTeleportCountZero;
         public Action OnRightTeleport;
         public Action OnLeftTeleport;
@@ -25,7 +26,6 @@ namespace ZP.Villin.Teleport
         private RightEndStageDoorController _rightEndStageDoorController;
         private LeftEndStageDoorController _leftEndStageDoorController;
         private Vector3 _verticalMoveAmount;
-        private Vector3 _teleportOffset = new Vector3(0f, -2.92f, 0f);
         private int _nowRemainTeleportCount;
         private bool _isTeleportReady = false;
         private bool _isSyncCoroutineRunning = false;
@@ -129,13 +129,13 @@ namespace ZP.Villin.Teleport
         private void SubscribeOnEndStageDoorClosed()
         {
             _isTeleportReady = true;
-            Debug.Log($"OnEndStageDoor has closed {_isTeleportReady}");
+            Debug.Log($"OnEndStageDoor has closed, teleport ready is set to {_isTeleportReady}");
         }
 
         private void SubscribeOnEndStageDoorOpened()
         {
             _isTeleportReady = false;
-            Debug.Log($"OnEndStageDoor has opened {_isTeleportReady}");
+            Debug.Log($"OnEndStageDoor has opened, teleport ready is set to {_isTeleportReady}");
         }
 
 

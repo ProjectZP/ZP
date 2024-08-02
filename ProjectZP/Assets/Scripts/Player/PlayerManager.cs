@@ -47,7 +47,7 @@ namespace ZP.SJH.Player
 
         private void Update()
         {
-            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo, RAYCAST_LENGTH))
+            if (Physics.Raycast(transform.position + Vector3.up, Vector3.down, out RaycastHit hitInfo, RAYCAST_LENGTH))
             {
                 int hitLayer = hitInfo.collider.gameObject.layer;
                 if (_currentLayer == hitLayer)

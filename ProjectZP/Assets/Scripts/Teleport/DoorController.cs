@@ -27,7 +27,7 @@ namespace ZP.Villin.Teleport
         protected TeleportManager _teleportManager;
         protected const float _animationTimeout = 10f;
         protected bool _isPlayerOnEndStageRegion;
-        protected bool _isRightDoorActivated;
+        protected bool _isRightDoorActivating;
         protected bool _isInteractable = true;
 
 
@@ -49,7 +49,12 @@ namespace ZP.Villin.Teleport
 
             if (_leftDoorAnimator == default && _rightDoorAnimator == default)
             {
-                Debug.Log("right or left door animator is default!");
+                Debug.Log("right and left door animator is default!");
+            }
+
+            if (_isRightDoorActivating == default)
+            {
+               _isRightDoorActivating = (_teleportManager.GetNowRemainTeleportCount() % 2) == 0;
             }
         }
 
