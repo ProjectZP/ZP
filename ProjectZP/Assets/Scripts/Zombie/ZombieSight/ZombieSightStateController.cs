@@ -24,10 +24,14 @@ namespace ZP.BHS.Zombie
         private void Awake()
         {
             _zombieStateController  = transform.root.GetComponent<ZombieStateController>();
-            _zombieStateController.OnZombieStateChanged += ChangeSightState;
 
             InitZombieSightStateDictionary();
             _currentSight = _zombieSightStateDictionary[ZombieSightState.Idle];
+        }
+
+        private void Start()
+        {
+            _zombieStateController.OnZombieStateChanged += ChangeSightState;
         }
 
         private void Update()

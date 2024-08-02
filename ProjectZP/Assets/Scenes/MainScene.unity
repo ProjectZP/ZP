@@ -96,8 +96,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: bf996418f9abc18489900422b090b850, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 5d3506d53e9145945b0030b62083184f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -574,6 +574,10 @@ PrefabInstance:
       propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 364714211}
+    - target: {fileID: 1635529254862461635, guid: d31f77166fe9b8949af3f3076f69ec0c, type: 3}
+      propertyPath: _totalFloorCount
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1657300521068715861, guid: d31f77166fe9b8949af3f3076f69ec0c, type: 3}
       propertyPath: m_InteractionManager
       value: 

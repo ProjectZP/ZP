@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 namespace ZP.BHS.Zombie
 {
@@ -9,10 +10,18 @@ namespace ZP.BHS.Zombie
     /// </summary>
     public static class ZombieData// Add Attack Range.
     {
-        static private string _dataPath = "Assets/Resources/Prefabs/BHS/ZombieDataCSV.csv";
-        static public string DataString = File.ReadAllText(_dataPath);
-        static public List<Dictionary<string, string>> ZombieDatas = ParseCsvFile(DataString);
+        static public string DataString
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(s_dataString))
+                    s_dataString = Resources.Load<TextAsset>("Prefabs/BHS/ZombieDataCSV").text;
 
+                return s_dataString;
+            }
+        }
+        static public List<Dictionary<string, string>> ZombieDatas = ParseCsvFile(DataString);
+        private static string s_dataString;
         /// <summary>
         /// Returns Single Dictionary From Dictionary List By Using ZombieType.
         /// </summary>

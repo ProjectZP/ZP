@@ -39,7 +39,10 @@ namespace ZP.BHS.Zombie
 
             zombieSightStateController = GetComponentInChildren<ZombieSightStateController>();
             
-            InitZombieStateDictionary();
+            if(_zombieStateDictionary == null)
+            {
+                InitZombieStateDictionary();
+            }
 
             RagdollRigidbody    = transform.GetChild(0).GetComponentsInChildren<Rigidbody>();
             RagdollCollider     = transform.GetChild(0).GetComponentsInChildren<Collider>();
@@ -58,9 +61,7 @@ namespace ZP.BHS.Zombie
             }
         }
 
-
-
-        private void OnEnable()
+        private void Start()
         {
             currentZombieStateAction = _zombieStateDictionary[ZombieStates.ZombieIdle];
         }
@@ -68,14 +69,8 @@ namespace ZP.BHS.Zombie
         private void Update()
         {
             currentZombieStateAction.OnStateUpdate();
-#if UNITY_EDITOR
-            if (zombiedie) { ChangeZombieState(ZombieStates.ZombieDead); }
-#endif
         }
 
-#if UNITY_EDITOR
-        [SerializeField] private bool zombiedie; //Todo:
-#endif
 
         public void ChangeZombieState(ZombieStates changingState)
         {

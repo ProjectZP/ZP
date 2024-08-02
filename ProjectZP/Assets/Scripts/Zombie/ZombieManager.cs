@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations.Rigging;
-using ZP.SJH.Player;
 
 namespace ZP.BHS.Zombie
 {
@@ -39,8 +38,8 @@ namespace ZP.BHS.Zombie
             }
             set
             {
-                if (_onStair != value) 
-                { 
+                if (_onStair != value)
+                {
                     _onStair = value;
                     OnZombieLocationChanged(_onStair);
                 }
@@ -56,7 +55,7 @@ namespace ZP.BHS.Zombie
             }
             set
             {
-                if (_onStairLeft != value) 
+                if (_onStairLeft != value)
                 {
                     _onStairLeft = value;
                     OnZombieLocationChangedLeft(_onStairLeft);
@@ -92,18 +91,23 @@ namespace ZP.BHS.Zombie
             ZombieStatus = new ZombieStatus(zombieType);
 
             _zombieStateController = GetComponent<ZombieStateController>();
-            _zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle);
 
             _navMeshAgent = GetComponent<NavMeshAgent>();
 
             _zombieSight = GetComponentInChildren<ZombieSightStateController>();
-            _zombieSight.OnPlayerGetInSight += SetTarget;
+            
 
             HeadIK.weight = 0;
 
-            _navMeshAgent.speed             = ZombieStatus.WalkSpeed;
-            _navMeshAgent.angularSpeed      = ZombieStatus.RotationSpeed;
-            _navMeshAgent.stoppingDistance  = 0.5f;    
+            _navMeshAgent.speed = ZombieStatus.WalkSpeed;
+            _navMeshAgent.angularSpeed = ZombieStatus.RotationSpeed;
+            _navMeshAgent.stoppingDistance = 0.5f;
+        }
+
+        private void Start()
+        {
+            _zombieSight.OnPlayerGetInSight += SetTarget;
+            _zombieStateController.ChangeZombieState(ZombieStates.ZombieIdle);
         }
 
         private void Update()
@@ -115,8 +119,8 @@ namespace ZP.BHS.Zombie
         {
             _layerCheckRay = new Ray(this.transform.position, Vector3.down);
 
-            if (Physics.Raycast(_layerCheckRay, out _checkHit, 1f, 
-                (1 << LayerMask.NameToLayer("Floor")) | 
+            if (Physics.Raycast(_layerCheckRay, out _checkHit, 1f,
+                (1 << LayerMask.NameToLayer("Floor")) |
                 (1 << LayerMask.NameToLayer("Stair")) |
                 (1 << LayerMask.NameToLayer("StairLeft"))
                 ))

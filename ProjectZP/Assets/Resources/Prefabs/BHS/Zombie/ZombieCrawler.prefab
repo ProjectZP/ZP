@@ -1573,6 +1573,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   targetposition: {x: 0, y: 0, z: 0}
   HeadIK: {fileID: 575493698899834933}
+  testCube: {fileID: 706007694085792804, guid: 31f271647d7fe154b902d96a4c67d963, type: 3}
 --- !u!114 &5345291620895829583
 MonoBehaviour:
   m_ObjectHideFlags: 0
