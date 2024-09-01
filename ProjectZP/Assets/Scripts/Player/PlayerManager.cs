@@ -7,7 +7,7 @@ namespace ZP.SJH.Player
     [RequireComponent(typeof(PlayerStatusManager))]
     public class PlayerManager : MonoBehaviour
     {
-        private const float RAYCAST_LENGTH = 2f;
+        private const float RAYCAST_LENGTH = 5f;
         private readonly string LAYER_STAIR_RIGHT = "Stair";
         private readonly string LAYER_STAIR_LEFT = "StairLeft";
 
